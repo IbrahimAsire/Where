@@ -19,6 +19,9 @@
 		0F462583275FB646007C567B /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F462582275FB646007C567B /* ProfileVC.swift */; };
 		0F462586275FB7B5007C567B /* TabBarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F462585275FB7B5007C567B /* TabBarMain.swift */; };
 		0F462589275FB9E1007C567B /* CafesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F462588275FB9E1007C567B /* CafesVC.swift */; };
+		0FB5DA9B2760EE8300CC4DDA /* CafesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5DA9A2760EE8300CC4DDA /* CafesCell.swift */; };
+		0FB5DA9D2760EEF100CC4DDA /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5DA9C2760EEF100CC4DDA /* Cafe.swift */; };
+		0FB5DA9F2760EF8800CC4DDA /* ShowCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FB5DA9E2760EF8800CC4DDA /* ShowCafe.swift */; };
 		36A34E1B763EF9019434C589 /* Pods_Where.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A680C1AF497219170C8A5D82 /* Pods_Where.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +40,9 @@
 		0F462582275FB646007C567B /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		0F462585275FB7B5007C567B /* TabBarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMain.swift; sourceTree = "<group>"; };
 		0F462588275FB9E1007C567B /* CafesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafesVC.swift; sourceTree = "<group>"; };
+		0FB5DA9A2760EE8300CC4DDA /* CafesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafesCell.swift; sourceTree = "<group>"; };
+		0FB5DA9C2760EEF100CC4DDA /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
+		0FB5DA9E2760EF8800CC4DDA /* ShowCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCafe.swift; sourceTree = "<group>"; };
 		72AFAEF0C0933F9C5CA3A7C2 /* Pods-Where.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Where.debug.xcconfig"; path = "Target Support Files/Pods-Where/Pods-Where.debug.xcconfig"; sourceTree = "<group>"; };
 		A680C1AF497219170C8A5D82 /* Pods_Where.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Where.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19C42FDBB4F30FC20AAF166 /* Pods-Where.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Where.release.xcconfig"; path = "Target Support Files/Pods-Where/Pods-Where.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				0F46257B275FB579007C567B /* Models */,
+				0FB5DA992760EE4700CC4DDA /* Views */,
 				0F46258D275FBBD5007C567B /* Controllers */,
 				0F462584275FB757007C567B /* TabBarCustom */,
 				0F462564275FB357007C567B /* AppDelegate.swift */,
@@ -103,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				0F46257C275FB5AF007C567B /* User.swift */,
+				0FB5DA9C2760EEF100CC4DDA /* Cafe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				0F462588275FB9E1007C567B /* CafesVC.swift */,
+				0FB5DA9E2760EF8800CC4DDA /* ShowCafe.swift */,
 			);
 			path = CafesScreen;
 			sourceTree = "<group>";
@@ -130,6 +139,14 @@
 				0F462587275FB97F007C567B /* CafesScreen */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0FB5DA992760EE4700CC4DDA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0FB5DA9A2760EE8300CC4DDA /* CafesCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		109B465014EC1B3BEAB39355 /* Pods */ = {
@@ -284,12 +301,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F462583275FB646007C567B /* ProfileVC.swift in Sources */,
+				0FB5DA9F2760EF8800CC4DDA /* ShowCafe.swift in Sources */,
 				0F462565275FB357007C567B /* AppDelegate.swift in Sources */,
 				0F462581275FB621007C567B /* Login.swift in Sources */,
 				0F462589275FB9E1007C567B /* CafesVC.swift in Sources */,
 				0F462567275FB357007C567B /* SceneDelegate.swift in Sources */,
 				0F462586275FB7B5007C567B /* TabBarMain.swift in Sources */,
+				0FB5DA9B2760EE8300CC4DDA /* CafesCell.swift in Sources */,
 				0F46257F275FB5DF007C567B /* Register.swift in Sources */,
+				0FB5DA9D2760EEF100CC4DDA /* Cafe.swift in Sources */,
 				0F46257D275FB5AF007C567B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
