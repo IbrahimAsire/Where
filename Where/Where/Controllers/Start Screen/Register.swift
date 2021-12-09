@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class Register: UITableViewController {
 
@@ -148,7 +149,8 @@ class Register: UITableViewController {
     @objc func loginGo() {
         navigationController?.pushViewController(Login(), animated: true)
     }
-
+    
+    //MARK:- For a new registration and sending the data to the database
     @objc func register(){
         if let email = emailTF.text, email.isEmpty == false,
            let password = passTf.text, password.isEmpty == false {

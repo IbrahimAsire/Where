@@ -38,3 +38,8 @@ var detlCafe = [
     Cafe(showImg: "palet2", title: "Palette Cafe", img1: "palette", img2: "palette2", nameCafe: "Palette Cafe", descCafe: "Mahala, Abha 62561 6473", latitude: 18.24043734140768, longitude:  42.581764746030245)
     
     ]
+
+struct CommentCafe {
+    let id: String
+    var comment: String
+}

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F108A9E2762393F003FA93B /* AddComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F108A9D2762393F003FA93B /* AddComment.swift */; };
+		0F108AA127623C1A003FA93B /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F108AA027623C1A003FA93B /* Comments.swift */; };
 		0F462565275FB357007C567B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F462564275FB357007C567B /* AppDelegate.swift */; };
 		0F462567275FB357007C567B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F462566275FB357007C567B /* SceneDelegate.swift */; };
 		0F46256C275FB357007C567B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F46256A275FB357007C567B /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F108A9D2762393F003FA93B /* AddComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddComment.swift; sourceTree = "<group>"; };
+		0F108AA027623C1A003FA93B /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		0F462561275FB357007C567B /* Where.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F462564275FB357007C567B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F462566275FB357007C567B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F108A9F27623BEB003FA93B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				0F108AA027623C1A003FA93B /* Comments.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		0F462558275FB357007C567B = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +93,7 @@
 		0F462563275FB357007C567B /* Where */ = {
 			isa = PBXGroup;
 			children = (
+				0F108A9F27623BEB003FA93B /* Services */,
 				0F46257B275FB579007C567B /* Models */,
 				0FB5DA992760EE4700CC4DDA /* Views */,
 				0F46258D275FBBD5007C567B /* Controllers */,
@@ -128,6 +141,7 @@
 			children = (
 				0F462588275FB9E1007C567B /* CafesVC.swift */,
 				0FB5DA9E2760EF8800CC4DDA /* ShowCafe.swift */,
+				0F108A9D2762393F003FA93B /* AddComment.swift */,
 			);
 			path = CafesScreen;
 			sourceTree = "<group>";
@@ -307,6 +321,8 @@
 				0F462589275FB9E1007C567B /* CafesVC.swift in Sources */,
 				0F462567275FB357007C567B /* SceneDelegate.swift in Sources */,
 				0F462586275FB7B5007C567B /* TabBarMain.swift in Sources */,
+				0F108A9E2762393F003FA93B /* AddComment.swift in Sources */,
+				0F108AA127623C1A003FA93B /* Comments.swift in Sources */,
 				0FB5DA9B2760EE8300CC4DDA /* CafesCell.swift in Sources */,
 				0F46257F275FB5DF007C567B /* Register.swift in Sources */,
 				0FB5DA9D2760EEF100CC4DDA /* Cafe.swift in Sources */,
