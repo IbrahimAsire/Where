@@ -60,7 +60,7 @@ class Register: UITableViewController {
         containerV.addSubview(passTf)
 
         nameTF.text = "Ibrahim"
-        nameTF.placeholder = "Your Name"
+        nameTF.placeholder = NSLocalizedString("Your Name", comment: "")
         nameTF.textAlignment = .center
         nameTF.translatesAutoresizingMaskIntoConstraints = false
         nameSeparatorV.translatesAutoresizingMaskIntoConstraints = false
@@ -195,12 +195,12 @@ extension Register {
     }
 }
 
-//extension String {
-//
-//    func localized() -> String {
-//
-//        return NSLocalizedString(self, tableName: "localized", bundle: .main, value: self,
-//                                 comment: self)
-//    }
-//}
+extension String {
+
+    func localized() -> String {
+
+        return NSLocalizedString(self, tableName: "localized", bundle: .main, value: self,
+                                 comment: self)
+    }
+}
 
