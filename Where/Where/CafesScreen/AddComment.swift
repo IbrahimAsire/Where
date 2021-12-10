@@ -1,8 +1,8 @@
 //
-//  AddComment.swift
+//  CafesLikeVC.swift
 //  Where
 //
-//  Created by ibrahim asiri on 05/05/1443 AH.
+//  Created by ibrahim asiri on 22/04/1443 AH.
 //
 
 import UIKit
@@ -67,3 +67,4 @@ class AddComment: UIViewController, UITextViewDelegate {
         dismiss(animated: true, completion: nil)
     }
 }
+

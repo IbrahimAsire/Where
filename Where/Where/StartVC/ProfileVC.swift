@@ -1,8 +1,8 @@
 //
-//  ProfileVC.swift
+//  Profile.swift
 //  Where
 //
-//  Created by ibrahim asiri on 03/05/1443 AH.
+//  Created by ibrahim asiri on 20/04/1443 AH.
 //
 
 import UIKit
@@ -144,6 +144,7 @@ class ProfileVC: UIViewController {
     }
   
     @objc func imageTpd() {
+        print("Image tapped")
         setupImgPicker()
     }
     

@@ -2,7 +2,7 @@
 //  Login.swift
 //  Where
 //
-//  Created by ibrahim asiri on 03/05/1443 AH.
+//  Created by ibrahim asiri on 19/04/1443 AH.
 //
 
 import UIKit
@@ -86,7 +86,6 @@ class Login: UIViewController {
 
     }
     
-    //MARK:- lOGIN TO APP BY FIRBASE INFO
     @objc func login() {
         if let email = emailTF.text, email.isEmpty == false,
            let password = passTF.text, password.isEmpty == false {
@@ -132,7 +131,6 @@ class Login: UIViewController {
         }
     }
     
-    //MARK:- To organize the stack view
     func setUp() {
         
         view.addSubview(stackView)
@@ -140,6 +138,7 @@ class Login: UIViewController {
         stackView.addArrangedSubview(coffeImg)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
+//            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             stackView.heightAnchor.constraint(equalToConstant: 160),
             whereImg.widthAnchor.constraint(equalToConstant: 180)
@@ -147,3 +146,4 @@ class Login: UIViewController {
         ])
     }
 }
+    

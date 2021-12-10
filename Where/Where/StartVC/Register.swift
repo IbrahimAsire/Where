@@ -2,13 +2,12 @@
 //  Register.swift
 //  Where
 //
-//  Created by ibrahim asiri on 03/05/1443 AH.
+//  Created by ibrahim asiri on 19/04/1443 AH.
 //
 
 import UIKit
 import Firebase
 import FirebaseAuth
-import FirebaseFirestore
 
 class Register: UITableViewController {
 
@@ -49,7 +48,7 @@ class Register: UITableViewController {
 
         view.backgroundColor = .secondarySystemBackground
 
-        containerV.backgroundColor = .white
+        containerV.backgroundColor = UIColor(named: "bgColor")
         containerV.layer.cornerRadius = 5
         containerV.layer.masksToBounds = true
         containerV.translatesAutoresizingMaskIntoConstraints = false
@@ -149,8 +148,7 @@ class Register: UITableViewController {
     @objc func loginGo() {
         navigationController?.pushViewController(Login(), animated: true)
     }
-    
-    //MARK:- For a new registration and sending the data to the database
+
     @objc func register(){
         if let email = emailTF.text, email.isEmpty == false,
            let password = passTf.text, password.isEmpty == false {
@@ -205,3 +203,4 @@ extension Register {
 //                                 comment: self)
 //    }
 //}
+

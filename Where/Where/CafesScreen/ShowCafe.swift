@@ -2,7 +2,7 @@
 //  ShowCafe.swift
 //  Where
 //
-//  Created by ibrahim asiri on 04/05/1443 AH.
+//  Created by ibrahim asiri on 22/04/1443 AH.
 //
 
 import UIKit
@@ -141,7 +141,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     }
     
     @objc func showLocation() {
-        
+        present(DanwayMap(), animated: true, completion: nil)
     }
     
     @objc func contactTbd() {

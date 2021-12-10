@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Where
 //
-//  Created by ibrahim asiri on 03/05/1443 AH.
+//  Created by ibrahim asiri on 18/04/1443 AH.
 //
 
 import UIKit
@@ -14,8 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+        // Override point for customization after application launch.
         FirebaseApp.configure()
+//        GooglePl.shared.setUp()
         return true
     }
 

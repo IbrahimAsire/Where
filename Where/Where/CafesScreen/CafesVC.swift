@@ -2,7 +2,7 @@
 //  CafesVC.swift
 //  Where
 //
-//  Created by ibrahim asiri on 03/05/1443 AH.
+//  Created by ibrahim asiri on 20/04/1443 AH.
 //
 
 import UIKit
@@ -60,10 +60,14 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        let data = detlCafe[indexPath.row]
 
        let nextVC = ShowCafe()
+       let camfOnMap = DanwayMap()
        
+       nextVC.cafeImg1.image = UIImage(named: data.img1)
+       nextVC.cafeImg2.image = UIImage(named: data.img2)
+       nextVC.nameCafe.text = data.nameCafe
+       nextVC.detlCafe.text = data.descCafe
        
-       
-       present(nextVC, animated: true, completion: nil)
+       self.present(nextVC, animated: true, completion: nil)
    }
 
    func collectionView(_ collectionView: UICollectionView,
@@ -84,6 +88,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        return 2
    }
 
+
 }
 
-
+   

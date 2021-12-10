@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>258598731565-1eiuca8psdd1tplqnfbh5cvngfk1c6g3.apps.googleusercontent.com</string>
+	<string>1075496825336-9mlnoom10sv95dop77dj2o7q5d1t532j.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.258598731565-1eiuca8psdd1tplqnfbh5cvngfk1c6g3</string>
+	<string>com.googleusercontent.apps.1075496825336-9mlnoom10sv95dop77dj2o7q5d1t532j</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAe-oU2mniLHpGUGpkomPvmL5bLpzH5e6g</string>
+	<string>AIzaSyBKZBZYAqXiO5wiWwPXLppDN-ZUPlcSk7o</string>
 	<key>GCM_SENDER_ID</key>
-	<string>258598731565</string>
+	<string>1075496825336</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.ibrahimasiri.Where</string>
 	<key>PROJECT_ID</key>
-	<string>attendance-a059c</string>
+	<string>day24-163d8</string>
 	<key>STORAGE_BUCKET</key>
-	<string>attendance-a059c.appspot.com</string>
+	<string>day24-163d8.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:258598731565:ios:52fd3664c16841f1c81da4</string>
+	<string>1:1075496825336:ios:38c03f3cab40be643a660d</string>
 </dict>
 </plist>

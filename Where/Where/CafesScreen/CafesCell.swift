@@ -2,7 +2,7 @@
 //  CafesCell.swift
 //  Where
 //
-//  Created by ibrahim asiri on 04/05/1443 AH.
+//  Created by ibrahim asiri on 20/04/1443 AH.
 //
 
 import UIKit
@@ -53,4 +53,3 @@ class CafesCell: UICollectionViewCell{
         super.init(coder: coder)
     }
 }
-
