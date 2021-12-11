@@ -1,16 +1,11 @@
-//
-//  File.swift
-//  Where
-//
-//  Created by ibrahim asiri on 19/04/1443 AH.
-//
+
 
 import UIKit
 import FirebaseFirestore
 
 class CommentsService {
     static let shared = CommentsService()
-    let CommentsCollection = Firestore.firestore().collection("notes")
+    let CommentsCollection = Firestore.firestore().collection("comments")
     
     func updateOrAddNote(comment: CommentCafe) {
         CommentsCollection.document(comment.id).setData([

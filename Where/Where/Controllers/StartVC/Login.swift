@@ -1,9 +1,3 @@
-//
-//  Login.swift
-//  Where
-//
-//  Created by ibrahim asiri on 19/04/1443 AH.
-//
 
 import UIKit
 import FirebaseAuth
@@ -31,7 +25,6 @@ class Login: UIViewController {
     lazy var emailTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Email"
-        $0.text = "ibra@i.com"
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         
@@ -41,7 +34,6 @@ class Login: UIViewController {
     lazy var passTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Password"
-        $0.text = "123456"
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         $0.isSecureTextEntry = true

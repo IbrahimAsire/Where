@@ -1,9 +1,3 @@
-//
-//  ShowCafe.swift
-//  Where
-//
-//  Created by ibrahim asiri on 22/04/1443 AH.
-//
 
 import UIKit
 import MessageUI
@@ -126,7 +120,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         tableView.delegate = self
         tableView.register(CommentCell.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = .white
-        tableView.rowHeight = 80
+        tableView.rowHeight = 50
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: addComment.bottomAnchor, constant: 10),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
@@ -141,7 +135,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     }
     
     @objc func showLocation() {
-        present(DanwayMap(), animated: true, completion: nil)
+        present(PleacOnMap(), animated: true, completion: nil)
     }
     
     @objc func contactTbd() {

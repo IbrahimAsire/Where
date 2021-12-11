@@ -1,9 +1,3 @@
-//
-//  Country.swift
-//  Where
-//
-//  Created by ibrahim asiri on 06/05/1443 AH.
-//
 
 import Foundation
 

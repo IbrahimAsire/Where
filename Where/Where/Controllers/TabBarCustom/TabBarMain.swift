@@ -1,9 +1,3 @@
-//
-//  TabBar.swift
-//  Where
-//
-//  Created by ibrahim asiri on 20/04/1443 AH.
-//
 
 import Foundation
 import UIKit

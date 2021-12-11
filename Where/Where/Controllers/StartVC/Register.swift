@@ -1,9 +1,3 @@
-//
-//  Register.swift
-//  Where
-//
-//  Created by ibrahim asiri on 19/04/1443 AH.
-//
 
 import UIKit
 import Firebase
@@ -22,6 +16,7 @@ class Register: UITableViewController {
     let passTf = UITextField()
     let loginLbl = UILabel()
     let loginBtn = UIButton()
+    let languageBtn = UIButton()
 
     let coffeImg: UIImageView = {
         $0.image = UIImage(named: "1")
@@ -59,22 +54,19 @@ class Register: UITableViewController {
         containerV.addSubview(emailSeparatorV)
         containerV.addSubview(passTf)
 
-        nameTF.text = "Ibrahim"
-        nameTF.placeholder = NSLocalizedString("Your Name", comment: "")
+        nameTF.placeholder = "Your Name".Localizable()
         nameTF.textAlignment = .center
         nameTF.translatesAutoresizingMaskIntoConstraints = false
         nameSeparatorV.translatesAutoresizingMaskIntoConstraints = false
         nameSeparatorV.backgroundColor = .lightGray
 
-        emailTF.text = "ibra@i.com"
-        emailTF.placeholder = "Email"
+        emailTF.placeholder = "Email".Localizable()
         emailTF.textAlignment = .center
         emailTF.translatesAutoresizingMaskIntoConstraints = false
         emailSeparatorV.translatesAutoresizingMaskIntoConstraints = false
         emailSeparatorV.backgroundColor = .lightGray
 
-        passTf.text = "123456"
-        passTf.placeholder = "Password"
+        passTf.placeholder = "Password".Localizable()
         passTf.textAlignment = .center
         passTf.translatesAutoresizingMaskIntoConstraints = false
         passTf.isSecureTextEntry = true
@@ -111,7 +103,7 @@ class Register: UITableViewController {
         ])
 
         registerBtn.backgroundColor = .systemBrown
-        registerBtn.setTitle("Register", for: .normal)
+        registerBtn.setTitle("Register".Localizable(), for: .normal)
         registerBtn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(registerBtn)
         registerBtn.layer.cornerRadius = 10
@@ -125,7 +117,7 @@ class Register: UITableViewController {
 
         loginLbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginLbl)
-        loginLbl.text = "Do you have your account?"
+        loginLbl.text = "Do you have your account?".Localizable()
         loginLbl.textColor = .systemBrown
         NSLayoutConstraint.activate([
             loginLbl.topAnchor.constraint(equalTo: registerBtn.bottomAnchor, constant: 30),
@@ -135,14 +127,31 @@ class Register: UITableViewController {
         loginBtn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(loginBtn)
         loginBtn.addTarget(self, action: #selector(loginGo), for: .touchUpInside)
-        loginBtn.setTitle("Login", for: .normal)
+        loginBtn.setTitle("Login".Localizable(), for: .normal)
         loginBtn.setTitleColor(.systemBrown, for: .normal)
         loginBtn.backgroundColor = .secondarySystemBackground
         NSLayoutConstraint.activate([
             loginBtn.topAnchor.constraint(equalTo: registerBtn.bottomAnchor, constant: 22.5),
             loginBtn.leftAnchor.constraint(equalTo: loginLbl.rightAnchor, constant: 20)
-
         ])
+    
+//        languageBtn.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(languageBtn)
+//        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
+//        languageBtn.addTarget(self, action: #selector(changeLangTbd), for: .touchUpInside)
+//        languageBtn.setTitleColor(.systemBrown, for: .normal)
+//        NSLayoutConstraint.activate([
+//            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+//            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
+//        ])
+        
+    }
+    
+    @objc func changeLangTbd() {
+        let currentLang = Locale.current.languageCode
+        let newLanguage = currentLang == "en" ? "ar" : "en"
+        UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+        exit(0)
     }
 
     @objc func loginGo() {
@@ -197,9 +206,9 @@ extension Register {
 
 extension String {
 
-    func localized() -> String {
+    func Localizable() -> String {
 
-        return NSLocalizedString(self, tableName: "localized", bundle: .main, value: self,
+        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self,
                                  comment: self)
     }
 }

@@ -1,9 +1,3 @@
-//
-//  ExitVC.swift
-//  Where
-//
-//  Created by ibrahim asiri on 28/04/1443 AH.
-//
 
 import UIKit
 

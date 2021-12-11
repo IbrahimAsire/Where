@@ -1,9 +1,4 @@
-//
-//  CafesVC.swift
-//  Where
-//
-//  Created by ibrahim asiri on 20/04/1443 AH.
-//
+
 
 import UIKit
 
@@ -52,7 +47,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
        cell.imgCafe.image = UIImage(named: data.showImg)
        cell.imgCafe.clipsToBounds = true
-       cell.nameCafe.text = data.title
+//       cell.nameCafe.text = data.title
        return cell
    }
 
@@ -60,7 +55,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        let data = detlCafe[indexPath.row]
 
        let nextVC = ShowCafe()
-       let camfOnMap = DanwayMap()
+       let camfOnMap = PleacOnMap()
        
        nextVC.cafeImg1.image = UIImage(named: data.img1)
        nextVC.cafeImg2.image = UIImage(named: data.img2)

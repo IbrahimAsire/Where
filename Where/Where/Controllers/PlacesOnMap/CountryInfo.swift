@@ -1,9 +1,3 @@
-//
-//  countryInfo.swift
-//  Where
-//
-//  Created by ibrahim asiri on 06/05/1443 AH.
-//
 
 import UIKit
 
@@ -130,7 +124,16 @@ extension CountryInfo: UITextFieldDelegate {
 }
 
 extension CountryInfo: CountryAPIDelegate {
+    
     func didRetriveCountryInfo(country: Country) {
         print(country)
+        
+        DispatchQueue.main.async {
+            self.nameCountry.text = country.name.common
+    //        nameCaptil.text = country.capital
+            self.nameRegion.text = country.region
+            self.populationCount.text = String(country.population)
+        }
+        
     }
 }
