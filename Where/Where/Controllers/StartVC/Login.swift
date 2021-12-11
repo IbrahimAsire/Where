@@ -24,7 +24,7 @@ class Login: UIViewController {
     
     lazy var emailTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.placeholder = "Type Your Email"
+        $0.placeholder = "Type Your Email".Localizable()
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         
@@ -33,7 +33,7 @@ class Login: UIViewController {
     
     lazy var passTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.placeholder = "Type Your Password"
+        $0.placeholder = "Type Your Password".Localizable()
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         $0.isSecureTextEntry = true
@@ -43,7 +43,7 @@ class Login: UIViewController {
     lazy var loginBtn: UIButton = {
         $0.addTarget(self, action: #selector(login), for: .touchUpInside)
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Login", for: .normal)
+        $0.setTitle("Login".Localizable(), for: .normal)
         $0.layer.cornerRadius = 10
         $0.setTitleColor(.white, for: .normal)
         $0.backgroundColor = .systemBrown
@@ -53,7 +53,7 @@ class Login: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
-        title = "Login"
+        title = "loginP".Localizable()
         setUp()
         
         view.addSubview(emailTF)
@@ -88,26 +88,26 @@ class Login: UIViewController {
                     switch AuthErrorCode(rawValue: error.code) {
                     case .wrongPassword:
                         
-                        let alert = UIAlertController(title: "Oops!", message: "you entered a wrong password", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: "Oops!".Localizable(), message: "you entered a wrong password".Localizable(), preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK".Localizable(), style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     case .invalidEmail:
                         
-                        let alert = UIAlertController(title: "Oops!", message: "are sure you typed the email correctly?", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: "Oops!".Localizable(), message: "are sure you typed the email correctly?".Localizable(), preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK".Localizable(), style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     case .weakPassword:
                         
-                        let alert = UIAlertController(title: "Oops!", message: "Your password is weak, please make sure it's strong.", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: "Oops!".Localizable(), message: "Your password is weak, please make sure it's strong.".Localizable(), preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK".Localizable(), style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     default:
                         
-                        let alert = UIAlertController(title: "Oops!", message: "\(error.localizedDescription)", preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+                        let alert = UIAlertController(title: "Oops!".Localizable(), message: "\(error.localizedDescription)", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK".Localizable(), style: .cancel, handler: nil))
                         self.present(alert, animated: true)
                         
                     }
@@ -130,7 +130,6 @@ class Login: UIViewController {
         stackView.addArrangedSubview(coffeImg)
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 150),
-//            stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             stackView.heightAnchor.constraint(equalToConstant: 160),
             whereImg.widthAnchor.constraint(equalToConstant: 180)

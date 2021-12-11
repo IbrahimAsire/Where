@@ -1,3 +1,13 @@
+//Models: Cafe
+"Danway Bakery" = "دان وي بيكري";
+"King Fahd Rd, Almahalah, Abha 62561" = "طريق الملك فهد ، المحالة ، أبها 62561";
+"Kangaroo cafe" = "كانقرو كافيه";
+"King Abdulaziz Road, Al Rabwah, Abha 62523" = "طريق الملك عبدالعزيز ، الربوة ، أبها 62523";
+"Rashfh Coffee" = "رشفه كافيه";
+"King Fahd Rd, Abha 62527" = "طريق الملك فهد ، أبها 62527";
+"Palette Cafe" = "مقهى باليت";
+"Mahala, Abha 62561 6473" = "المحالة ، أبها 62561 6473";
+
 //Register Screen
 "changeLang" = "For English";
 "Your Name" = "اكتب اسمك";
@@ -7,6 +17,50 @@
 "Register" = "تسجيل";
 "Do you have your account?" = " < عندك حساب أضغط دخول";
 "Login" = "دخول";
+
+//Login Screen
+"Type Your Email" = "الايميل";
+"Type Your Password" = "كلمة المرور";
+"Login" = "دخول";
+"loginP" = "صفحة الدخول";
+"Oops!" = "عفوآ";
+"you entered a wrong password" = "أدخلت كلمة مرور خاطئة";
+"OK" = "موافق";
+"are sure you typed the email correctly?" = "هل أنت متأكد أنك كتبت البريد الإلكتروني بشكل صحيح؟";
+"Your password is weak, please make sure it's strong." = "كلمة المرور الخاصة بك ضعيفة ، يرجى التأكد من أنها قوية.";
+
+//Profile Scerrn
+"Sign out" = "تسجيل الخروج";
+"Continue" = "استمر";
+"Profile" = "الملف الشخصي";
+
+//CafesVC
+"Cafes" = "مقاهي";
+
+//ShowCafe Screen
+"Comments" = "تعليقات";
+"Add Comment" = "اضف تعليق";
+
+//AddComment Csreen
+"Comment" = "تعليق";
+"Save" = "حفظ";
+
+//PlacesOnMap Screen
+"return" = "رجوع";
+"Cafe" = "مقهى";
+
+//TabBarMain
+"Map" = "خريطة";
+"New Places" = "أماكن جديدة";
+"Exit" = "خروج";
+
+"Go Home" = "الصفحة الرئيسية";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
+"" = "";
 "" = "";
 "" = "";
 "" = "";

@@ -37,7 +37,7 @@ class PleacOnMap: UIViewController {
         returnBtn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(returnBtn)
         returnBtn.addTarget(self, action: #selector(returnTbd), for: .touchUpInside)
-        returnBtn.setTitle("return", for: .normal)
+        returnBtn.setTitle("return".Localizable(), for: .normal)
         returnBtn.setTitleColor(.red, for: .normal)
         NSLayoutConstraint.activate([
             returnBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
@@ -66,8 +66,8 @@ class PleacOnMap: UIViewController {
     func addAnnotation() {
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: 18.24018982421746, longitude: 42.58194736137367)
-        pin.title = "Danway Bakery"
-        pin.subtitle = "Cafe"
+        pin.title = "Danway Bakery".Localizable()
+        pin.subtitle = "Cafe".Localizable()
         mapV.addAnnotation(pin)
     }
 }

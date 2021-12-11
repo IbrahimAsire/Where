@@ -95,6 +95,7 @@
 			children = (
 				0F4EF03827502A8D0041479D /* CafesCell.swift */,
 				0F314C452763F1DA00D6CAB9 /* CommentCell.swift */,
+				0FCE8339274D6F3200F4C1BF /* PlacesVC.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				0F65463D27539C4D00CB6DA8 /* PleacOnMap.swift */,
+				0F6B6C8B274CD9BF00A6CE65 /* MapVC.swift */,
+				0F9A251227529640003CFF71 /* PopVC.swift */,
 				0F3F5F1B2763379E004D0520 /* CountryInfo.swift */,
 			);
 			path = PlacesOnMap;
@@ -176,16 +179,6 @@
 			path = Where;
 			sourceTree = "<group>";
 		};
-		0F7DDC8D274E150C0047D854 /* GooglePlaces */ = {
-			isa = PBXGroup;
-			children = (
-				0F6B6C8B274CD9BF00A6CE65 /* MapVC.swift */,
-				0FCE8339274D6F3200F4C1BF /* PlacesVC.swift */,
-				0F9A251227529640003CFF71 /* PopVC.swift */,
-			);
-			path = GooglePlaces;
-			sourceTree = "<group>";
-		};
 		0F81F29B274E9502007A21A4 /* StartVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +204,6 @@
 				0F81F29B274E9502007A21A4 /* StartVC */,
 				0F4EF037275027760041479D /* CafesScreen */,
 				0F65463C27539BE000CB6DA8 /* PlacesOnMap */,
-				0F7DDC8D274E150C0047D854 /* GooglePlaces */,
 				0F9A251127527593003CFF71 /* TabBarCustom */,
 			);
 			path = Controllers;

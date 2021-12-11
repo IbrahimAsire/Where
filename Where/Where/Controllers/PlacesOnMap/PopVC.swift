@@ -56,7 +56,7 @@ class PopVC: UIViewController {
         saveBtn.translatesAutoresizingMaskIntoConstraints = false
         saveBtn.addTarget(self, action: #selector(saveTbd), for: .touchUpInside)
         saveBtn.backgroundColor = .systemBrown
-        saveBtn.setTitle("Save", for: .normal)
+        saveBtn.setTitle("Save".Localizable(), for: .normal)
         saveBtn.layer.cornerRadius = 5
         saveBtn.setTitleColor(.white, for: .normal)
         NSLayoutConstraint.activate([
@@ -76,12 +76,10 @@ class PopVC: UIViewController {
         newLandMark.lat = Place.shared.userLat
         newLandMark.long = Place.shared.userLong
         
-        
         try! realm.write {
             realm.add(newLandMark)
             
         }
     }
-    
 }
 

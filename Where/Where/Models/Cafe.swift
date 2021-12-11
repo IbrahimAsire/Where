@@ -19,7 +19,7 @@ class Cafe {
 }
 
 var detlCafe = [
-    Cafe(showImg: "dan", img1: "dan2", img2: "dan3", nameCafe: "Danway Bakery", descCafe: "King Fahd Rd, Almahalah, Abha 62561"),
+    Cafe(showImg: "dan", img1: "dan2", img2: "dan3", nameCafe: "Danway Bakery".Localizable(), descCafe: "King Fahd Rd, Almahalah, Abha 62561"),
     Cafe(showImg: "cangro", img1: "cangro2", img2: "cangro3", nameCafe: "Kangaroo cafe", descCafe: "King Abdulaziz Road, Al Rabwah, Abha 62523"),
     Cafe(showImg: "Rashfh", img1: "Rashfh1", img2: "Rashfh2", nameCafe: "Rashfh Coffee", descCafe: "King Fahd Rd, Abha 62527"),
     Cafe(showImg: "palet2", img1: "palette", img2: "palette2", nameCafe: "Palette Cafe", descCafe: "Mahala, Abha 62561 6473")

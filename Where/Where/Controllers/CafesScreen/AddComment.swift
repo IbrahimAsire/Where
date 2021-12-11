@@ -12,7 +12,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         view.backgroundColor = .lightGray
-        title = "Comment"
+        title = "Comment".Localizable()
         
         setupNameNoteTF()
         setupAddNoteBtn()
@@ -42,7 +42,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         addButton.layer.borderColor     = UIColor.black.cgColor
         addButton.layer.borderWidth     = 0.55
         addButton.backgroundColor       = .white
-        addButton.setTitle("Save", for: .normal)
+        addButton.setTitle("Save".Localizable(), for: .normal)
         addButton.setTitleColor(.black, for: .normal)
         addButton.addTarget(self, action: #selector(addBtnTapped), for: .touchUpInside)
         addButton.translatesAutoresizingMaskIntoConstraints = false

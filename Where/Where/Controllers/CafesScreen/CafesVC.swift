@@ -13,7 +13,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         view.backgroundColor = .systemBrown
         nameCafesLbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameCafesLbl)
-        nameCafesLbl.text = "Cafes"
+        nameCafesLbl.text = "Cafes".Localizable()
         nameCafesLbl.textColor = .systemBackground
         nameCafesLbl.font = .boldSystemFont(ofSize: 40)
         NSLayoutConstraint.activate([
@@ -82,7 +82,6 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
                        minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
        return 2
    }
-
 
 }
 

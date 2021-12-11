@@ -12,8 +12,8 @@ class ExitVC: UIViewController {
         
         outBTn.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(outBTn)
-        outBTn.addTarget(self, action: #selector(signOutBtnTbd),for: .touchUpInside)
-        outBTn.setTitle("Go Home", for: .normal)
+        outBTn.addTarget(self, action: #selector(signOutBtnTpd),for: .touchUpInside)
+        outBTn.setTitle("Go Home".Localizable(), for: .normal)
         NSLayoutConstraint.activate([
             outBTn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             outBTn.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -24,7 +24,7 @@ class ExitVC: UIViewController {
 
     }
     
-    @objc func signOutBtnTbd() {
+    @objc func signOutBtnTpd() {
         present(Register(), animated: true, completion: nil)
     }
 

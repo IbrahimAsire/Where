@@ -36,24 +36,17 @@ class ProfileVC: UIViewController {
     }(UILabel())
     
     let signOutBtn: UIButton = {
-        $0.setTitle("Sign out", for: .normal)
+        $0.setTitle("Sign out".Localizable(), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.addTarget(self, action: #selector(signOutBtnTbd), for: .touchUpInside)
+        $0.addTarget(self, action: #selector(signOutBtnTpd), for: .touchUpInside)
         return $0
     }(UIButton())
     
     let continueBtn: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Continue", for: .normal)
+        $0.setTitle("Continue".Localizable(), for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.addTarget(self, action: #selector(continueVC), for: .touchUpInside)
-        return $0
-    }(UIButton())
-    
-    let singoutBtn: UIButton = {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Singout", for: .normal)
-        $0.setTitleColor(.white, for: .normal)
         return $0
     }(UIButton())
     
@@ -62,10 +55,10 @@ class ProfileVC: UIViewController {
         
         view.backgroundColor = .systemGray2
         
-        title = "Profile"
+        title = "Profile".Localizable()
         self.navigationController?.navigationBar.prefersLargeTitles = false
         readImgFS()
-        setUpLabels()
+        setUpLbls()
         setupStackView()
         
     }
@@ -83,7 +76,7 @@ class ProfileVC: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    func setUpLabels() {
+    func setUpLbls() {
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(containerView)
@@ -126,7 +119,7 @@ class ProfileVC: UIViewController {
         stackView.heightAnchor.constraint(equalToConstant: 55).isActive = true
     }
     
-    @objc func signOutBtnTbd() {
+    @objc func signOutBtnTpd() {
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -138,7 +131,6 @@ class ProfileVC: UIViewController {
     }
   
     @objc func imageTpd() {
-        print("Image tapped")
         setupImgPicker()
     }
     
@@ -147,7 +139,7 @@ class ProfileVC: UIViewController {
             "userImageURL": url,
         ], merge: true) { err in
             if let err = err {
-                print("Error writing document: \(err)")
+                print("Error: \(err)")
             } else {
                 print("Document successfully written!")
             }
@@ -160,7 +152,7 @@ class ProfileVC: UIViewController {
         db.whereField("email", isEqualTo: String(currentUser.email!))
             .addSnapshotListener { (querySnapshot, error) in
                 if let e = error {
-                    print("There was an issue retrieving data from Firestore. \(e)")
+                    print("issue retrieving data from Firestore. \(e)")
                 } else {
                     
                     if let snapshotDocuments = querySnapshot?.documents {
@@ -199,7 +191,7 @@ class ProfileVC: UIViewController {
             .addSnapshotListener { (querySnapshot, error) in
                 
                 if let e = error {
-                    print("There was an issue retrieving data from Firestore. \(e)")
+                    print("issue retrieving data from Firestore. \(e)")
                 } else {
                     if let snapshotDocuments = querySnapshot?.documents {
                         for doc in snapshotDocuments {

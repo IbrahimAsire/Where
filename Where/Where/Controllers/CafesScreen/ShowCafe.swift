@@ -28,7 +28,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
             self.tableView.reloadData()
         }
         
-        title = "Cafes"
+        title = "Cafes".Localizable()
         view.backgroundColor = .white
         
         view.addSubview(cafeImg1)
@@ -96,7 +96,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     
         view.addSubview(titComment)
         titComment.translatesAutoresizingMaskIntoConstraints = false
-        titComment.text = "Comments"
+        titComment.text = "Comments".Localizable()
         titComment.textColor = .systemBlue
         NSLayoutConstraint.activate([
             titComment.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 20),
@@ -105,7 +105,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
 
         view.addSubview(addComment)
         addComment.translatesAutoresizingMaskIntoConstraints = false
-        addComment.setTitle("Add Comment", for: .normal)
+        addComment.setTitle("Add Comment".Localizable(), for: .normal)
         addComment.setTitleColor(.blue, for: .normal)
         addComment.addTarget(self, action: #selector(addNote), for: .touchUpInside)
         NSLayoutConstraint.activate([

@@ -147,7 +147,7 @@ class Register: UITableViewController {
         
     }
     
-    @objc func changeLangTbd() {
+    @objc func changeLangTpd() {
         let currentLang = Locale.current.languageCode
         let newLanguage = currentLang == "en" ? "ar" : "en"
         UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")

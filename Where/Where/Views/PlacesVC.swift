@@ -27,7 +27,7 @@ class PlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate {
         
         tabelView.dataSource = self
         tabelView.delegate = self
-        tabelView.register(Cell.self, forCellReuseIdentifier: "cell")
+        tabelView.register(PlacesCell.self, forCellReuseIdentifier: "cell")
         tabelView.backgroundColor = .systemBrown
         tabelView.rowHeight = 80
         tabelView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,7 +46,7 @@ class PlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        as! Cell
+        as! PlacesCell
         
         let data = Place.shared.landMarks[indexPath.row]
         
@@ -92,7 +92,7 @@ class PlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-class Cell: UITableViewCell {
+class PlacesCell: UITableViewCell {
     let titlePlase = UILabel()
     let descPlace = UILabel()
     let timeLbl = UILabel()
