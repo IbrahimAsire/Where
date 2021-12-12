@@ -17,6 +17,11 @@
 "Register" = "تسجيل";
 "Do you have your account?" = " < عندك حساب أضغط دخول";
 "Login" = "دخول";
+"NO" = "لا";
+"Change the language!" = "تغيير اللغة!";
+"Must restart to activate" = "يجب إعادة التشغيل للتفعيل";
+"" = "";
+"" = ""; 
 
 //Login Screen
 "Type Your Email" = "الايميل";
@@ -75,8 +80,4 @@
 "" = "";
 "" = "";
 "" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = "";
-"" = ""; 
+

@@ -20,8 +20,6 @@ class PleacOnMap: UIViewController {
         let initLoc = CLLocation(latitude: 18.24018982421746, longitude: 42.58194736137367)
         setStartingLoc(location: initLoc, distance: 1000)
         addAnnotation()
-        
-        
     }
     
     func setUpMap() {

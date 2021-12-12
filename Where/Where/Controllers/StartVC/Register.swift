@@ -135,23 +135,46 @@ class Register: UITableViewController {
             loginBtn.leftAnchor.constraint(equalTo: loginLbl.rightAnchor, constant: 20)
         ])
     
-//        languageBtn.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(languageBtn)
-//        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
-//        languageBtn.addTarget(self, action: #selector(changeLangTbd), for: .touchUpInside)
-//        languageBtn.setTitleColor(.systemBrown, for: .normal)
-//        NSLayoutConstraint.activate([
-//            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-//            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
-//        ])
+        languageBtn.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(languageBtn)
+        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
+        languageBtn.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
+        languageBtn.setTitleColor(.systemBrown, for: .normal)
+        NSLayoutConstraint.activate([
+            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
+        ])
         
     }
     
     @objc func changeLangTpd() {
-        let currentLang = Locale.current.languageCode
-        let newLanguage = currentLang == "en" ? "ar" : "en"
-        UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
-        exit(0)
+        
+        let alertDone = UIAlertController(title: "Change the language!".Localizable(), message: "Must restart to activate".Localizable(), preferredStyle: .alert)
+        
+        // Create the actions
+        let okAction = UIAlertAction(title: "OK".Localizable(), style: UIAlertAction.Style.default){
+            UIAlertAction in
+            NSLog("OK Pressed")
+            let currentLang = Locale.current.languageCode
+            let newLanguage = currentLang == "en" ? "ar" : "en"
+            UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
+            exit(0)
+        }
+        let cancelAction = UIAlertAction(title: "No".Localizable(), style: UIAlertAction.Style.cancel) {
+            UIAlertAction in
+            NSLog("Cancel Pressed")
+            return
+        }
+        
+        // Add the actions
+        alertDone.addAction(okAction)
+        alertDone.addAction(cancelAction)
+        
+        // Present the controller
+        present(alertDone, animated: true, completion: nil)
+        alertDone.view.tintColor = .systemRed
+        alertDone.view.backgroundColor = .systemRed
+        
     }
 
     @objc func loginGo() {

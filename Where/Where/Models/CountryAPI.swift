@@ -41,9 +41,6 @@ class CountryAPI {
 //        let dataString = String(data: data!, encoding: .utf8)
 //        delegate?.didRetriveCountryInfo(countryInfo: dataString)
         
-        
-    
-    
     }
 
 }

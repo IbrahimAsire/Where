@@ -135,6 +135,12 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     }
     
     @objc func showLocation() {
+        var loc: Cafe?
+        let vc = PleacOnMap()
+        
+        vc.lat = loc?.latitude
+        vc.long = loc?.longitude
+        
         present(PleacOnMap(), animated: true, completion: nil)
     }
     
