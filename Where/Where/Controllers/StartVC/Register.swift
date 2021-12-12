@@ -135,15 +135,15 @@ class Register: UITableViewController {
             loginBtn.leftAnchor.constraint(equalTo: loginLbl.rightAnchor, constant: 20)
         ])
     
-        languageBtn.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(languageBtn)
-        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
-        languageBtn.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
-        languageBtn.setTitleColor(.systemBrown, for: .normal)
-        NSLayoutConstraint.activate([
-            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
-        ])
+//        languageBtn.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(languageBtn)
+//        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
+//        languageBtn.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
+//        languageBtn.setTitleColor(.systemBrown, for: .normal)
+//        NSLayoutConstraint.activate([
+//            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+//            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
+//        ])
         
     }
     
