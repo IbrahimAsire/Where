@@ -23,8 +23,8 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CommentsService.shared.listenToComments { newNotes in
-            self.comments = newNotes
+        CommentsService.shared.listenToComments { newComment in
+            self.comments = newComment
             self.tableView.reloadData()
         }
         
@@ -107,7 +107,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         addComment.translatesAutoresizingMaskIntoConstraints = false
         addComment.setTitle("Add Comment".Localizable(), for: .normal)
         addComment.setTitleColor(.blue, for: .normal)
-        addComment.addTarget(self, action: #selector(addNote), for: .touchUpInside)
+        addComment.addTarget(self, action: #selector(addCommentTpd), for: .touchUpInside)
         NSLayoutConstraint.activate([
             addComment.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 13),
             addComment.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50)
@@ -130,7 +130,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         
                 }
     
-    @objc func addNote() {
+    @objc func addCommentTpd() {
         present(AddComment(), animated: true, completion: nil)
     }
     

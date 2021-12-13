@@ -15,6 +15,9 @@
 		0F4EF034275019980041479D /* CafesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EF033275019980041479D /* CafesVC.swift */; };
 		0F4EF03627501F910041479D /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EF03527501F910041479D /* Cafe.swift */; };
 		0F4EF03927502A8D0041479D /* CafesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EF03827502A8D0041479D /* CafesCell.swift */; };
+		0F56BDC7276720800065BEE1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDC6276720800065BEE1 /* News.swift */; };
+		0F56BDC927672B390065BEE1 /* NewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDC827672B390065BEE1 /* NewApi.swift */; };
+		0F56BDCB2767311A0065BEE1 /* NewPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDCA2767311A0065BEE1 /* NewPosts.swift */; };
 		0F5FA95827638C2B004C2803 /* CountryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FA95727638C2B004C2803 /* CountryAPI.swift */; };
 		0F5FA95D2763AB54004C2803 /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5FA95C2763AB54004C2803 /* Country.swift */; };
 		0F65463E27539C4D00CB6DA8 /* PleacOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F65463D27539C4D00CB6DA8 /* PleacOnMap.swift */; };
@@ -50,6 +53,9 @@
 		0F4EF033275019980041479D /* CafesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafesVC.swift; sourceTree = "<group>"; };
 		0F4EF03527501F910041479D /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		0F4EF03827502A8D0041479D /* CafesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafesCell.swift; sourceTree = "<group>"; };
+		0F56BDC6276720800065BEE1 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		0F56BDC827672B390065BEE1 /* NewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewApi.swift; sourceTree = "<group>"; };
+		0F56BDCA2767311A0065BEE1 /* NewPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPosts.swift; sourceTree = "<group>"; };
 		0F5FA95727638C2B004C2803 /* CountryAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryAPI.swift; sourceTree = "<group>"; };
 		0F5FA95C2763AB54004C2803 /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		0F65463D27539C4D00CB6DA8 /* PleacOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleacOnMap.swift; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 				0F6B8CB327552C4700EDA73E /* Place.swift */,
 				0F5FA95727638C2B004C2803 /* CountryAPI.swift */,
 				0F5FA95C2763AB54004C2803 /* Country.swift */,
+				0F56BDC827672B390065BEE1 /* NewApi.swift */,
+				0F56BDCA2767311A0065BEE1 /* NewPosts.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				0F4EF037275027760041479D /* CafesScreen */,
 				0F65463C27539BE000CB6DA8 /* PlacesOnMap */,
 				0F9A251127527593003CFF71 /* TabBarCustom */,
+				0F56BDC6276720800065BEE1 /* News.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -380,10 +389,13 @@
 				0F4EF03927502A8D0041479D /* CafesCell.swift in Sources */,
 				0F6B6C8A274CD9BF00A6CE65 /* SceneDelegate.swift in Sources */,
 				0FDC9DBC274F82CB001A1E12 /* ProfileVC.swift in Sources */,
+				0F56BDC7276720800065BEE1 /* News.swift in Sources */,
 				0F6B8CB427552C4700EDA73E /* Place.swift in Sources */,
 				0F4E11E8274E65A600B75193 /* User.swift in Sources */,
 				0F697D51275C244D00AD3BD4 /* Comments.swift in Sources */,
 				0F697D53275C26FE00AD3BD4 /* ExitVC.swift in Sources */,
+				0F56BDCB2767311A0065BEE1 /* NewPosts.swift in Sources */,
+				0F56BDC927672B390065BEE1 /* NewApi.swift in Sources */,
 				0F81F29D274E99A7007A21A4 /* Login.swift in Sources */,
 				0F314C462763F1DA00D6CAB9 /* CommentCell.swift in Sources */,
 			);

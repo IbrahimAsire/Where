@@ -6,7 +6,7 @@ class AddComment: UIViewController, UITextViewDelegate {
     let commentTF = UITextView()
     let addButton = UIButton()
     
-    var note: CommentCafe?
+    var comment: CommentCafe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +16,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         
         setupNameNoteTF()
         setupAddNoteBtn()
-        commentTF.text = note?.comment
+        commentTF.text = comment?.comment
 
     }
     
@@ -56,8 +56,8 @@ class AddComment: UIViewController, UITextViewDelegate {
     
         
     @objc func addBtnTapped() {
-        let note = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)
-        CommentsService.shared.updateOrAddNote(comment: note)
+        let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)
+        CommentsService.shared.updateOrAddNote(comment: comment)
         dismiss(animated: true, completion: nil)
     }
 }
