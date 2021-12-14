@@ -33,6 +33,7 @@ class News: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: arabImg.bottomAnchor, constant: 10),
@@ -42,11 +43,9 @@ class News: UIViewController {
         
         ])
     }
-    
-
 }
 
-extension News: UITableViewDataSource, UITableViewDelegate {
+extension News: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return articles.count
     }
@@ -55,10 +54,22 @@ extension News: UITableViewDataSource, UITableViewDelegate {
         let cell = UITableViewCell()
         
         cell.textLabel?.text = articles[indexPath.row].title
+        cell.textLabel?.numberOfLines = 0
         
         return cell
     }
+    
+}
 
+extension News:  UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ShowNews()
+        let selectedRow = tableView.indexPathForSelectedRow?.row
+        
+        vc.urlLink = articles[selectedRow!].url
+        print(indexPath.row)
+        self.present(ShowNews(), animated: true, completion: nil)
+    }
 }
 
 extension News: NewsAPIDelegate {

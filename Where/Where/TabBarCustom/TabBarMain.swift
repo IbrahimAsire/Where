@@ -17,7 +17,7 @@ class TabBarMain: UITabBarController {
             
             barItem(tabBarTitle: "Exit".Localizable(), tabBarImage: UIImage(systemName: "pip.exit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: ExitVC()),
             
-            barItem(tabBarTitle: "CountryInfo", tabBarImage: UIImage(systemName: "homekit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: CountryInfo()),
+            barItem(tabBarTitle: "CountryInfo", tabBarImage: UIImage(systemName: "homekit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: ShowNews()),
 
         ]
         

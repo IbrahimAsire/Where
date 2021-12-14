@@ -12,5 +12,6 @@ target 'Where' do
 	pod 'Firebase/Storage'
 	pod 'GooglePlaces'	
 	pod 'RealmSwift'
+	pod "Gemini"
 
 end

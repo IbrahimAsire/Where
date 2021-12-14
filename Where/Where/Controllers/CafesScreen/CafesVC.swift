@@ -48,6 +48,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        cell.imgCafe.image = UIImage(named: data.showImg)
        cell.imgCafe.clipsToBounds = true
 //       cell.nameCafe.text = data.title
+
        return cell
    }
 
