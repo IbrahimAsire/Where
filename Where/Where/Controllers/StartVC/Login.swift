@@ -4,6 +4,8 @@ import FirebaseAuth
 
 class Login: UIViewController {
     
+    var lConstraint :NSLayoutConstraint?
+
     lazy var coffeImg: UIImageView = {
         $0.image = UIImage(named: "1")
         return $0
@@ -75,8 +77,10 @@ class Login: UIViewController {
             loginBtn.widthAnchor.constraint(equalToConstant: 150)
     
         ])
-
+        
     }
+    
+    
     
     // MARK:- to login user 
     @objc func login() {
@@ -122,6 +126,13 @@ class Login: UIViewController {
                 }
             }
         }
+        UIView.animate(withDuration: 2) { 
+            self.loginBtn.setTitle("Welcome", for: .normal)
+            self.loginBtn.titleLabel?.font =  UIFont(name: "GillSans-Italic", size: 42)
+            self.view.backgroundColor = .systemBrown
+            self.view.layoutIfNeeded()
+        }
+        
     }
     
     func setUp() {

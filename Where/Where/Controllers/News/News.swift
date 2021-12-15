@@ -13,11 +13,9 @@ class News: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpConst()
+        tableView.delegate = self
         newsApi.delegate = self
         newsApi.fetchNews()
-        
-        
-        
     }
     
     func setUpConst() {
@@ -33,7 +31,6 @@ class News: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.dataSource = self
-        tableView.delegate = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: arabImg.bottomAnchor, constant: 10),
@@ -58,15 +55,16 @@ extension News: UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension News:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         let vc = ShowNews()
-        let selectedRow = tableView.indexPathForSelectedRow?.row
-        
-        vc.urlLink = articles[selectedRow!].url
+//        let selectedRow = tableView.indexPathForSelectedRow?.row
+        vc.lbl.text = "hiiiiii"
+//        vc.urlLink = articles[selectedRow!].url
         print(indexPath.row)
         self.present(ShowNews(), animated: true, completion: nil)
     }
@@ -84,6 +82,5 @@ extension News: NewsAPIDelegate {
     func didFailWithError(error: Error?) {
         print(error)
     }
-    
     
 }

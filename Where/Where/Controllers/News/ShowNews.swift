@@ -10,36 +10,39 @@ class ShowNews: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lbl.text = urlLink
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray6
+//        lbl.text = urlLink
+        setUp()
         
+//        if NSURL(string: urlLink!) != nil {
 //        webView.load(NSURLRequest(url: NSURL(string: urlLink!)! as URL) as URLRequest)
-//        setUp()
+//        }else {
+//            print("URL not Found")
+//        }
+        
         
     }
     
     func setUp() {
         lbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(lbl)
-        lbl.textColor = .systemBlue
         lbl.backgroundColor = .systemBrown
-        lbl.text = "hello"
+//        lbl.text = "hello"
         NSLayoutConstraint.activate([
             lbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 70),
-            lbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             lbl.leftAnchor.constraint(equalTo: view.leftAnchor),
             lbl.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
         
-        webView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(webView)
-        NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: view.topAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            webView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            webView.leftAnchor.constraint(equalTo: view.leftAnchor)
-        
-        ])
+//        webView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(webView)
+//        NSLayoutConstraint.activate([
+//            webView.topAnchor.constraint(equalTo: view.topAnchor),
+//            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+//            webView.rightAnchor.constraint(equalTo: view.rightAnchor),
+//            webView.leftAnchor.constraint(equalTo: view.leftAnchor)
+//
+//        ])
     }
     
 }
