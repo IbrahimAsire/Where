@@ -59,14 +59,14 @@ extension News: UITableViewDataSource {
 
 extension News:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
 
         let vc = ShowNews()
-//        let selectedRow = tableView.indexPathForSelectedRow?.row
-        vc.lbl.text = "hiiiiii"
-//        vc.urlLink = articles[selectedRow!].url
+        let selectedRow = tableView.indexPathForSelectedRow?.row
+//        vc.lbl.text = "hiiiiii"
+        vc.urlLink = articles[selectedRow!].url
         print(indexPath.row)
-        self.present(ShowNews(), animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

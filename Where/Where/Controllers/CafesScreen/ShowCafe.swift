@@ -3,6 +3,7 @@ import UIKit
 import MessageUI
 import SafariServices
 
+
 class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     var comments: [CommentCafe] = []

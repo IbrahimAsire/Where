@@ -11,14 +11,14 @@ class ShowNews: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemGray6
-//        lbl.text = urlLink
+        lbl.text = urlLink
         setUp()
         
-//        if NSURL(string: urlLink!) != nil {
-//        webView.load(NSURLRequest(url: NSURL(string: urlLink!)! as URL) as URLRequest)
-//        }else {
-//            print("URL not Found")
-//        }
+        if NSURL(string: urlLink!) != nil {
+        webView.load(NSURLRequest(url: NSURL(string: urlLink!)! as URL) as URLRequest)
+        }else {
+            print("URL not Found")
+        }
         
         
     }
@@ -34,15 +34,15 @@ class ShowNews: UIViewController {
             lbl.rightAnchor.constraint(equalTo: view.rightAnchor)
         ])
         
-//        webView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(webView)
-//        NSLayoutConstraint.activate([
-//            webView.topAnchor.constraint(equalTo: view.topAnchor),
-//            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-//            webView.rightAnchor.constraint(equalTo: view.rightAnchor),
-//            webView.leftAnchor.constraint(equalTo: view.leftAnchor)
-//
-//        ])
+        webView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(webView)
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: view.topAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            webView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            webView.leftAnchor.constraint(equalTo: view.leftAnchor)
+
+        ])
     }
     
 }

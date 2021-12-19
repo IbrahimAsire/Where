@@ -7,7 +7,7 @@ class AddComment: UIViewController, UITextViewDelegate {
     let addButton = UIButton()
     
     var comment: CommentCafe?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,7 +17,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         setupNameNoteTF()
         setupAddNoteBtn()
         commentTF.text = comment?.comment
-
+        
     }
     
     private func setupNameNoteTF() {
@@ -35,13 +35,13 @@ class AddComment: UIViewController, UITextViewDelegate {
         commentTF.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         commentTF.heightAnchor.constraint(equalToConstant: 600).isActive = true
     }
-
+    
     private func setupAddNoteBtn() {
-
-        addButton.layer.cornerRadius    = 20
-        addButton.layer.borderColor     = UIColor.black.cgColor
-        addButton.layer.borderWidth     = 0.55
-        addButton.backgroundColor       = .white
+        
+        addButton.layer.cornerRadius = 20
+        addButton.layer.borderColor = UIColor.black.cgColor
+        addButton.layer.borderWidth = 0.55
+        addButton.backgroundColor = .white
         addButton.setTitle("Save".Localizable(), for: .normal)
         addButton.setTitleColor(.black, for: .normal)
         addButton.addTarget(self, action: #selector(addBtnTapped), for: .touchUpInside)
@@ -54,11 +54,13 @@ class AddComment: UIViewController, UITextViewDelegate {
     }
     
     
-        
+    
     @objc func addBtnTapped() {
+        
         let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)
         CommentsService.shared.updateOrAddNote(comment: comment)
         dismiss(animated: true, completion: nil)
+        
     }
 }
 
