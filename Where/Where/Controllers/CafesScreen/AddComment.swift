@@ -54,7 +54,6 @@ class AddComment: UIViewController, UITextViewDelegate {
     }
     
     
-    
     @objc func addBtnTapped() {
         
         let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)

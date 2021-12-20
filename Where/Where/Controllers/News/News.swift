@@ -11,7 +11,7 @@ class News: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemBrown
         setUpConst()
         tableView.delegate = self
         newsApi.delegate = self
@@ -21,11 +21,12 @@ class News: UIViewController {
     func setUpConst() {
         arabImg.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(arabImg)
-        arabImg.image = UIImage(named: "camel")
+        arabImg.image = UIImage(named: "ArabNews1")
         NSLayoutConstraint.activate([
             arabImg.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             arabImg.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
-            arabImg.heightAnchor.constraint(equalToConstant: 120)
+            arabImg.heightAnchor.constraint(equalToConstant: 120),
+            arabImg.widthAnchor.constraint(equalToConstant: 260)
         ])
         
         tableView.translatesAutoresizingMaskIntoConstraints = false

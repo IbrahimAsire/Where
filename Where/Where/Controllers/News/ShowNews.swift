@@ -10,7 +10,6 @@ class ShowNews: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGray6
         lbl.text = urlLink
         setUp()
         
@@ -19,8 +18,7 @@ class ShowNews: UIViewController {
         }else {
             print("URL not Found")
         }
-        
-        
+
     }
     
     func setUp() {
