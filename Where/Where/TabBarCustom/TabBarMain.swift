@@ -13,13 +13,11 @@ class TabBarMain: UITabBarController {
             
             barItem(tabBarTitle: "Map".Localizable(), tabBarImage: UIImage(systemName: "map.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: MapVC()),
             
-            barItem(tabBarTitle: "New Places".Localizable(), tabBarImage: UIImage(systemName: "newspaper")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: PlacesVC()),
+            barItem(tabBarTitle: "New Places".Localizable(), tabBarImage: UIImage(systemName: "house")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: PlacesVC()),
             
             barItem(tabBarTitle: "Exit".Localizable(), tabBarImage: UIImage(systemName: "pip.exit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: ExitVC()),
             
-            barItem(tabBarTitle: "CountryInfo", tabBarImage: UIImage(systemName: "homekit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: ShowNews()),
-            
-//            barItem(tabBarTitle: "CountryInfo", tabBarImage: UIImage(systemName: "homekit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: News1()),
+            barItem(tabBarTitle: "News".Localizable(), tabBarImage: UIImage(systemName: "newspaper")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: News())
 
         ]
         

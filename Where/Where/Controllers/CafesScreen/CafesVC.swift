@@ -56,7 +56,6 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        let data = detlCafe[indexPath.row]
 
        let nextVC = ShowCafe()
-       let camfOnMap = PleacOnMap()
        
        nextVC.cafeImg1.image = UIImage(named: data.img1)
        nextVC.cafeImg2.image = UIImage(named: data.img2)
