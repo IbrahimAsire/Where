@@ -6,6 +6,7 @@ import SafariServices
 
 class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
+    var locDelegate: Cafe?
     var comments: [CommentCafe] = []
 
     let cellId = "CommentCell"
@@ -127,21 +128,15 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5)
-            ])
+        ])
         
-                }
+    }
     
     @objc func addCommentTpd() {
         present(AddComment(), animated: true, completion: nil)
     }
     
     @objc func showLocation() {
-        var loc: Cafe?
-        let vc = PleacOnMap()
-        
-        vc.lat = loc?.latitude
-        vc.long = loc?.longitude
-        
         present(PleacOnMap(), animated: true, completion: nil)
     }
     

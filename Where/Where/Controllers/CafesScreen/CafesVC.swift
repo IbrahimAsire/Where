@@ -35,6 +35,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
             collectionView.topAnchor.constraint(equalTo: nameCafesLbl.bottomAnchor, constant: 10),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
         ])
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -47,6 +48,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
        cell.imgCafe.image = UIImage(named: data.showImg)
        cell.imgCafe.clipsToBounds = true
+       
 //       cell.nameCafe.text = data.title
 
        return cell
@@ -56,13 +58,18 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        let data = detlCafe[indexPath.row]
 
        let nextVC = ShowCafe()
+       let placeLoc = PleacOnMap()
        
        nextVC.cafeImg1.image = UIImage(named: data.img1)
        nextVC.cafeImg2.image = UIImage(named: data.img2)
        nextVC.nameCafe.text = data.nameCafe
        nextVC.detlCafe.text = data.descCafe
        
-       self.present(nextVC, animated: true, completion: nil)
+       placeLoc.lat = data.latitude
+       placeLoc.long = data.longitude
+       
+       present(placeLoc, animated: true, completion: nil)
+       present(nextVC, animated: true, completion: nil)
    }
 
    func collectionView(_ collectionView: UICollectionView,

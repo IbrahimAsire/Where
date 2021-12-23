@@ -8,7 +8,6 @@ class ExitVC: UIViewController {
     var classifyBtn = UIButton()
     let outBTn = UIButton()
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBrown
@@ -29,7 +28,7 @@ class ExitVC: UIViewController {
         
         view.addSubview(textTF)
         textTF.translatesAutoresizingMaskIntoConstraints = false
-        textTF.placeholder = "type"
+        textTF.placeholder = "Write your opinion about App"
         textTF.borderStyle = .roundedRect
         NSLayoutConstraint.activate([
             textTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -40,7 +39,7 @@ class ExitVC: UIViewController {
         
         view.addSubview(classifyBtn)
         classifyBtn.translatesAutoresizingMaskIntoConstraints = false
-        classifyBtn.setTitle("Classify", for: .normal)
+        classifyBtn.setTitle("Send", for: .normal)
         classifyBtn.setTitleColor(.blue, for: .normal)
         classifyBtn.addTarget(self, action: #selector(classifyTpd), for: .touchUpInside)
         NSLayoutConstraint.activate([

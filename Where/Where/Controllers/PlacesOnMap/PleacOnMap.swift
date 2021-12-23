@@ -4,8 +4,10 @@ import MapKit
 
 class PleacOnMap: UIViewController {
     
-    var lat: Double?
-    var long: Double?
+    let location = detlCafe
+    
+    var lat = 0.0
+    var long = 0.0
     let returnBtn = UIButton()
 
     let mapV : MKMapView = {
@@ -15,9 +17,12 @@ class PleacOnMap: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(lat)
+        print(long)
+
          
         setUpMap()
-        let initLoc = CLLocation(latitude: 18.24018982421746, longitude: 42.58194736137367)
+        let initLoc = CLLocation(latitude: lat, longitude: long)
         setStartingLoc(location: initLoc, distance: 1000)
         addAnnotation()
     }
@@ -63,7 +68,7 @@ class PleacOnMap: UIViewController {
     // MARK:- To display a pin on the map
     func addAnnotation() {
         let pin = MKPointAnnotation()
-        pin.coordinate = CLLocationCoordinate2D(latitude: 18.24018982421746, longitude: 42.58194736137367)
+        pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         pin.title = "Danway Bakery".Localizable()
         pin.subtitle = "Cafe".Localizable()
         mapV.addAnnotation(pin)
