@@ -1,18 +1,12 @@
-//
-//  NewsApi.swift
-//  Where
-//
-//  Created by ibrahim asiri on 09/05/1443 AH.
-//
 
 import Foundation
 
 protocol NewsAPIDelegate {
-    func didFetchPosts (posts: NewPosts)
+    func didFetchPosts (posts: NewsPosts)
     func didFailWithError (error: Error?)
 }
 
-struct NewApi {
+struct NewsApi {
     
     var delegate: NewsAPIDelegate?
     
@@ -27,7 +21,7 @@ struct NewApi {
             }else {
                 
                 do {
-                    let posts = try JSONDecoder().decode(NewPosts.self, from: data!)
+                    let posts = try JSONDecoder().decode(NewsPosts.self, from: data!)
                     
                     delegate?.didFetchPosts(posts: posts)
                 }catch {

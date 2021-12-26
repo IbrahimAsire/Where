@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  Where
-//
-//  Created by ibrahim asiri on 03/05/1443 AH.
-//
 
 import UIKit
 import Firebase

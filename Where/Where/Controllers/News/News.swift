@@ -3,7 +3,7 @@ import UIKit
 
 class News: UIViewController {
     var cellId = "cell"
-    var newsApi = NewApi()
+    var newsApi = NewsApi()
     var articles = [Article(title: "", url: "")]
     
     lazy var arabImg = UIImageView()
@@ -70,7 +70,7 @@ extension News:  UITableViewDelegate {
 }
 
 extension News: NewsAPIDelegate {
-    func didFetchPosts(posts: NewPosts) {
+    func didFetchPosts(posts: NewsPosts) {
         print(posts)
         articles = posts.articles
         DispatchQueue.main.async {

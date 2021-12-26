@@ -1,13 +1,7 @@
-//
-//  NewsPosts.swift
-//  Where
-//
-//  Created by ibrahim asiri on 09/05/1443 AH.
-//
 
 import Foundation
 
-struct NewPosts: Decodable {
+struct NewsPosts: Decodable {
     let status: String
     let totalResults: Int
     let articles: [Article]
