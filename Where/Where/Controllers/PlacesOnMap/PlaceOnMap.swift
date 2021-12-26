@@ -3,11 +3,10 @@ import UIKit
 import MapKit
 
 class PleacOnMap: UIViewController {
-    
-    let location = detlCafe
-    
+        
     var lat = 0.0
     var long = 0.0
+    var titleCafe = ""
     let returnBtn = UIButton()
 
     let mapV : MKMapView = {
@@ -69,7 +68,7 @@ class PleacOnMap: UIViewController {
     func addAnnotation() {
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
-        pin.title = "Danway Bakery".Localizable()
+        pin.title = titleCafe.Localizable()
         pin.subtitle = "Cafe".Localizable()
         mapV.addAnnotation(pin)
     }

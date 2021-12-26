@@ -25,16 +25,15 @@ class Cafe {
 }
 
 var detlCafe = [
-    Cafe(showImg: "dan", img1: "dan2", img2: "dan3", nameCafe: "Danway Bakery".Localizable(), descCafe: "King Fahd Rd, Almahalah, Abha 62561".Localizable(), latitude: 18.24018982421746, longitude: 42.58194736137367, commint: ""),
+    Cafe(showImg: "dan", img1: "dan2", img2: "dan3", nameCafe: "Danway Bakery".Localizable(), descCafe: "King Fahd Rd, Almahalah, Abha 62561".Localizable(), latitude: 18.240067547280507, longitude: 42.58173278465659, commint: ""),
     
-    Cafe(showImg: "cangro", img1: "cangro2", img2: "cangro3", nameCafe: "Kangaroo cafe", descCafe: "King Abdulaziz Road, Al Rabwah, Abha 62523".Localizable(), latitude: 18.24018982421746, longitude: 42.58194736137367, commint: ""),
+    Cafe(showImg: "cangro", img1: "cangro2", img2: "cangro3", nameCafe: "Kangaroo cafe", descCafe: "King Abdulaziz Road, Al Rabwah, Abha 62523".Localizable(), latitude: 18.21682029215805, longitude: 42.52220179712147, commint: ""),
     
-    Cafe(showImg: "Rashfh", img1: "Rashfh1", img2: "Rashfh2", nameCafe: "Rashfh Coffee", descCafe: "King Fahd Rd, Abha 62527".Localizable(), latitude: 18.24018982421746, longitude: 42.58194736137367, commint: ""),
+    Cafe(showImg: "Rashfh", img1: "Rashfh1", img2: "Rashfh2", nameCafe: "Rashfh Coffee", descCafe: "King Fahd Rd, Abha 62527".Localizable(), latitude: 18.23152463628287, longitude: 42.54795082390047, commint: ""),
     
-    Cafe(showImg: "palet2", img1: "palette", img2: "palette2", nameCafe: "Palette Cafe", descCafe: "Mahala, Abha 62561 6473".Localizable(), latitude: 18.24018982421746, longitude: 42.58194736137367, commint: ""),
+    Cafe(showImg: "palette1", img1: "palette", img2: "palette2", nameCafe: "Palette Cafe", descCafe: "Mahala, Abha 62561 6473".Localizable(), latitude: 18.23989727263596, longitude: 42.58170037013684, commint: ""),
     
-    Cafe(showImg: "leon", img1: "leon1", img2: "leon2", nameCafe: "LEON Cafe".Localizable(), descCafe: "King Fahd Road, Al Manhal, Abha 62521".Localizable(), latitude: 18.223544089257654, longitude: 42.51763892412773, commint: "")
-    
+    Cafe(showImg: "leon", img1: "leon1", img2: "leon2", nameCafe: "LEON Cafe".Localizable(), descCafe: "King Fahd Road, Al Manhal, Abha 62521".Localizable(), latitude: 18.22069231448209, longitude: 42.517595712464775, commint: "")
     ]
 
 

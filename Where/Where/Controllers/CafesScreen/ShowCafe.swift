@@ -6,7 +6,11 @@ import SafariServices
 
 class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
-    var locDelegate: Cafe?
+    var lat = 0.0
+    var long = 0.0
+    var titleCafe = ""
+    
+    
     var comments: [CommentCafe] = []
 
     let cellId = "CommentCell"
@@ -24,6 +28,8 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(lat)
+        print(long)
         
         CommentsService.shared.listenToComments { newComment in
             self.comments = newComment
@@ -137,7 +143,12 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     }
     
     @objc func showLocation() {
-        present(PleacOnMap(), animated: true, completion: nil)
+        let vc = PleacOnMap()
+        vc.lat = lat
+        vc.long = long
+        vc.titleCafe = titleCafe
+        
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func contactTbd() {

@@ -18,7 +18,7 @@
 		0F56BDC927672B390065BEE1 /* NewApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDC827672B390065BEE1 /* NewApi.swift */; };
 		0F56BDCB2767311A0065BEE1 /* NewPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDCA2767311A0065BEE1 /* NewPosts.swift */; };
 		0F56BDCD276785320065BEE1 /* ShowNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDCC276785320065BEE1 /* ShowNews.swift */; };
-		0F65463E27539C4D00CB6DA8 /* PleacOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F65463D27539C4D00CB6DA8 /* PleacOnMap.swift */; };
+		0F65463E27539C4D00CB6DA8 /* PlaceOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F65463D27539C4D00CB6DA8 /* PlaceOnMap.swift */; };
 		0F697D51275C244D00AD3BD4 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F697D50275C244D00AD3BD4 /* Comments.swift */; };
 		0F697D53275C26FE00AD3BD4 /* ExitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F697D52275C26FE00AD3BD4 /* ExitVC.swift */; };
 		0F6B6C88274CD9BF00A6CE65 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B6C87274CD9BF00A6CE65 /* AppDelegate.swift */; };
@@ -55,7 +55,7 @@
 		0F56BDC827672B390065BEE1 /* NewApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewApi.swift; sourceTree = "<group>"; };
 		0F56BDCA2767311A0065BEE1 /* NewPosts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPosts.swift; sourceTree = "<group>"; };
 		0F56BDCC276785320065BEE1 /* ShowNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNews.swift; sourceTree = "<group>"; };
-		0F65463D27539C4D00CB6DA8 /* PleacOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PleacOnMap.swift; sourceTree = "<group>"; };
+		0F65463D27539C4D00CB6DA8 /* PlaceOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOnMap.swift; sourceTree = "<group>"; };
 		0F697D50275C244D00AD3BD4 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		0F697D52275C26FE00AD3BD4 /* ExitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitVC.swift; sourceTree = "<group>"; };
 		0F6B6C84274CD9BF00A6CE65 /* Where.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Where.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,19 +130,19 @@
 		0F65463C27539BE000CB6DA8 /* PlacesOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				0F65463D27539C4D00CB6DA8 /* PleacOnMap.swift */,
+				0F65463D27539C4D00CB6DA8 /* PlaceOnMap.swift */,
 				0F6B6C8B274CD9BF00A6CE65 /* MapVC.swift */,
 				0F9A251227529640003CFF71 /* PopVC.swift */,
 			);
 			path = PlacesOnMap;
 			sourceTree = "<group>";
 		};
-		0F697D4F275C243900AD3BD4 /* Services */ = {
+		0F697D4F275C243900AD3BD4 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				0F697D50275C244D00AD3BD4 /* Comments.swift */,
 			);
-			path = Services;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		0F6B6C7B274CD9BF00A6CE65 = {
@@ -171,7 +171,7 @@
 				0F314C442763F18500D6CAB9 /* Views */,
 				0FB7E692276484310089427D /* Controllers */,
 				0F9A251127527593003CFF71 /* TabBarCustom */,
-				0F697D4F275C243900AD3BD4 /* Services */,
+				0F697D4F275C243900AD3BD4 /* Networking */,
 				0F6B6C90274CD9C300A6CE65 /* Assets.xcassets */,
 				0F6B6C92274CD9C300A6CE65 /* LaunchScreen.storyboard */,
 				0F314C472763F82F00D6CAB9 /* Main.storyboard */,
@@ -385,7 +385,7 @@
 				0F4EF034275019980041479D /* CafesVC.swift in Sources */,
 				0F6B6C88274CD9BF00A6CE65 /* AppDelegate.swift in Sources */,
 				0F4EF03627501F910041479D /* Cafe.swift in Sources */,
-				0F65463E27539C4D00CB6DA8 /* PleacOnMap.swift in Sources */,
+				0F65463E27539C4D00CB6DA8 /* PlaceOnMap.swift in Sources */,
 				0F78BBE2276F6E1C0018B393 /* TextClassifier.mlmodel in Sources */,
 				0F763D402752CF7A00DC3019 /* AddComment.swift in Sources */,
 				0F9A250E275259E7003CFF71 /* ShowCafe.swift in Sources */,

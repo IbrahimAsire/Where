@@ -4,7 +4,6 @@ import UIKit
 class CafesCell: UICollectionViewCell{
 
     let imgCafe = UIImageView()
-    let locBtn = UIButton()
 
     override init(frame: CGRect){
         super.init(frame: frame)
@@ -29,22 +28,9 @@ class CafesCell: UICollectionViewCell{
            imgCafe.rightAnchor.constraint(equalTo: rightAnchor ),
            imgCafe.leftAnchor.constraint(equalTo: leftAnchor),
            imgCafe.topAnchor.constraint(equalTo: topAnchor),
-           imgCafe.heightAnchor.constraint(equalToConstant: 350),
-        ])
-        
-        locBtn.translatesAutoresizingMaskIntoConstraints = false
-        self.addSubview(locBtn)
-        locBtn.setBackgroundImage(UIImage(systemName: "map"), for: .normal)
-        NSLayoutConstraint.activate([
-            locBtn.topAnchor.constraint(equalTo: imgCafe.bottomAnchor , constant: 5),
-            locBtn.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
-            locBtn.heightAnchor.constraint(equalToConstant: 20)
+           imgCafe.heightAnchor.constraint(equalToConstant: 400),
         ])
 
-    }
-    
-    @objc func locBtnTpd() {
-        
     }
 
     required init?(coder: NSCoder) {
