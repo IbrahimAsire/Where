@@ -137,15 +137,15 @@ class Register: UITableViewController {
             loginBtn.leftAnchor.constraint(equalTo: loginLbl.rightAnchor, constant: 20)
         ])
     
-//        languageBtn.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(languageBtn)
-//        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
-//        languageBtn.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
-//        languageBtn.setTitleColor(.systemBrown, for: .normal)
-//        NSLayoutConstraint.activate([
-//            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-//            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
-//        ])
+        languageBtn.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(languageBtn)
+        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
+        languageBtn.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
+        languageBtn.setTitleColor(.systemBrown, for: .normal)
+        NSLayoutConstraint.activate([
+            languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
+        ])
         
     }
     
@@ -209,6 +209,12 @@ class Register: UITableViewController {
                 }
 
             }
+        }
+        UIView.animate(withDuration: 2) {
+            self.registerBtn.setTitle("Welcome", for: .normal)
+            self.registerBtn.titleLabel?.font =  UIFont(name: "GillSans-Italic", size: 42)
+            self.view.backgroundColor = .systemBrown
+            self.view.layoutIfNeeded()
         }
     }
 }

@@ -39,7 +39,7 @@ class ExitVC: UIViewController {
         
         view.addSubview(classifyBtn)
         classifyBtn.translatesAutoresizingMaskIntoConstraints = false
-        classifyBtn.setTitle("Send", for: .normal)
+        classifyBtn.setTitle("Send your opinion", for: .normal)
         classifyBtn.setTitleColor(.blue, for: .normal)
         classifyBtn.addTarget(self, action: #selector(classifyTpd), for: .touchUpInside)
         NSLayoutConstraint.activate([

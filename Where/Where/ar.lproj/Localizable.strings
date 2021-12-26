@@ -29,6 +29,7 @@
 //Login Screen
 "Type Your Email" = "الايميل";
 "Type Your Password" = "كلمة المرور";
+"ibra@i.com" = "ibra@ibra.com";
 "Login" = "دخول";
 "loginP" = "صفحة الدخول";
 "Oops!" = "عفوآ";
@@ -64,7 +65,6 @@
 "News" = "أخبار";
 
 "Go Home" = "الصفحة الرئيسية";
-"" = "";
 "" = "";
 "" = "";
 "" = "";

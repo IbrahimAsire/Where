@@ -4,7 +4,6 @@ import FirebaseAuth
 
 class Login: UIViewController {
     
-    var lConstraint :NSLayoutConstraint?
 
     lazy var coffeImg: UIImageView = {
         $0.image = UIImage(named: "1")
@@ -27,6 +26,7 @@ class Login: UIViewController {
     lazy var emailTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Email".Localizable()
+        $0.text = "ibra@i.com".Localizable()
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         
@@ -36,6 +36,7 @@ class Login: UIViewController {
     lazy var passTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Password".Localizable()
+        $0.text = "123456"
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         $0.isSecureTextEntry = true
