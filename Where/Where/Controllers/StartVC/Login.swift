@@ -56,8 +56,12 @@ class Login: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
         title = "loginP".Localizable()
-        setUp()
+        setUpstackView()
+        setUpConstraint()
         
+    }
+    
+    func setUpConstraint() {
         view.addSubview(emailTF)
         NSLayoutConstraint.activate([
             emailTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -78,9 +82,8 @@ class Login: UIViewController {
     
         ])
         
+        
     }
-    
-    
     
     // MARK:- to login user 
     @objc func login() {
@@ -135,7 +138,7 @@ class Login: UIViewController {
         
     }
     
-    func setUp() {
+    func setUpstackView() {
         
         view.addSubview(stackView)
         stackView.addArrangedSubview(whereImg)

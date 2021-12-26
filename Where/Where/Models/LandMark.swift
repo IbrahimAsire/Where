@@ -11,7 +11,6 @@ class LandMark: Object {
     
 }
 
-
 class CommentUser: Object {
     @objc dynamic var comment: String = ""
 }

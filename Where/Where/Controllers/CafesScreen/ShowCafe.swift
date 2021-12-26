@@ -9,8 +9,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     var lat = 0.0
     var long = 0.0
     var titleCafe = ""
-    
-    
+
     var comments: [CommentCafe] = []
 
     let cellId = "CommentCell"
@@ -28,8 +27,6 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(lat)
-        print(long)
         
         CommentsService.shared.listenToComments { newComment in
             self.comments = newComment
@@ -38,6 +35,11 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         
         title = "Cafes".Localizable()
         view.backgroundColor = .white
+        setUpConstraint()
+        
+    }
+    
+    func setUpConstraint() {
         
         view.addSubview(cafeImg1)
         cafeImg1.translatesAutoresizingMaskIntoConstraints = false
@@ -135,7 +137,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5)
         ])
-        
+
     }
     
     @objc func addCommentTpd() {

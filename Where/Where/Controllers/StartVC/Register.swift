@@ -38,11 +38,13 @@ class Register: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        title = "Register Page"
-        setUp()
-
         view.backgroundColor = .secondarySystemBackground
-
+//        title = "Register Page"
+        setUpStackView()
+        setUpConstraint()
+    }
+    
+    func setUpConstraint() {
         containerV.backgroundColor = UIColor(named: "bgColor")
         containerV.layer.cornerRadius = 5
         containerV.layer.masksToBounds = true
@@ -212,7 +214,7 @@ class Register: UITableViewController {
 }
 
 extension Register {
-    func setUp() {
+    func setUpStackView() {
         
         view.addSubview(stackView)
         stackView.addArrangedSubview(whereImg)

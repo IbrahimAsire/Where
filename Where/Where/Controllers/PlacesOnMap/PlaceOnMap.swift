@@ -16,10 +16,7 @@ class PleacOnMap: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(lat)
-        print(long)
 
-         
         setUpMap()
         let initLoc = CLLocation(latitude: lat, longitude: long)
         setStartingLoc(location: initLoc, distance: 1000)
