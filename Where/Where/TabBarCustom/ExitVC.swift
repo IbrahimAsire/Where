@@ -78,7 +78,10 @@ class ExitVC: UIViewController {
     }
     
     @objc func signOutBtnTpd() {
-        present(Register(), animated: true, completion: nil)
+        let vc = Register()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
     }
 
 }

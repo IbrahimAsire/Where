@@ -64,26 +64,21 @@ class Login: UIViewController {
     
     func setUpConstraint() {
         view.addSubview(emailTF)
+        view.addSubview(passTF)
+        view.addSubview(loginBtn)
+
         NSLayoutConstraint.activate([
             emailTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 400),
-        ])
-        
-        view.addSubview(passTF)
-        NSLayoutConstraint.activate([
+            
             passTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            passTF.topAnchor.constraint(equalTo: emailTF.bottomAnchor, constant: 20)
-        ])
-        
-        view.addSubview(loginBtn)
-        NSLayoutConstraint.activate([
+            passTF.topAnchor.constraint(equalTo: emailTF.bottomAnchor, constant: 20),
+            
             loginBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginBtn.topAnchor.constraint(equalTo: passTF.bottomAnchor, constant: 40),
             loginBtn.widthAnchor.constraint(equalToConstant: 150)
-    
         ])
-        
-        
+    
     }
     
     // MARK:- to login user 

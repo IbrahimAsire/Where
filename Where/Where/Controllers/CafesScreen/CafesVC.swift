@@ -9,8 +9,12 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         view.backgroundColor = .systemBrown
+        setUpConstraint()
+        
+    }
+    
+    func setUpConstraint() {
         nameCafesLbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameCafesLbl)
         nameCafesLbl.text = "Cafes".Localizable()
@@ -49,8 +53,6 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        cell.imgCafe.image = UIImage(named: data.showImg)
        cell.imgCafe.clipsToBounds = true
        
-//       cell.nameCafe.text = data.title
-
        return cell
    }
 
@@ -58,7 +60,6 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        let data = detlCafe[indexPath.row]
 
        let nextVC = ShowCafe()
-       
        
        nextVC.cafeImg1.image = UIImage(named: data.img1)
        nextVC.cafeImg2.image = UIImage(named: data.img2)
@@ -84,11 +85,11 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        return UIEdgeInsets(top: 1, left: 0, bottom: 1, right: 0)
    }
 
-   func collectionView(_ collectionView: UICollectionView,
-                       layout collectionViewLayout: UICollectionViewLayout,
-                       minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-       return 2
-   }
+//   func collectionView(_ collectionView: UICollectionView,
+//                       layout collectionViewLayout: UICollectionViewLayout,
+//                       minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//       return 2
+//   }
 
 }
 

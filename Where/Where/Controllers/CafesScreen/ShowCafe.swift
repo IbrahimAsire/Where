@@ -85,7 +85,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         
         view.addSubview(mapBtn)
         mapBtn.translatesAutoresizingMaskIntoConstraints = false
-        mapBtn.setBackgroundImage(UIImage(systemName: "map"), for: .normal)
+        mapBtn.setBackgroundImage(UIImage(systemName: "mappin.and.ellipse"), for: .normal)
         mapBtn.tintColor = .lightGray
         mapBtn.addTarget(self, action: #selector(showLocation), for: .touchUpInside)
         NSLayoutConstraint.activate([

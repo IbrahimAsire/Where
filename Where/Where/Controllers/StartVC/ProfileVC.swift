@@ -68,14 +68,7 @@ class ProfileVC: UIViewController {
         fetchCurrentUser()
         
     }
-    
-    @objc func continueVC() {
-        let vc = UINavigationController(rootViewController: TabBarMain())
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: true, completion: nil)
-    }
-    
+
     func setUpLbls() {
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -120,7 +113,17 @@ class ProfileVC: UIViewController {
     }
     
     @objc func signOutBtnTpd() {
-        self.dismiss(animated: true, completion: nil)
+        let vc = Register()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func continueVC() {
+        let vc = UINavigationController(rootViewController: TabBarMain())
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
     }
 
     func setupImgPicker() {
