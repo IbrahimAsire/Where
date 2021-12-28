@@ -128,7 +128,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(CommentCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = .white
         tableView.rowHeight = 50
         NSLayoutConstraint.activate([
@@ -190,7 +190,6 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        as! CommentCell
 
         let note = comments[indexPath.row]
         cell.textLabel?.text = note.comment
@@ -199,8 +198,8 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    //MARK:- TableView Delegation function (Delete)
-    
+    // MARK:- TableView Delegation function (Delete)
+   
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }

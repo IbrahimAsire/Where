@@ -6,7 +6,7 @@ class AddComment: UIViewController, UITextViewDelegate {
     let commentTF = UITextView()
     let addButton = UIButton()
     
-    var comment: CommentCafe?
+//    var comment: CommentCafe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,11 +16,11 @@ class AddComment: UIViewController, UITextViewDelegate {
         
         setupNameNoteTF()
         setupAddNoteBtn()
-        commentTF.text = comment?.comment
+//        commentTF.text = comment?.comment
         
     }
     
-    private func setupNameNoteTF() {
+    func setupNameNoteTF() {
         commentTF.backgroundColor = .systemGray6
         commentTF.layer.cornerRadius = 5
         commentTF.clipsToBounds = true
@@ -36,7 +36,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         commentTF.heightAnchor.constraint(equalToConstant: 600).isActive = true
     }
     
-    private func setupAddNoteBtn() {
+    func setupAddNoteBtn() {
         
         addButton.layer.cornerRadius = 20
         addButton.layer.borderColor = UIColor.black.cgColor
