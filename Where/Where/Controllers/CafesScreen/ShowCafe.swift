@@ -212,6 +212,7 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        let note = comments[indexPath.row]
 //

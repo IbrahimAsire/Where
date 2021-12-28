@@ -4,7 +4,7 @@ import RealmSwift
 import CoreLocation
 import MapKit
 
-class PlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate {
+class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     let realm = try! Realm()
 

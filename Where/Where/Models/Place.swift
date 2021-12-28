@@ -7,7 +7,6 @@ class Place {
     var landMarks: Results<LandMark>!
     var userLat: Double = 0
     var userLong: Double = 0
-    
     private init() {}
     
 }

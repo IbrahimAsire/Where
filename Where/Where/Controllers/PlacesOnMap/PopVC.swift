@@ -33,7 +33,7 @@ class PopVC: UIViewController {
         
         view.addSubview(nameTF)
         nameTF.translatesAutoresizingMaskIntoConstraints = false
-        nameTF.placeholder = "Name Places"
+        nameTF.placeholder = "Name Of Place".Localizable()
         nameTF.backgroundColor = .secondarySystemBackground
         NSLayoutConstraint.activate([
             nameTF.topAnchor.constraint(equalTo: continar.topAnchor, constant: 50),

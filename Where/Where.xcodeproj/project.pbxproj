@@ -36,7 +36,7 @@
 		0F9A250E275259E7003CFF71 /* ShowCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A250D275259E7003CFF71 /* ShowCafe.swift */; };
 		0F9A251427529640003CFF71 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A251227529640003CFF71 /* PopVC.swift */; };
 		0FA14CC9277AE1E200037EDC /* Trying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA14CC8277AE1E200037EDC /* Trying.swift */; };
-		0FCE833A274D6F3300F4C1BF /* PlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE8339274D6F3200F4C1BF /* PlacesVC.swift */; };
+		0FCE833A274D6F3300F4C1BF /* NewPlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCE8339274D6F3200F4C1BF /* NewPlacesVC.swift */; };
 		0FDC9DB7274F6A05001A1E12 /* TabBarMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC9DB6274F6A05001A1E12 /* TabBarMain.swift */; };
 		0FDC9DBC274F82CB001A1E12 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDC9DBB274F82CB001A1E12 /* ProfileVC.swift */; };
 		1492ADBD2B879F801A5A9058 /* Pods_Where.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9982247CE0FCCAB53BDEA225 /* Pods_Where.framework */; };
@@ -76,7 +76,7 @@
 		0F9A250D275259E7003CFF71 /* ShowCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCafe.swift; sourceTree = "<group>"; };
 		0F9A251227529640003CFF71 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		0FA14CC8277AE1E200037EDC /* Trying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trying.swift; sourceTree = "<group>"; };
-		0FCE8339274D6F3200F4C1BF /* PlacesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesVC.swift; sourceTree = "<group>"; };
+		0FCE8339274D6F3200F4C1BF /* NewPlacesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlacesVC.swift; sourceTree = "<group>"; };
 		0FDC9DB6274F6A05001A1E12 /* TabBarMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarMain.swift; sourceTree = "<group>"; };
 		0FDC9DBB274F82CB001A1E12 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		20C18E22520CAC51AD5E6097 /* Pods-Where.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Where.release.xcconfig"; path = "Target Support Files/Pods-Where/Pods-Where.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,7 +134,7 @@
 				0F65463D27539C4D00CB6DA8 /* PlaceOnMap.swift */,
 				0F6B6C8B274CD9BF00A6CE65 /* MapVC.swift */,
 				0F9A251227529640003CFF71 /* PopVC.swift */,
-				0FCE8339274D6F3200F4C1BF /* PlacesVC.swift */,
+				0FCE8339274D6F3200F4C1BF /* NewPlacesVC.swift */,
 			);
 			path = PlacesOnMap;
 			sourceTree = "<group>";
@@ -384,7 +384,7 @@
 				0F9A251427529640003CFF71 /* PopVC.swift in Sources */,
 				0F6B6C8C274CD9BF00A6CE65 /* MapVC.swift in Sources */,
 				0F6B8CB22755294F00EDA73E /* LandMark.swift in Sources */,
-				0FCE833A274D6F3300F4C1BF /* PlacesVC.swift in Sources */,
+				0FCE833A274D6F3300F4C1BF /* NewPlacesVC.swift in Sources */,
 				0F4EF034275019980041479D /* CafesVC.swift in Sources */,
 				0F6B6C88274CD9BF00A6CE65 /* AppDelegate.swift in Sources */,
 				0F4EF03627501F910041479D /* Cafe.swift in Sources */,

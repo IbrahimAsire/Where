@@ -183,7 +183,7 @@ class Register: UITableViewController {
         navigationController?.pushViewController(Login(), animated: true)
     }
     
-    // MARK:- to register a new user and save the info for database
+    // MARK: - to register a new user and save the info for database
     @objc func register(){
         if let email = emailTF.text, email.isEmpty == false,
            let password = passTf.text, password.isEmpty == false {
@@ -236,7 +236,7 @@ extension Register {
     }
 }
 
-// MARK:- to Localizable 
+// MARK: - to Localizable 
 extension String {
 
     func Localizable() -> String {
