@@ -1,7 +1,7 @@
 
 import UIKit
 
-class ExitVC: UIViewController {
+class ExitVC: UIViewController{
     
     var appURL = URL(string: "https://itunes.apple.com/app/")!
 
@@ -11,7 +11,7 @@ class ExitVC: UIViewController {
     let outBTn = UIButton()
     
     let writeReviewBtn: UIButton = {
-        $0.setTitle("Sign out".Localizable(), for: .normal)
+        $0.setTitle("Write Review".Localizable(), for: .normal)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.addTarget(self, action: #selector(writeReview), for: .touchUpInside)
         return $0
@@ -19,7 +19,7 @@ class ExitVC: UIViewController {
     
     let shareBtn: UIButton = {
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.setTitle("Continue".Localizable(), for: .normal)
+        $0.setTitle("Share".Localizable(), for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.addTarget(self, action: #selector(share), for: .touchUpInside)
         return $0
@@ -30,6 +30,7 @@ class ExitVC: UIViewController {
         view.backgroundColor = .systemBrown
         setUp()
         setupStackView()
+        textTF.delegate = self
 
     }
     
@@ -48,6 +49,7 @@ class ExitVC: UIViewController {
         textTF.translatesAutoresizingMaskIntoConstraints = false
         textTF.placeholder = "Write your opinion about App"
         textTF.borderStyle = .roundedRect
+        textTF.returnKeyType = .search
         NSLayoutConstraint.activate([
             textTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             textTF.topAnchor.constraint(equalTo: emojiLbl.bottomAnchor, constant: 40),
@@ -78,7 +80,7 @@ class ExitVC: UIViewController {
         ])
     }
     
-    private func setupStackView() {
+    func setupStackView() {
         
         let stackView = UIStackView(arrangedSubviews: [writeReviewBtn, shareBtn])
         stackView.backgroundColor = .systemBrown.withAlphaComponent(0.9)
@@ -116,7 +118,6 @@ class ExitVC: UIViewController {
       present(activityViewController, animated: true, completion: nil)
     }
   
-    
     @objc func classifyTpd() {
         let textClassifier = TextClassifier()
         
@@ -141,5 +142,25 @@ class ExitVC: UIViewController {
         present(vc, animated: true, completion: nil)
     }
 
+}
+
+// MARK: - If press a button enter
+extension ExitVC: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        let textClassifier = TextClassifier()
+        let prediction = try! textClassifier.prediction(text: textTF.text!)
+        print(prediction.label)
+        
+        switch prediction.label {
+        case "Positive":
+            emojiLbl.text = "😊"
+        case "Negative":
+            emojiLbl.text = "😔"
+        default:
+            emojiLbl.text = "🤨"
+        }
+        return true
+    }
 }
 

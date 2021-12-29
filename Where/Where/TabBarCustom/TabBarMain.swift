@@ -11,7 +11,7 @@ class TabBarMain: UITabBarController {
         viewControllers = [
             barItem(tabBarTitle: "Cafes".Localizable(), tabBarImage: UIImage(systemName: "cup.and.saucer.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: CafesVC()),
             
-            barItem(tabBarTitle: "Map".Localizable(), tabBarImage: UIImage(systemName: "map.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: MapVC()),
+            barItem(tabBarTitle: "Add a place".Localizable(), tabBarImage: UIImage(systemName: "plus.message.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: MapVC()),
             
             barItem(tabBarTitle: "New Places".Localizable(), tabBarImage: UIImage(systemName: "house")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: NewPlacesVC()),
             
@@ -24,7 +24,8 @@ class TabBarMain: UITabBarController {
         tabBar.backgroundColor = .systemBrown
         tabBar.isTranslucent = false
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
-        tabBar.unselectedItemTintColor = .white
+        tabBar.unselectedItemTintColor = UIColor(#colorLiteral(red: 0.2403967083, green: 0.1442204118, blue: 0.02279633656, alpha: 1))
+        selectedIndex = 0
         selectedIndex = 0
     }
     

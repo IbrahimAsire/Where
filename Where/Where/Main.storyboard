@@ -19,8 +19,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DZf-dk-Gpr">
                                 <rect key="frame" x="113" y="381" width="170" height="139"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.17871830590000001" green="0.4126127577" blue="0.3779420235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="return" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus.message.fill" catalog="system"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A0F-LO-t08"/>
@@ -33,7 +34,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="return" catalog="system" width="128" height="101"/>
+        <image name="plus.message.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
