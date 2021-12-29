@@ -15,7 +15,11 @@ class PopVC: UIViewController {
         super.loadView()
         view.backgroundColor = .systemGray
         view.alpha = 0.75
+        setUpConst()
         
+    }
+    
+    func setUpConst() {
         view.addSubview(continar)
         continar.translatesAutoresizingMaskIntoConstraints = false
         continar.backgroundColor = .darkGray
@@ -64,8 +68,8 @@ class PopVC: UIViewController {
             saveBtn.centerXAnchor.constraint(equalTo: continar.centerXAnchor),
             saveBtn.widthAnchor.constraint(equalToConstant: 100)
         ])
-        
     }
+    
     @objc func saveTbd() {
         print("saving")
         dismiss(animated: true, completion: nil)

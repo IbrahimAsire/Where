@@ -48,7 +48,7 @@ class PleacOnMap: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    // MARK:- To select an region on the map for the location ..
+    // MARK: - To select an region on the map for the location ..
     func setStartingLoc(location: CLLocation, distance: CLLocationDistance) {
         
         let region = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: distance, longitudinalMeters: distance)
@@ -61,7 +61,7 @@ class PleacOnMap: UIViewController {
         mapV.setCameraZoomRange(zoomRange, animated: true)
     }
     
-    // MARK:- To display a pin on the map
+    // MARK: - To display a pin on the map
     func addAnnotation() {
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)

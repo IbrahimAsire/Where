@@ -27,13 +27,11 @@ struct NewsApi {
                 }catch {
                     print(error)
                 }
-                
+
             }
             
         }
         task.resume()
-        
     }
-    
     
 }

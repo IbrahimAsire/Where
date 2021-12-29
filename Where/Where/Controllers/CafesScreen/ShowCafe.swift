@@ -19,7 +19,6 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     lazy var nameCafe = UILabel()
     lazy var detlCafe = UILabel()
     lazy var mapBtn = UIButton()
-    lazy var titComment = UILabel()
     lazy var addComment = UIButton()
     lazy var tableView = UITableView()
     lazy var returnBtn = UIButton()
@@ -66,8 +65,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
 
         view.addSubview(nameCafe)
         nameCafe.translatesAutoresizingMaskIntoConstraints = false
-        nameCafe.textColor = .gray
-        nameCafe.font = .systemFont(ofSize: 15)
+        nameCafe.font = .boldSystemFont(ofSize: 20)
         NSLayoutConstraint.activate([
            nameCafe.topAnchor.constraint(equalTo: cafeImg1.bottomAnchor, constant: 5),
             nameCafe.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5)
@@ -75,7 +73,8 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
 
         view.addSubview(detlCafe)
         detlCafe.translatesAutoresizingMaskIntoConstraints = false
-        detlCafe.font = .boldSystemFont(ofSize: 20)
+        detlCafe.textColor = .gray
+        detlCafe.font = .boldSystemFont(ofSize: 15)
         detlCafe.numberOfLines = 0
         NSLayoutConstraint.activate([
            detlCafe.topAnchor.constraint(equalTo: nameCafe.bottomAnchor, constant: 8),
@@ -89,9 +88,9 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         mapBtn.tintColor = .lightGray
         mapBtn.addTarget(self, action: #selector(showLocation), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            mapBtn.topAnchor.constraint(equalTo: cafeImg2.bottomAnchor, constant: 25),
-            mapBtn.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 25),
-            mapBtn.widthAnchor.constraint(equalTo: mapBtn.widthAnchor)
+            mapBtn.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 20),
+            mapBtn.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -15),
+//            mapBtn.widthAnchor.constraint(equalTo: mapBtn.widthAnchor)
         ])
         
         view.addSubview(contactBtn)
@@ -99,18 +98,9 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         contactBtn.setImage(UIImage(systemName: "contextualmenu.and.cursorarrow"), for: .normal)
         contactBtn.addTarget(self, action: #selector(contactTbd), for: .touchUpInside)
         NSLayoutConstraint.activate([
-            contactBtn.topAnchor.constraint(equalTo: mapBtn.bottomAnchor, constant: 10),
-            contactBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 25)
+            contactBtn.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 18),
+            contactBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -60)
         
-        ])
-    
-        view.addSubview(titComment)
-        titComment.translatesAutoresizingMaskIntoConstraints = false
-        titComment.text = "Comments".Localizable()
-        titComment.textColor = .systemBlue
-        NSLayoutConstraint.activate([
-            titComment.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 20),
-            titComment.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -15)
         ])
 
         view.addSubview(addComment)
