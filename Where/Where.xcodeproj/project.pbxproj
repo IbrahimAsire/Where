@@ -33,6 +33,7 @@
 		0F7DDC8F274E15C50047D854 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7DDC8E274E15C50047D854 /* Register.swift */; };
 		0F7F5C3E274D164F00AD7ABC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0F7F5C3D274D164F00AD7ABC /* GoogleService-Info.plist */; };
 		0F81F29D274E99A7007A21A4 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F81F29C274E99A7007A21A4 /* Login.swift */; };
+		0F830DA0277D8DDF0055F5D9 /* StorePhoto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0F830D9E277D8DDF0055F5D9 /* StorePhoto.xcdatamodeld */; };
 		0F9A250E275259E7003CFF71 /* ShowCafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A250D275259E7003CFF71 /* ShowCafe.swift */; };
 		0F9A251427529640003CFF71 /* PopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9A251227529640003CFF71 /* PopVC.swift */; };
 		0FA14CC9277AE1E200037EDC /* Trying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA14CC8277AE1E200037EDC /* Trying.swift */; };
@@ -73,6 +74,7 @@
 		0F7DDC8E274E15C50047D854 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		0F7F5C3D274D164F00AD7ABC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0F81F29C274E99A7007A21A4 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		0F830D9F277D8DDF0055F5D9 /* StorePhoto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StorePhoto.xcdatamodel; sourceTree = "<group>"; };
 		0F9A250D275259E7003CFF71 /* ShowCafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCafe.swift; sourceTree = "<group>"; };
 		0F9A251227529640003CFF71 /* PopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopVC.swift; sourceTree = "<group>"; };
 		0FA14CC8277AE1E200037EDC /* Trying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trying.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				0F6B6C87274CD9BF00A6CE65 /* AppDelegate.swift */,
 				0F6B6C89274CD9BF00A6CE65 /* SceneDelegate.swift */,
 				0F78BBE1276F6E1C0018B393 /* TextClassifier.mlmodel */,
+				0F830D9E277D8DDF0055F5D9 /* StorePhoto.xcdatamodeld */,
 				0F6B6C90274CD9C300A6CE65 /* Assets.xcassets */,
 				0F6B6C92274CD9C300A6CE65 /* LaunchScreen.storyboard */,
 				0F314C472763F82F00D6CAB9 /* Main.storyboard */,
@@ -389,6 +392,7 @@
 				0F6B6C88274CD9BF00A6CE65 /* AppDelegate.swift in Sources */,
 				0F4EF03627501F910041479D /* Cafe.swift in Sources */,
 				0F65463E27539C4D00CB6DA8 /* PlaceOnMap.swift in Sources */,
+				0F830DA0277D8DDF0055F5D9 /* StorePhoto.xcdatamodeld in Sources */,
 				0F78BBE2276F6E1C0018B393 /* TextClassifier.mlmodel in Sources */,
 				0F763D402752CF7A00DC3019 /* AddComment.swift in Sources */,
 				0F9A250E275259E7003CFF71 /* ShowCafe.swift in Sources */,
@@ -635,6 +639,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0F830D9E277D8DDF0055F5D9 /* StorePhoto.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0F830D9F277D8DDF0055F5D9 /* StorePhoto.xcdatamodel */,
+			);
+			currentVersion = 0F830D9F277D8DDF0055F5D9 /* StorePhoto.xcdatamodel */;
+			path = StorePhoto.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 0F6B6C7C274CD9BF00A6CE65 /* Project object */;
 }

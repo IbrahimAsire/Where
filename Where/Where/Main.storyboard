@@ -23,6 +23,10 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="plus.message.fill" catalog="system"/>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cangro" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-rk-yr3">
+                                <rect key="frame" x="78" y="99" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="A0F-LO-t08"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -34,6 +38,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cangro" width="1242" height="1655"/>
         <image name="plus.message.fill" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
