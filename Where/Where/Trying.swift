@@ -8,11 +8,10 @@
 import UIKit
 
 class One: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+        
     let tableView: UITableView = {
         $0.register(SPCell.self, forCellReuseIdentifier: "SPCell")
         $0.rowHeight = 280
-        
         return $0
     }(UITableView())
     
@@ -105,24 +104,135 @@ class SPCell: UITableViewCell {
     
 }
 
-
 class AddTime: UIViewController {
     
+    let dataArr = ["1", "2", "3", "4", "5", "6"]
+    
+    let itemTF = UITextField()
+    var imgItem = UIImageView()
+    let pressBtn = UIButton()
+    let picker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
+        let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Add Store", style: .done, target: self, action: #selector(addStore))
+        let addStore = UIBarButtonItem(title: "Add Store", style: .done, target: self, action: #selector(addStore))
+        
+        navigationItem.rightBarButtonItems = [save, addStore]
+        
+        
+        setUpConst()
+        
+    }
+    
+    func setUpConst() {
+        
+        view.addSubview(itemTF)
+        itemTF.translatesAutoresizingMaskIntoConstraints = false
+        itemTF.placeholder = "item name"
+        itemTF.borderStyle = .roundedRect
+        NSLayoutConstraint.activate([
+            itemTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 127.5),
+            itemTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            itemTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
+        ])
+        
+        view.addSubview(imgItem)
+        imgItem.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            imgItem.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
+            imgItem.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            imgItem.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+            imgItem.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        view.addSubview(pressBtn)
+        pressBtn.translatesAutoresizingMaskIntoConstraints = false
+        pressBtn.backgroundColor = .purple
+        NSLayoutConstraint.activate([
+            pressBtn.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
+            pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            pressBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+            pressBtn.heightAnchor.constraint(equalToConstant: 200)
+        ])
+        
+        view.addSubview(picker)
+        picker.translatesAutoresizingMaskIntoConstraints = false
+        picker.dataSource = self
+        picker.delegate = self
+        NSLayoutConstraint.activate([
+            picker.topAnchor.constraint(equalTo: imgItem.bottomAnchor, constant: 30),
+            picker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+        ])
+        
     }
     
     @objc func saveTpd() {
+        print("1")
         
     }
     
     @objc func addStore() {
+        navigationController?.pushViewController(AddStore(), animated: true)
         
     }
     
+}
+
+extension AddTime: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return dataArr.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+       let row = dataArr[row]
+       return row
+    }
+    
+    
+}
+
+
+class AddStore: UIViewController {
+        
+    let storeTF = UITextField()
+    let pressBtn = UIButton()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .white
+        setUpConst()
+        
+    }
+    
+    func setUpConst() {
+        view.addSubview(storeTF)
+        storeTF.translatesAutoresizingMaskIntoConstraints = false
+        storeTF.placeholder = "store name"
+        storeTF.borderStyle = .roundedRect
+        NSLayoutConstraint.activate([
+            storeTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),
+            storeTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+            storeTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
+        ])
+        
+        view.addSubview(pressBtn)
+        pressBtn.translatesAutoresizingMaskIntoConstraints = false
+        pressBtn.setTitle("Save".Localizable(), for: .normal)
+        pressBtn.setTitleColor(.systemBlue, for: .normal)
+        NSLayoutConstraint.activate([
+            pressBtn.topAnchor.constraint(equalTo: storeTF.bottomAnchor, constant: 120),
+            pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)
+        ])
+        
+    }
 }
