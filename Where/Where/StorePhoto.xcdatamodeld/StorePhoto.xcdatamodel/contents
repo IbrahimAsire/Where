@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19206" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Entity" representedClassName="Entity" syncable="YES" codeGenerationType="class"/>
     <entity name="Items" representedClassName="Items" syncable="YES" codeGenerationType="class">
         <attribute name="data_add" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Transformable"/>
@@ -11,7 +12,8 @@
         <relationship name="toItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Items" inverseName="toStore" inverseEntity="Items"/>
     </entity>
     <elements>
-        <element name="StoreType" positionX="-313.60546875" positionY="-41.94140625" width="128" height="73"/>
         <element name="Items" positionX="-54" positionY="0" width="128" height="103"/>
+        <element name="StoreType" positionX="-313.60546875" positionY="-41.94140625" width="128" height="73"/>
+        <element name="Entity" positionX="-309.484375" positionY="85.38671875" width="128" height="43"/>
     </elements>
 </model>

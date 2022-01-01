@@ -104,14 +104,17 @@ class SPCell: UITableViewCell {
     
 }
 
+import CoreData
+
 class AddTime: UIViewController {
     
     let dataArr = ["1", "2", "3", "4", "5", "6"]
+    var listStore = [StoreType]()
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
     let pressBtn = UIButton()
-    let picker = UIPickerView()
+    let pickerStore = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -125,6 +128,7 @@ class AddTime: UIViewController {
         
         
         setUpConst()
+        loadStores()
         
     }
     
@@ -142,6 +146,8 @@ class AddTime: UIViewController {
         
         view.addSubview(imgItem)
         imgItem.translatesAutoresizingMaskIntoConstraints = false
+        imgItem.image = UIImage(named: "load")
+        imgItem.contentMode = .scaleAspectFit
         NSLayoutConstraint.activate([
             imgItem.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
             imgItem.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
@@ -151,7 +157,7 @@ class AddTime: UIViewController {
         
         view.addSubview(pressBtn)
         pressBtn.translatesAutoresizingMaskIntoConstraints = false
-        pressBtn.backgroundColor = .purple
+        pressBtn.addTarget(self, action: #selector(selectImgTpd), for: .touchUpInside)
         NSLayoutConstraint.activate([
             pressBtn.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
             pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
@@ -159,13 +165,13 @@ class AddTime: UIViewController {
             pressBtn.heightAnchor.constraint(equalToConstant: 200)
         ])
         
-        view.addSubview(picker)
-        picker.translatesAutoresizingMaskIntoConstraints = false
-        picker.dataSource = self
-        picker.delegate = self
+        view.addSubview(pickerStore)
+        pickerStore.translatesAutoresizingMaskIntoConstraints = false
+        pickerStore.dataSource = self
+        pickerStore.delegate = self
         NSLayoutConstraint.activate([
-            picker.topAnchor.constraint(equalTo: imgItem.bottomAnchor, constant: 30),
-            picker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pickerStore.topAnchor.constraint(equalTo: imgItem.bottomAnchor, constant: 30),
+            pickerStore.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
         
     }
@@ -180,24 +186,37 @@ class AddTime: UIViewController {
         
     }
     
+    @objc func selectImgTpd(){
+        print("selected")
+        
+    }
+    
 }
 
+// MARK: - impleent for store pick
 extension AddTime: UIPickerViewDelegate, UIPickerViewDataSource {
     
+    func loadStores() {
+        let fecthReq: NSFetchRequest < StoreType > = StoreType.fetchRequest()
+        do {
+            listStore = try context.fetch(fecthReq)
+        }catch {
+            
+        }
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return dataArr.count
+        return listStore.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       let row = dataArr[row]
-       return row
+       let store = listStore[row]
+        return store.name
     }
-    
     
 }
 
@@ -229,10 +248,25 @@ class AddStore: UIViewController {
         pressBtn.translatesAutoresizingMaskIntoConstraints = false
         pressBtn.setTitle("Save".Localizable(), for: .normal)
         pressBtn.setTitleColor(.systemBlue, for: .normal)
+        pressBtn.addTarget(self, action: #selector(saveTpd), for: .touchUpInside)
         NSLayoutConstraint.activate([
             pressBtn.topAnchor.constraint(equalTo: storeTF.bottomAnchor, constant: 120),
             pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30)
         ])
         
     }
+    
+    @objc func saveTpd() {
+        let store = StoreType(context: context)
+        store.name = storeTF.text
+        do {
+            ad.saveContext()
+            storeTF.text = ""
+            print("saved")
+        }catch {
+            print("cannot save")
+        }
+    }
 }
+
+
