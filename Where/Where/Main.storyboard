@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.17871830590000001" green="0.4126127577" blue="0.3779420235" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus.message.fill" catalog="system"/>
+                                <buttonConfiguration key="configuration" style="plain" image="photo.artframe" catalog="system"/>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cangro" translatesAutoresizingMaskIntoConstraints="NO" id="xlF-rk-yr3">
                                 <rect key="frame" x="78" y="99" width="240" height="128"/>
@@ -43,7 +43,7 @@
     </scenes>
     <resources>
         <image name="cangro" width="1242" height="1655"/>
-        <image name="plus.message.fill" catalog="system" width="128" height="113"/>
+        <image name="photo.artframe" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -49,9 +49,9 @@ class StorePhoto: UIViewController, UITableViewDataSource, UITableViewDelegate, 
         
     }
     
-//    func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-//    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let sections = controller.sections {
@@ -99,11 +99,11 @@ class StorePhoto: UIViewController, UITableViewDataSource, UITableViewDelegate, 
     }
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
+        tableView.reloadData()
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
+        tableView.reloadData()
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -186,7 +186,7 @@ class SPCell: UITableViewCell {
         // convert date to String
         let dateFormat = DateFormatter()
         dateFormat.dateFormat = "MM/DD/yy h:mm a"
-//        dateLbl.text = dateFormat.string(from: item.date_add as! Date)
+        dateLbl.text = dateFormat.string(from: item.date_add as! Date)
     }
     
     required init?(coder: NSCoder) {
@@ -212,7 +212,6 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         view.backgroundColor = .white
         imgPicker = UIImagePickerController()
         imgPicker.delegate = self
-        
         
         let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
         let addStore = UIBarButtonItem(title: "Add Store", style: .done, target: self, action: #selector(addStore))
