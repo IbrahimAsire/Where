@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
-class One: UIViewController, UITableViewDataSource, UITableViewDelegate {
-        
+class StorePhoto: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+     
+    var controller = NSFetchedResultsController<Items>()
+    
     let tableView: UITableView = {
         $0.register(SPCell.self, forCellReuseIdentifier: "SPCell")
         $0.rowHeight = 280
@@ -19,12 +22,15 @@ class One: UIViewController, UITableViewDataSource, UITableViewDelegate {
         super.viewDidLoad()
         view.backgroundColor = .white
         tableView.dataSource = self
+        tableView.delegate = self
         
 //        title = "List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(Add))
+        
+        loadItems()
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -39,30 +45,106 @@ class One: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func Add() {
-        navigationController?.pushViewController(AddTime(), animated: true)
+        navigationController?.pushViewController(AddItem(), animated: true)
         
     }
     
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let sections = controller.sections {
+            let sectioInfo = sections[section]
+            return sectioInfo.numberOfObjects
+        }
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SPCell", for: indexPath) as! SPCell
         
-        cell.backgroundColor = .purple
+        configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = AddItem()
+        if let objc = controller.fetchedObjects {
+            let item = objc[indexPath.row]
+            vc.editOrDelete = item
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    func configureCell(cell: SPCell, indexPath: NSIndexPath) {
+        let singleItem = controller.object(at: indexPath as IndexPath)
+        cell.setCell(item: singleItem)
+    }
+    
+    func loadItems() {
+        let fetchRequest: NSFetchRequest<Items> = Items.fetchRequest()
+        let dateAddSort = NSSortDescriptor(key: "date_add", ascending: false)
+        fetchRequest.sortDescriptors = [dateAddSort]
+        controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        controller.delegate = self
+        do {
+            try controller.performFetch()
+        }catch {
+            print("Error")
+        }
+        
+    }
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        // data fetch
+        switch(type) {
+            
+        case.insert:
+            if let indexPath = indexPath {
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break
+        case.delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            break
+        case.update:
+            if let indexPath = indexPath {
+                let cell = tableView.cellForRow(at: indexPath) as! SPCell
+                configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
+            }
+            break
+        case.move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            if let indexPath = indexPath {
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break
+        }
     }
     
 }
 
 class SPCell: UITableViewCell {
     
-    lazy var storeNameLbl = UILabel()
-    lazy var dateLbl = UILabel()
-    lazy var imgStore = UIImageView()
-    lazy var itemNameLbl = UILabel()
+    var storeNameLbl = UILabel()
+    var dateLbl = UILabel()
+    var imgStore = UIImageView()
+    var itemNameLbl = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -81,7 +163,6 @@ class SPCell: UITableViewCell {
         itemNameLbl.translatesAutoresizingMaskIntoConstraints = false
         itemNameLbl.text = "itemName"
         
-        
         NSLayoutConstraint.activate([
             storeNameLbl.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             storeNameLbl.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
@@ -98,37 +179,52 @@ class SPCell: UITableViewCell {
         
     }
     
+    func setCell(item: Items) {
+        storeNameLbl.text = item.item_name
+        imgStore.image = item.image as? UIImage
+        itemNameLbl.text = item.toStore?.name
+        // convert date to String
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "MM/DD/yy h:mm a"
+//        dateLbl.text = dateFormat.string(from: item.date_add as! Date)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
 }
 
-import CoreData
 
-class AddTime: UIViewController {
+class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
-    let dataArr = ["1", "2", "3", "4", "5", "6"]
     var listStore = [StoreType]()
+    var editOrDelete: Items?
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
     let pressBtn = UIButton()
     let pickerStore = UIPickerView()
+    var imgPicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        imgPicker = UIImagePickerController()
+        imgPicker.delegate = self
+        
         
         let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
-        
         let addStore = UIBarButtonItem(title: "Add Store", style: .done, target: self, action: #selector(addStore))
+        let deleteItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteTpd))
         
-        navigationItem.rightBarButtonItems = [save, addStore]
-        
+        navigationItem.rightBarButtonItems = [save, addStore, deleteItem]
         
         setUpConst()
         loadStores()
+        if editOrDelete != nil {
+            loadForEdit()
+        }
         
     }
     
@@ -178,6 +274,23 @@ class AddTime: UIViewController {
     
     @objc func saveTpd() {
         print("1")
+        let newItem: Items!
+        if editOrDelete == nil {
+            newItem = Items(context: context)
+        }else {
+            newItem = editOrDelete
+        }
+        newItem.item_name = itemTF.text
+        newItem.date_add = Date()
+        newItem.image = imgItem.image
+        newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
+        do {
+            ad.saveContext()
+            itemTF.text = ""
+            print("saved")
+        }catch {
+            print("Error")
+        }
         
     }
     
@@ -186,18 +299,57 @@ class AddTime: UIViewController {
         
     }
     
-    @objc func selectImgTpd(){
-        print("selected")
+    @objc func deleteTpd() {
+        if editOrDelete != nil {
+            context.delete(editOrDelete!)
+            ad.saveContext()
+            _ = navigationController?.popViewController(animated: true)
+            dismiss(animated: true)
+        }
         
     }
+    
+    func loadForEdit() {
+        if let item = editOrDelete {
+            itemTF.text = item.item_name
+            imgItem.image = item.image as? UIImage
+            
+            if let store = item.toStore {
+                var index = 0
+                while index < listStore.count {
+                    let row = listStore[index]
+                    if row.name == store.name {
+                        pickerStore.selectRow(index, inComponent: 0, animated: false)
+                    }
+                    index += 1
+                }
+            }
+        }
+        
+    }
+    
+    // implment image picker
+    @objc func selectImgTpd(){
+        print("selected")
+        present(imgPicker, animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            imgItem.image = image
+        }
+        imgPicker.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 
 // MARK: - impleent for store pick
-extension AddTime: UIPickerViewDelegate, UIPickerViewDataSource {
+extension AddItem: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func loadStores() {
-        let fecthReq: NSFetchRequest < StoreType > = StoreType.fetchRequest()
+        let fecthReq: NSFetchRequest <StoreType> = StoreType.fetchRequest()
         do {
             listStore = try context.fetch(fecthReq)
         }catch {
