@@ -5,7 +5,7 @@ In order for the application to work well, the following libraries must be downl
 'Firebase/Firestore'،
 'Firebase/Storage'،
 'GooglePlaces' and
-'RealmSwift'
+'RealmSwift.
 It has not been uploaded them because a larger size than allowed.**
 
 ## Describtion :
