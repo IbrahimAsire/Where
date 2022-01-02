@@ -16,7 +16,7 @@ class PopVC: UIViewController {
         view.backgroundColor = .systemGray
         view.alpha = 0.75
         setUpConst()
-        
+
     }
     
     func setUpConst() {

@@ -3,7 +3,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapVC: UIViewController, UISearchResultsUpdating {
+class AddNewPlace: UIViewController, UISearchResultsUpdating {
     lazy var locationMng = CLLocationManager()
 
     lazy var mapView = MKMapView()
@@ -49,7 +49,7 @@ class MapVC: UIViewController, UISearchResultsUpdating {
     }
 }
 
-extension MapVC: CLLocationManagerDelegate {
+extension AddNewPlace: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last

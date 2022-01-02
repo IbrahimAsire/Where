@@ -2,7 +2,6 @@
 import Foundation
 import UIKit
 
-
 class TabBarMain: UITabBarController {
     
     override func viewDidLoad() {
@@ -11,15 +10,15 @@ class TabBarMain: UITabBarController {
         viewControllers = [
             barItem(tabBarTitle: "Cafes".Localizable(), tabBarImage: UIImage(systemName: "cup.and.saucer.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: CafesVC()),
             
-            barItem(tabBarTitle: "Add a place".Localizable(), tabBarImage: UIImage(systemName: "plus.message.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: MapVC()),
-            
             barItem(tabBarTitle: "New Places".Localizable(), tabBarImage: UIImage(systemName: "house")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: NewPlacesVC()),
             
-            barItem(tabBarTitle: "News".Localizable(), tabBarImage: UIImage(systemName: "newspaper")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: News()),
+            barItem(tabBarTitle: "Photo Store".Localizable(), tabBarImage: UIImage(systemName: "photo.artframe")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: PhotoStoreVC()),
             
             barItem(tabBarTitle: "Exit".Localizable(), tabBarImage: UIImage(systemName: "pip.exit")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: ExitVC()),
             
-            barItem(tabBarTitle: "Photo Store".Localizable(), tabBarImage: UIImage(systemName: "photo.artframe")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: StorePhoto())
+            barItem(tabBarTitle: "News".Localizable(), tabBarImage: UIImage(systemName: "newspaper")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: News()),
+            
+            barItem(tabBarTitle: "Add a place".Localizable(), tabBarImage: UIImage(systemName: "plus.message.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: AddNewPlace()),
 
         ]
         
