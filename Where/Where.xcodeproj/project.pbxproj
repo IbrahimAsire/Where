@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F1D25672782D2190091DF65 /* NewPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D25662782D2190091DF65 /* NewPlaces.swift */; };
 		0F314C462763F1DA00D6CAB9 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */; };
 		0F314C482763F82F00D6CAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F314C472763F82F00D6CAB9 /* Main.storyboard */; };
 		0F314C4C2763F95000D6CAB9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F314C4E2763F95000D6CAB9 /* Localizable.strings */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F1D25662782D2190091DF65 /* NewPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaces.swift; sourceTree = "<group>"; };
 		0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		0F314C472763F82F00D6CAB9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0F314C492763F8E600D6CAB9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				0F697D50275C244D00AD3BD4 /* Comments.swift */,
+				0F1D25662782D2190091DF65 /* NewPlaces.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				0F78BBE2276F6E1C0018B393 /* TextClassifier.mlmodel in Sources */,
 				0F763D402752CF7A00DC3019 /* AddComment.swift in Sources */,
 				0F9A250E275259E7003CFF71 /* ShowCafe.swift in Sources */,
+				0F1D25672782D2190091DF65 /* NewPlaces.swift in Sources */,
 				0F56BDCD276785320065BEE1 /* ShowNews.swift in Sources */,
 				0F4EF03927502A8D0041479D /* CafesCell.swift in Sources */,
 				0F6B6C8A274CD9BF00A6CE65 /* SceneDelegate.swift in Sources */,

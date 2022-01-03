@@ -17,3 +17,13 @@ class Comment {
     
     }
 
+struct NewPlace {
+    let id: String
+    var namePlace: String
+    var descPlace: String
+    var time: Date = Date()
+    var userLat: Double
+    var userLong: Double
+    
+}
+
