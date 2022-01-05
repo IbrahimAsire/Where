@@ -53,7 +53,6 @@ class AddComment: UIViewController, UITextViewDelegate {
         addButton.heightAnchor.constraint(equalToConstant: 45).isActive = true
     }
     
-    
     @objc func addBtnTapped() {
         
         let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)

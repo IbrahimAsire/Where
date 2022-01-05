@@ -70,7 +70,7 @@ extension News:  UITableViewDelegate {
 }
 
 extension News: NewsAPIDelegate {
-    func didFetchPosts(posts: NewsPosts) {
+    func didFetchPosts(posts: NewsPost) {
         print(posts)
         articles = posts.articles
         DispatchQueue.main.async {

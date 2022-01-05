@@ -37,7 +37,7 @@ class NewPlacesService {
                     let descPlace = data["descPlace"] as? String,
                     let date = data["date"] as? Date,
                     let userLat = data["userLat"] as? Double,
-                    let userLong = data["userLong"] as? Double
+                    let userLong = data["uesrLong"] as? Double
                 else {
                     continue
                 }

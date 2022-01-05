@@ -3,7 +3,6 @@ import UIKit
 import MessageUI
 import SafariServices
 
-
 class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     var lat = 0.0
@@ -187,7 +186,7 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // MARK:- TableView Delegation function (Delete)
+    // MARK: - TableView Delegation function (Delete)
    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

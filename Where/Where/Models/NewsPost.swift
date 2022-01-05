@@ -1,7 +1,7 @@
 
 import Foundation
 
-struct NewsPosts: Decodable {
+struct NewsPost: Decodable {
     let status: String
     let totalResults: Int
     let articles: [Article]

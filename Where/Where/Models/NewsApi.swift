@@ -2,7 +2,7 @@
 import Foundation
 
 protocol NewsAPIDelegate {
-    func didFetchPosts (posts: NewsPosts)
+    func didFetchPosts (posts: NewsPost)
     func didFailWithError (error: Error?)
 }
 
@@ -21,7 +21,7 @@ struct NewsApi {
             }else {
                 
                 do {
-                    let posts = try JSONDecoder().decode(NewsPosts.self, from: data!)
+                    let posts = try JSONDecoder().decode(NewsPost.self, from: data!)
                     
                     delegate?.didFetchPosts(posts: posts)
                 }catch {

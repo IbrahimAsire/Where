@@ -8,6 +8,9 @@ class One: UIViewController, UISearchResultsUpdating {
     lazy var locationMng = CLLocationManager()
 
     lazy var mapView = MKMapView()
+    
+    var lat = 0.0
+    var long = 0.0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +37,11 @@ class One: UIViewController, UISearchResultsUpdating {
     }
     
     @objc func saveTab() {
-        present(Two(), animated: true, completion: nil)
-    
+        let vc = Two()
+        
+        vc.lat = lat
+        vc.long = long
+        present(vc, animated: true, completion: nil)
     }
 
     override func viewDidLayoutSubviews() {
@@ -54,12 +60,11 @@ extension One: CLLocationManagerDelegate {
     
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location = locations.last
-        let vc = Two()
         
-        vc.lat = location?.coordinate.latitude ?? 0
-        vc.long = location?.coordinate.longitude ?? 0
-        present(vc, animated: true, completion: nil)
+        let location = locations.last
+        
+        lat = location?.coordinate.latitude ?? 0
+        long = location?.coordinate.longitude ?? 0
         
         let place = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!)
         
@@ -74,14 +79,12 @@ extension One: CLLocationManagerDelegate {
 }
 
 
-
 import UIKit
 
 class Two: UIViewController {
     
     var lat = 0.0
     var long = 0.0
-    
     
     lazy var continar = UIView()
     lazy var nameTF = UITextField()
@@ -111,7 +114,6 @@ class Two: UIViewController {
             continar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
             continar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
             continar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450)
-        
         ])
         
         view.addSubview(nameTF)
@@ -123,6 +125,7 @@ class Two: UIViewController {
             nameTF.leftAnchor.constraint(equalTo: continar.leftAnchor, constant: 10),
             nameTF.rightAnchor.constraint(equalTo: continar.rightAnchor, constant: -10)
         ])
+        
         view.addSubview(descPlace)
         descPlace.translatesAutoresizingMaskIntoConstraints = false
         descPlace.backgroundColor = .secondarySystemBackground
@@ -132,7 +135,6 @@ class Two: UIViewController {
             descPlace.leftAnchor.constraint(equalTo: continar.leftAnchor, constant: 5),
             descPlace.rightAnchor.constraint(equalTo: continar.rightAnchor, constant: -5),
             descPlace.bottomAnchor.constraint(equalTo: continar.bottomAnchor, constant: -50)
-            
         ])
         
         view.addSubview(saveBtn)
@@ -151,9 +153,7 @@ class Two: UIViewController {
     
     @objc func saveTbd() {
         print("saving")
-        
-        var PlaceL: NewPlace?
-        
+                
         let newPlace = NewPlace(id: UUID().uuidString, namePlace: nameTF.text!, descPlace: descPlace.text, time: Date(), userLat: lat, userLong: long)
         
         NewPlacesService.shared.addPlace(place: newPlace)
@@ -174,14 +174,11 @@ class Two: UIViewController {
 
 
 import UIKit
-import RealmSwift
 import CoreLocation
 import MapKit
 
 class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
-    
-    let realm = try! Realm()
-    
+        
     var newPlace: [NewPlace] = []
 
     let tableView = UITableView()
@@ -201,12 +198,9 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
             self.tableView.reloadData()
         }
         
-        let landMarks = realm.objects(LandMark.self)
-        Place.shared.landMarks = landMarks
-        
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(PlacesCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CellThree.self, forCellReuseIdentifier: "cell")
         tableView.backgroundColor = .systemBrown
         tableView.rowHeight = 80
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -221,18 +215,17 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newPlace.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? CellThree
-        as! CellThree
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CellThree
         
         let data = newPlace[indexPath.row]
         
-        cell.backgroundColor = .white
         cell.titlePlase.text = data.namePlace
         cell.descPlace.text = data.descPlace
-        cell.timeLbl.text = DateFormatter.localizedString(from: data.time, dateStyle: .short, timeStyle: .short)
+        cell.timeLbl.text = "\(data.time)"
 
         return cell
     }
@@ -244,11 +237,9 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
         if editingStyle == .delete {
-            let landMark = Place.shared.landMarks[indexPath.row]
-                
-            try! realm.write {
-                realm.delete(landMark)
-            }
+            let landMark = newPlace[indexPath.row]
+            
+            NewPlacesService.shared.delete(place: landMark)
             tableView.reloadData()
         }
     }
@@ -270,7 +261,6 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
         mapItem.openInMaps(launchOptions: options)
     }
 }
-
 
 
 import UIKit
