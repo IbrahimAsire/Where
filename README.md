@@ -21,7 +21,7 @@ One usefull feature in the app is that the user can upload information about the
 - - **Logout:** As a user I can edit of prifile from so that amelioration it.
 - **Logout:** As a user I can logout from the platform so that no one else can use it.
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
-- **Store:** As a user I can see all products so that I can add it to cart.
+- **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
 - **Comment:** As a user I can take feedback os that I can write/read/delet comment.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
 
