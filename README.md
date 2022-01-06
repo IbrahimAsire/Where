@@ -28,4 +28,21 @@ One usefull feature in the app is that the user can upload information about the
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
 
 
+| Component            | Permissions                | Behavior                                                     |
+| -------------------- | -------------------------- | ------------------------------------------------------------ |
+| SplashPage           | public `<Route>`           | Main page                                                    |
+| SignupPage           | public `<Route>`           | Signup form, link to login, go to profile after signup       |
+| LoginPage            | public `<Route>`           | Login form, link to signup, go to profile after login        |
+| Home Page            | public `<Route>`           | Shows all pages in a tab bar                                 |
+| disply CafesPage     | public `<Route>`           | Disply all of cafes                                          |
+| Cafe Detail Page     | public `<Route>`           | Details of cafes and see info                                |
+| Profile Page         | private `<PrivateRoute>`   | edite photo                                                  |
+| News page            | public `<Route>`           | see Arab News                                                |
+| Add New Place        | public `<Route>`           |Make info and location                                        |
+|                      |                            |                                                              |
+|                      |                            |                                                              |
+|                      |                            |                                                              |
+|                      |                            |                                                              |
+|                      |                            |                                                              |
+
 
