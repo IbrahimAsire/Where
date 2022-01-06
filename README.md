@@ -23,7 +23,8 @@ One usefull feature in the app is that the user can upload information about the
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
 - **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
 - **PhotoStore:** As a user I upload photo cooffe or book so that I share it wiht other.
-- **Comment:** As a user I can take feedback os that I can write/read/delet comment.
+- **Comment:** As a user I can take feedback so that I can write/read/delet comment.
+- **News:** As a user I can see news so that see and read.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
 
 
