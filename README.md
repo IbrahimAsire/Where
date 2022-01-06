@@ -18,10 +18,11 @@ One usefull feature in the app is that the user can upload information about the
 
 - **Signup:** As a user I can sign up in the platform so that I can used it.
 - **Login:** As a user I can login to the platform so that I can log at home page .
-- - **Logout:** As a user I can edit of prifile from so that amelioration it.
+- **Logout:** As a user I can edit of prifile from so that amelioration it.
 - **Logout:** As a user I can logout from the platform so that no one else can use it.
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
 - **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
+- **PhotoStore:** As a user I upload photo cooffe or book so that I share it wiht other.
 - **Comment:** As a user I can take feedback os that I can write/read/delet comment.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
 
