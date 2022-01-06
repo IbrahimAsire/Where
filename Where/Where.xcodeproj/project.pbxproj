@@ -15,6 +15,8 @@
 		0F4EF034275019980041479D /* CafesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EF033275019980041479D /* CafesVC.swift */; };
 		0F4EF03627501F910041479D /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EF03527501F910041479D /* Cafe.swift */; };
 		0F4EF03927502A8D0041479D /* CafesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4EF03827502A8D0041479D /* CafesCell.swift */; };
+		0F4F0DDF27870EA400EF2E1A /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 0F4F0DDE27870EA400EF2E1A /* TinyConstraints */; };
+		0F4F0DE2278710F900EF2E1A /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 0F4F0DE1278710F900EF2E1A /* Cosmos */; };
 		0F56BDC7276720800065BEE1 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDC6276720800065BEE1 /* News.swift */; };
 		0F56BDC927672B390065BEE1 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDC827672B390065BEE1 /* NewsApi.swift */; };
 		0F56BDCB2767311A0065BEE1 /* NewsPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDCA2767311A0065BEE1 /* NewsPost.swift */; };
@@ -101,7 +103,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F4F0DE2278710F900EF2E1A /* Cosmos in Frameworks */,
 				1492ADBD2B879F801A5A9058 /* Pods_Where.framework in Frameworks */,
+				0F4F0DDF27870EA400EF2E1A /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +292,10 @@
 			dependencies = (
 			);
 			name = Where;
+			packageProductDependencies = (
+				0F4F0DDE27870EA400EF2E1A /* TinyConstraints */,
+				0F4F0DE1278710F900EF2E1A /* Cosmos */,
+			);
 			productName = Where;
 			productReference = 0F6B6C84274CD9BF00A6CE65 /* Where.app */;
 			productType = "com.apple.product-type.application";
@@ -317,6 +325,10 @@
 				ar,
 			);
 			mainGroup = 0F6B6C7B274CD9BF00A6CE65;
+			packageReferences = (
+				0F4F0DDD27870EA400EF2E1A /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				0F4F0DE0278710F900EF2E1A /* XCRemoteSwiftPackageReference "Cosmos" */,
+			);
 			productRefGroup = 0F6B6C85274CD9BF00A6CE65 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -667,6 +679,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0F4F0DDD27870EA400EF2E1A /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		0F4F0DE0278710F900EF2E1A /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0F4F0DDE27870EA400EF2E1A /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F4F0DDD27870EA400EF2E1A /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+		0F4F0DE1278710F900EF2E1A /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0F4F0DE0278710F900EF2E1A /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0F830D9E277D8DDF0055F5D9 /* StorePhoto.xcdatamodeld */ = {

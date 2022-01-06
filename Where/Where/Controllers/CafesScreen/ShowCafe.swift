@@ -2,9 +2,11 @@
 import UIKit
 import MessageUI
 import SafariServices
+import Cosmos
+import TinyConstraints
 
 class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
-    
+        
     var lat = 0.0
     var long = 0.0
     var titleCafe = ""
@@ -22,6 +24,20 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     lazy var tableView = UITableView()
     lazy var returnBtn = UIButton()
     lazy var contactBtn = UIButton()
+    
+    lazy var cosmosView: CosmosView = {
+        $0.settings.filledImage = UIImage(named: "starF")?.withRenderingMode(.alwaysOriginal)
+        $0.settings.emptyImage = UIImage(named: "starE")?.withRenderingMode(.alwaysOriginal)
+        $0.settings.starSize = 17
+        $0.settings.starMargin = 2
+        $0.settings.fillMode = .precise
+        
+        $0.text = "Rate"
+        $0.settings.textColor = .systemBlue
+        $0.settings.textMargin = 8
+        return $0
+    }(CosmosView())
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,7 +125,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         addComment.addTarget(self, action: #selector(addCommentTpd), for: .touchUpInside)
         NSLayoutConstraint.activate([
             addComment.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 13),
-            addComment.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50)
+            addComment.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
 
         ])
         
@@ -126,7 +142,15 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -5)
         ])
-
+        
+        cosmosView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(cosmosView)
+        NSLayoutConstraint.activate([
+            cosmosView.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 13),
+            cosmosView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        
+        ])
+        
     }
     
     @objc func addCommentTpd() {
