@@ -26,6 +26,7 @@ One usefull feature in the app is that the user can upload information about the
 - **Comment:** As a user I can take feedback so that I can write/read/delet comment.
 - **News:** As a user I can see news so that see and read.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
+- **opinipn:** As a user I can writ my opinion so that sees it the developer.
 
 
 | Component            | Permissions                | Behavior                                                     |
