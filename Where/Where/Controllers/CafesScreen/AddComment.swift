@@ -55,9 +55,21 @@ class AddComment: UIViewController, UITextViewDelegate {
     
     @objc func addBtnTapped() {
         
-        let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)
-        CommentsService.shared.updateOrAddNote(comment: comment)
-        dismiss(animated: true, completion: nil)
+        if commentTF.text.isEmpty {
+            let alertMsg = UIAlertController(title: "Must write", message: "Please type your comment", preferredStyle: .alert)
+            alertMsg.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alertMsg, animated: true)
+            return
+            
+        } else {
+            
+            let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)
+            CommentsService.shared.updateOrAddNote(comment: comment)
+            dismiss(animated: true, completion: nil)
+            
+            
+            
+        }
         
     }
     

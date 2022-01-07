@@ -162,7 +162,7 @@ class Register: UITableViewController {
             UserDefaults.standard.setValue([newLanguage], forKey: "AppleLanguages")
             exit(0)
         }
-        let cancelAction = UIAlertAction(title: "No".Localizable(), style: UIAlertAction.Style.cancel) {
+        let cancelAction = UIAlertAction(title: "No".Localizable(), style: .cancel) {
             UIAlertAction in
             NSLog("Cancel Pressed")
             return
@@ -234,6 +234,10 @@ extension Register {
 
         ])
     }
+}
+
+extension Register: UITextViewDelegate {
+    
 }
 
 // MARK: - to Localizable 
