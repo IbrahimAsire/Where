@@ -18,6 +18,7 @@ One usefull feature in the app is that the user can upload information about the
 
 - **Signup:** As a user I can sign up in the platform so that I can used it.
 - **Login:** As a user I can login to the platform so that I can log at home page .
+- **Profile:** As a user I can edit of prifile from so that amelioration it.
 - **Logout:** As a user I can edit of prifile from so that amelioration it.
 - **Logout:** As a user I can logout from the platform so that no one else can use it.
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
@@ -26,6 +27,7 @@ One usefull feature in the app is that the user can upload information about the
 - **Comment:** As a user I can take feedback so that I can write/read/delet comment.
 - **News:** As a user I can see news so that see and read.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
+- **opinipn:** As a user I can writ my opinion so that sees it the developer.
 
 
 | Component            | Permissions                | Behavior                                                     |
