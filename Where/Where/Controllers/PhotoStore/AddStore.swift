@@ -43,7 +43,7 @@ class AddStore: UIViewController {
             ad.saveContext()
             storeTF.text = ""
             print("saved")
-        }catch {
+        } catch {
             print("cannot save")
         }
     }

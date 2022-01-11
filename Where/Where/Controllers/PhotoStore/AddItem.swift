@@ -9,7 +9,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
-    let pressBtn = UIButton()
+//    let pressBtn = UIButton()
     let pickerStore = UIPickerView()
     var imgPicker = UIImagePickerController()
     
@@ -40,11 +40,14 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         itemTF.placeholder = "item name"
         itemTF.borderStyle = .roundedRect
         NSLayoutConstraint.activate([
-            itemTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            itemTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
             itemTF.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
             itemTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
         ])
         
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(selectImgTpd))
+        imgItem.isUserInteractionEnabled = true
+        imgItem.addGestureRecognizer(tapGR)
         view.addSubview(imgItem)
         imgItem.translatesAutoresizingMaskIntoConstraints = false
         imgItem.image = UIImage(named: "load")
@@ -56,15 +59,15 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             imgItem.heightAnchor.constraint(equalToConstant: 200)
         ])
         
-        view.addSubview(pressBtn)
-        pressBtn.translatesAutoresizingMaskIntoConstraints = false
-        pressBtn.addTarget(self, action: #selector(selectImgTpd), for: .touchUpInside)
-        NSLayoutConstraint.activate([
-            pressBtn.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
-            pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
-            pressBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
-            pressBtn.heightAnchor.constraint(equalToConstant: 200)
-        ])
+//        view.addSubview(pressBtn)
+//        pressBtn.translatesAutoresizingMaskIntoConstraints = false
+//        pressBtn.addTarget(self, action: #selector(selectImgTpd), for: .touchUpInside)
+//        NSLayoutConstraint.activate([
+//            pressBtn.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
+//            pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
+//            pressBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+//            pressBtn.heightAnchor.constraint(equalToConstant: 200)
+//        ])
         
         view.addSubview(pickerStore)
         pickerStore.translatesAutoresizingMaskIntoConstraints = false
@@ -134,7 +137,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     
     // implment image picker
-    @objc func selectImgTpd(){
+    @objc func selectImgTpd(_ sender: AnyObject){
         print("selected")
         present(imgPicker, animated: true, completion: nil)
         

@@ -15,8 +15,6 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         
         tabelView.reloadData()
         
-        print(Place.shared.landMarks)
-        
     }
     
     override func viewDidLoad() {
