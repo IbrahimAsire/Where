@@ -25,6 +25,8 @@ One usefull feature in the app is that the user can upload information about the
 - **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
 - **PhotoStore:** As a user I upload photo cooffe or book so that I share it wiht other.
 - **Comment:** As a user I can take feedback so that I can write/read/delet comment.
+- **Location:** As a user I can see location to determine location of cafe so that I can go to it.
+- **Localization:** As a user I can change of language so that I use my preferred language.
 - **News:** As a user I can see news so that see and read.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
 - **opinipn:** As a user I can writ my opinion so that sees it the developer.
