@@ -54,6 +54,7 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemGray2
+        navigationItem.hidesBackButton = true
         
         title = "Profile".Localizable()
         self.navigationController?.navigationBar.prefersLargeTitles = false

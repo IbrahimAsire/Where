@@ -16,7 +16,7 @@ class AddStore: UIViewController {
     func setUpConst() {
         view.addSubview(storeTF)
         storeTF.translatesAutoresizingMaskIntoConstraints = false
-        storeTF.placeholder = "store name"
+        storeTF.placeholder = "store name".Localizable()
         storeTF.borderStyle = .roundedRect
         NSLayoutConstraint.activate([
             storeTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 130),

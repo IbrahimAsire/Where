@@ -190,7 +190,8 @@ class Register: UITableViewController {
 
             Auth.auth().createUser(withEmail: email, password: password) { result, error in
                 if error == nil {
-                    self.present(ProfileVC(), animated: true, completion: nil)
+                    self.navigationController?.pushViewController(ProfileVC(), animated: true)
+                    
                 } else {
                     print(error?.localizedDescription ?? "")
                 }
@@ -210,12 +211,7 @@ class Register: UITableViewController {
 
             }
         }
-        UIView.animate(withDuration: 2) {
-            self.registerBtn.setTitle("Welcome", for: .normal)
-            self.registerBtn.titleLabel?.font =  UIFont(name: "GillSans-Italic", size: 42)
-            self.view.backgroundColor = .systemBrown
-            self.view.layoutIfNeeded()
-        }
+        
     }
 }
 

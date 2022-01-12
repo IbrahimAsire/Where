@@ -1,5 +1,6 @@
 
 import UIKit
+import FirebaseAuth
 
 class ExitVC: UIViewController{
     
@@ -136,10 +137,13 @@ class ExitVC: UIViewController{
     }
     
     @objc func signOutBtnTpd() {
-        let vc = Register()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true, completion: nil)
+        
+            try! Auth.auth().signOut()
+            let vc = Register()
+            vc.modalTransitionStyle = .crossDissolve
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        
     }
 
 }

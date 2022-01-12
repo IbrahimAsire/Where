@@ -9,7 +9,6 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
-//    let pressBtn = UIButton()
     let pickerStore = UIPickerView()
     var imgPicker = UIImagePickerController()
     
@@ -20,7 +19,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         imgPicker.delegate = self
         
         let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
-        let addStore = UIBarButtonItem(title: "Add Store", style: .done, target: self, action: #selector(addStore))
+        let addStore = UIBarButtonItem(title: "Add Store".Localizable(), style: .done, target: self, action: #selector(addStore))
         let deleteItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteTpd))
         
         navigationItem.rightBarButtonItems = [save, addStore, deleteItem]
@@ -37,7 +36,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
         view.addSubview(itemTF)
         itemTF.translatesAutoresizingMaskIntoConstraints = false
-        itemTF.placeholder = "item name"
+        itemTF.placeholder = "item name".Localizable()
         itemTF.borderStyle = .roundedRect
         NSLayoutConstraint.activate([
             itemTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 160),
@@ -58,17 +57,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             imgItem.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
             imgItem.heightAnchor.constraint(equalToConstant: 200)
         ])
-        
-//        view.addSubview(pressBtn)
-//        pressBtn.translatesAutoresizingMaskIntoConstraints = false
-//        pressBtn.addTarget(self, action: #selector(selectImgTpd), for: .touchUpInside)
-//        NSLayoutConstraint.activate([
-//            pressBtn.topAnchor.constraint(equalTo: itemTF.bottomAnchor, constant: 60),
-//            pressBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -30),
-//            pressBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
-//            pressBtn.heightAnchor.constraint(equalToConstant: 200)
-//        ])
-        
+                
         view.addSubview(pickerStore)
         pickerStore.translatesAutoresizingMaskIntoConstraints = false
         pickerStore.dataSource = self
