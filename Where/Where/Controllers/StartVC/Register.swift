@@ -241,8 +241,10 @@ extension String {
 
     func Localizable() -> String {
 
-        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self,
-                                 comment: self)
+        return NSLocalizedString(
+            self, tableName: "Localizable",
+            bundle: .main, value: self,
+            comment: self)
     }
 }
 

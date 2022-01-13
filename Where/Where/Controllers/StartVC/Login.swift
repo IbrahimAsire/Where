@@ -81,7 +81,7 @@ class Login: UIViewController {
     
     }
     
-    // MARK: - to login user 
+    // MARK: - to login user
     @objc func login() {
         if let email = emailTF.text, email.isEmpty == false,
            let password = passTF.text, password.isEmpty == false {
@@ -116,21 +116,22 @@ class Login: UIViewController {
                         
                     }
                 }else{
-                    
-                if error == nil {
-                    self.navigationController?.pushViewController(ProfileVC(), animated: true)
-                } else {
-                    print(error?.localizedDescription)
-                }
+                    if error == nil {
+                        
+                        self.navigationController?.pushViewController(ProfileVC(), animated: true)
+                    } else {
+                        print(error?.localizedDescription)
+                    }
                 }
             }
+            UIView.animate(withDuration: 2) {
+                self.loginBtn.setTitle("Welcome", for: .normal)
+                self.loginBtn.titleLabel?.font =  UIFont(name: "GillSans-Italic", size: 42)
+                self.view.backgroundColor = .systemBrown
+                self.view.layoutIfNeeded()
+            }
         }
-        UIView.animate(withDuration: 2) { 
-            self.loginBtn.setTitle("Welcome", for: .normal)
-            self.loginBtn.titleLabel?.font =  UIFont(name: "GillSans-Italic", size: 42)
-            self.view.backgroundColor = .systemBrown
-            self.view.layoutIfNeeded()
-        }
+        
         
     }
     
