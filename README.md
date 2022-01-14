@@ -57,3 +57,7 @@ One usefull feature in the app is that the user can upload information about the
 - News Api
 - News Post
 - struct Recipe
+
+### Networking:
+ Comments
+ 
