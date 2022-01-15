@@ -3,6 +3,8 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseAuth
+import Firebase
 
 
 class One: UIViewController, UISearchResultsUpdating {
@@ -80,12 +82,12 @@ extension One: CLLocationManagerDelegate {
 }
 
 
-import UIKit
-
 class Two: UIViewController {
     
     var lat = 0.0
     var long = 0.0
+    
+    let db = Firestore.firestore()
     
     lazy var continar = UIView()
     lazy var nameTF = UITextField()
@@ -155,11 +157,17 @@ class Two: UIViewController {
     @objc func saveTbd() {
         print("saving")
                 
-        let newPlace = NewPlace(id: UUID().uuidString, namePlace: nameTF.text!, descPlace: descPlace.text, time: Date(), userLat: lat, userLong: long)
+//        let newPlace = NewPlace(id: UUID().uuidString, namePlace: nameTF.text!, descPlace: descPlace.text, time: Date(), userLat: lat, userLong: long)
+        let myID = Auth.auth().currentUser?.uid
+        let newLoc = NewPlace(id: myID, namePlace: nameTF.text, descPlace: descPlace.text, userLat: lat, userLong: long)
+        self.db.collection("newPlaces").document("\(String(describing: myID))").setData(newLoc.getData())
         
-        NewPlacesService.shared.addPlace(place: newPlace)
+        
+//        self.db.collection("Teachers").document(myID!).collection("Courses").document("\(idCours)").setData(MyCourse.getInfo())
+        
+//        NewPlacesService.shared.addPlace(place: newPlace)
         dismiss(animated: true, completion: nil)
-        
+//
 //        let newLandMark = LandMark()
 //        newLandMark.name = nameTF.text!
 //        newLandMark.desc = descPlace.text
@@ -194,10 +202,7 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NewPlacesService.shared.listenToPlaceInfo { newplaces in
-            self.newPlace = newplaces
-            self.tableView.reloadData()
-        }
+        readCourses()
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -226,7 +231,7 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
         
         cell.titlePlase.text = data.namePlace
         cell.descPlace.text = data.descPlace
-        cell.timeLbl.text = "\(data.time)"
+//        cell.timeLbl.text = "\(data.time)"
 
         return cell
     }
@@ -245,10 +250,30 @@ class Three: UIViewController , UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func readCourses(){
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser?.uid
+        db.collection("newPlaces").addSnapshotListener { snapshot, error in
+            if error == nil {
+//                self.newPlace.removeAll()
+                guard let data = snapshot?.documents else {return}
+                for doc in data {
+                    self.newPlace.append(NewPlace(id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
+                    print(doc.get("name"))
+                }
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+
+      
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let latitude:CLLocationDegrees = newPlace[indexPath.row].userLat
-        let longitude:CLLocationDegrees = newPlace[indexPath.row].userLong
+        let latitude:CLLocationDegrees = newPlace[indexPath.row].userLat!
+        let longitude:CLLocationDegrees = newPlace[indexPath.row].userLong!
 
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
