@@ -26,16 +26,9 @@ class CommentsService {
             var comments = [CommentCafe]()
             
             for doc in docs {
-                let data = doc.data()
-                guard
-                    let id = data["id"] as? String,
-                    let comment = data["content"] as? String
-                else {
-                    continue
+                comments.append(CommentCafe(id: doc.get("id") as! String, comment: doc.get("content") as! String))
+
                 }
-                
-                comments.append(CommentCafe(id: id, comment: comment))
-            }
             
             completion(comments)
         }
