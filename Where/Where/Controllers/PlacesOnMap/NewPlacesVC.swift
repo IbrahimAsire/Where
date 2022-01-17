@@ -1,57 +1,57 @@
 
 import UIKit
-import RealmSwift
 import CoreLocation
 import MapKit
+import FirebaseAuth
+import Firebase
 
 class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate {
     
-    let realm = try! Realm()
+    var db = Firestore.firestore()
+    var newPlace: [NewPlace] = []
 
-    let tabelView = UITableView()
+    let tableView = UITableView()
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        tabelView.reloadData()
-        
-    }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//
+//        tableView.reloadData()
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let landMarks = realm.objects(LandMark.self)
-        Place.shared.landMarks = landMarks
+        readPlases()
         
-        tabelView.dataSource = self
-        tabelView.delegate = self
-        tabelView.register(PlacesCell.self, forCellReuseIdentifier: "cell")
-        tabelView.backgroundColor = .systemBrown
-        tabelView.rowHeight = 80
-        tabelView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(tabelView)
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(NewPlaceCell.self, forCellReuseIdentifier: "cell")
+        tableView.backgroundColor = .systemBrown
+        tableView.rowHeight = 80
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
         NSLayoutConstraint.activate([
-            tabelView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tabelView.rightAnchor.constraint(equalTo: view.rightAnchor),
-            tabelView.topAnchor.constraint(equalTo: view.topAnchor),
-            tabelView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
             ])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Place.shared.landMarks.count
+        return newPlace.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        as! PlacesCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! NewPlaceCell
         
-        let data = Place.shared.landMarks[indexPath.row]
+        let data = newPlace[indexPath.row]
         
-        cell.backgroundColor = .white
-        cell.titlePlase.text = data.name
-        cell.descPlace.text = data.desc
-        cell.timeLbl.text = DateFormatter.localizedString(from: data.time, dateStyle: .short, timeStyle: .short)
+        cell.titlePlase.text = data.namePlace
+        cell.descPlace.text = data.descPlace
+//        cell.timeLbl.text = "\(data.time)"
 
         return cell
     }
@@ -63,19 +63,37 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
         if editingStyle == .delete {
-            let landMark = Place.shared.landMarks[indexPath.row]
-                
-            try! realm.write {
-                realm.delete(landMark)
-            }
-            tableView.reloadData()
+            let landMark = newPlace[indexPath.row]
+            
+            db.collection("newPlaces").document(landMark.id!).delete()
+            self.tableView.reloadData()
         }
     }
     
+    func readPlases(){
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser?.uid
+        db.collection("newPlaces").addSnapshotListener { snapshot, error in
+            if error == nil {
+//                self.newPlace.removeAll()
+                guard let data = snapshot?.documents else {return}
+                for doc in data {
+                    self.newPlace.append(NewPlace(id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
+                    print(doc.get("name"))
+                }
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+
+      
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let latitude:CLLocationDegrees = Place.shared.landMarks[indexPath.row].lat
-        let longitude:CLLocationDegrees = Place.shared.landMarks[indexPath.row].long
+        let latitude:CLLocationDegrees = newPlace[indexPath.row].userLat!
+        let longitude:CLLocationDegrees = newPlace[indexPath.row].userLong!
 
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
@@ -89,6 +107,9 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         mapItem.openInMaps(launchOptions: options)
     }
 }
+
+
+
 
 
 

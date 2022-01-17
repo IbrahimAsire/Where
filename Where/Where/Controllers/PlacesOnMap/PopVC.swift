@@ -1,10 +1,15 @@
 
 import UIKit
-import RealmSwift
+import CoreLocation
+import FirebaseAuth
+import Firebase
 
 class PopVC: UIViewController {
     
-    let realm = try! Realm()
+    var lat = 0.0
+    var long = 0.0
+    
+    let db = Firestore.firestore()
     
     lazy var continar = UIView()
     lazy var nameTF = UITextField()
@@ -16,7 +21,9 @@ class PopVC: UIViewController {
         view.backgroundColor = .systemGray
         view.alpha = 0.75
         setUpConst()
-
+        print(lat)
+        print(long)
+        
     }
     
     func setUpConst() {
@@ -32,7 +39,6 @@ class PopVC: UIViewController {
             continar.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
             continar.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
             continar.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -450)
-        
         ])
         
         view.addSubview(nameTF)
@@ -44,6 +50,7 @@ class PopVC: UIViewController {
             nameTF.leftAnchor.constraint(equalTo: continar.leftAnchor, constant: 10),
             nameTF.rightAnchor.constraint(equalTo: continar.rightAnchor, constant: -10)
         ])
+        
         view.addSubview(descPlace)
         descPlace.translatesAutoresizingMaskIntoConstraints = false
         descPlace.backgroundColor = .secondarySystemBackground
@@ -53,7 +60,6 @@ class PopVC: UIViewController {
             descPlace.leftAnchor.constraint(equalTo: continar.leftAnchor, constant: 5),
             descPlace.rightAnchor.constraint(equalTo: continar.rightAnchor, constant: -5),
             descPlace.bottomAnchor.constraint(equalTo: continar.bottomAnchor, constant: -50)
-            
         ])
         
         view.addSubview(saveBtn)
@@ -72,18 +78,13 @@ class PopVC: UIViewController {
     
     @objc func saveTbd() {
         print("saving")
+        
+        let myID = Auth.auth().currentUser?.uid
+        let newLoc = NewPlace(id: myID, namePlace: nameTF.text, descPlace: descPlace.text, userLat: lat, userLong: long)
+        self.db.collection("newPlaces").document("\(String(describing: myID))").setData(newLoc.getData())
+        
         dismiss(animated: true, completion: nil)
-        
-        let newLandMark = LandMark()
-        newLandMark.name = nameTF.text!
-        newLandMark.desc = descPlace.text
-        newLandMark.lat = Place.shared.userLat
-        newLandMark.long = Place.shared.userLong
-        
-        try! realm.write {
-            realm.add(newLandMark)
-            
-        }
+    
     }
 }
 

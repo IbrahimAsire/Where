@@ -85,8 +85,8 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             ad.saveContext()
             itemTF.text = ""
             print("saved")
-        }catch {
-            print("Error")
+        }catch let error {
+            print("Error: \(error)")
         }
         
     }

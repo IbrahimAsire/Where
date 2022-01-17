@@ -7,6 +7,9 @@ class AddNewPlace: UIViewController, UISearchResultsUpdating {
     lazy var locationMng = CLLocationManager()
 
     lazy var mapView = MKMapView()
+    
+    var lat = 0.0
+    var long = 0.0
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +36,11 @@ class AddNewPlace: UIViewController, UISearchResultsUpdating {
     }
     
     @objc func saveTab() {
-        present(PopVC(), animated: true, completion: nil)
-    
+        let vc = PopVC()
+        
+        vc.lat = lat
+        vc.long = long
+        present(vc, animated: true, completion: nil)
     }
 
     override func viewDidLayoutSubviews() {
@@ -51,11 +57,13 @@ class AddNewPlace: UIViewController, UISearchResultsUpdating {
 
 extension AddNewPlace: CLLocationManagerDelegate {
     
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
         let location = locations.last
         
-        Place.shared.userLat = location?.coordinate.latitude ?? 0
-        Place.shared.userLong = location?.coordinate.longitude ?? 0
+        lat = location?.coordinate.latitude ?? 0
+        long = location?.coordinate.longitude ?? 0
         
         let place = CLLocationCoordinate2D(latitude: (location?.coordinate.latitude)!, longitude: (location?.coordinate.longitude)!)
         
