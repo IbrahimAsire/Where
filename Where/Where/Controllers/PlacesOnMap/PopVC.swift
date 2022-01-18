@@ -80,7 +80,7 @@ class PopVC: UIViewController {
         print("saving")
         
         let myID = Auth.auth().currentUser?.uid
-        let newLoc = NewPlace(id: myID, namePlace: nameTF.text, descPlace: descPlace.text, userLat: lat, userLong: long)
+        let newLoc = NewPlace(id: myID, namePlace: nameTF.text, descPlace: descPlace.text, time: Date(), userLat: lat, userLong: long)
         self.db.collection("newPlaces").document("\(String(describing: myID))").setData(newLoc.getData())
         
         dismiss(animated: true, completion: nil)

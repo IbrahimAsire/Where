@@ -11,7 +11,5 @@ target 'Where' do
 	pod 'Firebase/Firestore'
 	pod 'Firebase/Storage'
 	pod 'GooglePlaces'	
-	pod 'Cosmos'
-	pod 'TinyConstraints'
 
 end

@@ -385,7 +385,6 @@ PODS:
   - FirebaseStorage (8.8.0):
     - FirebaseCore (~> 8.0)
     - GTMSessionFetcher/Core (~> 1.5)
-  - Gemini (1.4.0)
   - GoogleDataTransport (9.1.2):
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30908.0)
@@ -438,19 +437,12 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
-  - Realm (10.19.0):
-    - Realm/Headers (= 10.19.0)
-  - Realm/Headers (10.19.0)
-  - RealmSwift (10.19.0):
-    - Realm (= 10.19.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Firestore
   - Firebase/Storage
-  - Gemini
   - GooglePlaces
-  - RealmSwift
 
 SPEC REPOS:
   trunk:
@@ -462,7 +454,6 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseFirestore
     - FirebaseStorage
-    - Gemini
     - GoogleDataTransport
     - GooglePlaces
     - GoogleUtilities
@@ -472,8 +463,6 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
-    - Realm
-    - RealmSwift
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -484,7 +473,6 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: fe77f42da6329d6d83d21fd9d621a6b704413bfc
   FirebaseFirestore: 29baf05d5e7e0d5003eb34e5805d92b9858b36d4
   FirebaseStorage: 54ff752ecbd27f1c354c3f5e8c55f6ad5783699b
-  Gemini: 4ad915cca8805577fe3021e02feeca2b77dcdbfc
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GooglePlaces: c57cd5aa7e91d10fa5106c792de74f3bd6436260
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
@@ -494,9 +482,7 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  Realm: 869ab2a7e3bdfa6bf06d8723251539f504e6f602
-  RealmSwift: f1f51c4a02fe826e5cea623b5441992f06bdc942
 
-PODFILE CHECKSUM: e76361e2ad73e8f046c68b85f81b195fdb50b712
+PODFILE CHECKSUM: 4456a94e2e4fea5d1eeb2bb2d32ddf94bcd20dc2
 
 COCOAPODS: 1.11.2

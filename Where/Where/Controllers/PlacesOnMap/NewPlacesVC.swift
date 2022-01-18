@@ -12,8 +12,8 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
 
     let tableView = UITableView()
 
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(true)
 //
 //        tableView.reloadData()
 //
@@ -51,14 +51,14 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         
         cell.titlePlase.text = data.namePlace
         cell.descPlace.text = data.descPlace
-//        cell.timeLbl.text = "\(data.time)"
+        cell.timeLbl.text = DateFormatter.localizedString(from: data.time, dateStyle: .short, timeStyle: .short)
 
         return cell
     }
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
@@ -79,7 +79,6 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
                 guard let data = snapshot?.documents else {return}
                 for doc in data {
                     self.newPlace.append(NewPlace(id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
-                    print(doc.get("name"))
                 }
                 self.tableView.reloadData()
             }
