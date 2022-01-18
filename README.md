@@ -1,12 +1,12 @@
 # Where
-<span style="color: blue"> **Important notice:
+**Important notice**:
 In order for the application to work well, the following libraries must be downloaded:
 'Firebase/Auth،
 'Firebase/Firestore'،
 'Firebase/Storage' and
 'GooglePlaces' .
 
-It has not been uploaded them because a larger size than allowed.**</span>
+It has not been uploaded them because a larger size than allowed.
 
 
 ## Describtion :
