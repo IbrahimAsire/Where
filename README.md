@@ -62,6 +62,14 @@ One usefull feature in the app is that the user can upload information about the
 - PhotoStoreCell
 - NewsPlacesCell
 
+### Controllers :
+- TabBarCustom Folder
+- StartVC Folder
+- CafesScreen Folder
+- PlacesOnMap Folder
+- News Folder
+- Recommendation Folder
+
 ### Networking:
  Comments
  
