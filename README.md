@@ -42,8 +42,8 @@ And the user can add a recommendation for a book , specific coffee .. etc
 | Cafe Detail Page     | public `<Route>`           | Details of cafes and see info                                |
 | Profile Page         | private `<PrivateRoute>`   | edite photo                                                  |
 | News page            | public `<Route>`           | see Arab News                                                |
-| Add New Place        | public `<Route>`           |Make info and location                                        |
-|                      |                            |                                                              |
+| Add New Place        | public `<Route>`           | Make info and location                                       |
+| Add new Recommantion | public `<Route>`           | Write Recommation                                            |
 |                      |                            |                                                              |
 |                      |                            |                                                              |
 |                      |                            |                                                              |
