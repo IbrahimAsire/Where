@@ -40,6 +40,7 @@ var detlCafe = [
 struct CommentCafe {
     let id: String
     var comment: String
+    
 }
 
 

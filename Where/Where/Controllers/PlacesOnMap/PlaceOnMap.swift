@@ -39,7 +39,7 @@ class PleacOnMap: UIViewController {
         returnBtn.setTitle("return".Localizable(), for: .normal)
         returnBtn.setTitleColor(.red, for: .normal)
         NSLayoutConstraint.activate([
-            returnBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            returnBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
             returnBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
         ])
     }

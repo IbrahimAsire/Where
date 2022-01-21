@@ -13,7 +13,7 @@ class NewPlacesService {
             "namePlace": place.namePlace,
             "descPlace": place.descPlace,
             
-            "userLat": place.userLat,
+            "userLat": place.userLat!,
             "uesrLong": place.userLong
         ], merge: true)
     }

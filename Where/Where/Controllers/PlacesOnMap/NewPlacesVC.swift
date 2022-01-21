@@ -56,23 +56,18 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             
         if editingStyle == .delete {
             let landMark = newPlace[indexPath.row]
             
-            db.collection("newPlaces").document(landMark.id!).delete()
-            self.tableView.reloadData()
+//            db.document(landMark.id!).delete()
         }
     }
     
     func readPlases(){
         let db = Firestore.firestore()
-        let userID = Auth.auth().currentUser?.uid
         db.collection("newPlaces").addSnapshotListener { snapshot, error in
             if error == nil {
 //                self.newPlace.removeAll()

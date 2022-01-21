@@ -162,6 +162,8 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         vc.lat = lat
         vc.long = long
         vc.titleCafe = titleCafe
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .flipHorizontal
         
         present(vc, animated: true, completion: nil)
     }

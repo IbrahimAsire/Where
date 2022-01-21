@@ -10,7 +10,7 @@ class CommentsService {
     func updateOrAddNote(comment: CommentCafe) {
         CommentsCollection.document(comment.id).setData([
             "id": comment.id,
-            "content": comment.comment
+            "content": comment.comment,
         ], merge: true)
     }
     
@@ -41,3 +41,5 @@ class CommentsService {
         CommentsCollection.document(comment.id).delete()
     }
 }
+
+

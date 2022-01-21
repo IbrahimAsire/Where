@@ -7,7 +7,7 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
     var controller = NSFetchedResultsController<Items>()
     
     let tableView: UITableView = {
-        $0.register(PSCell.self, forCellReuseIdentifier: "SPCell")
+        $0.register(ReacommCell.self, forCellReuseIdentifier: "SPCell")
         $0.rowHeight = 280
         return $0
     }(UITableView())
@@ -18,7 +18,6 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
         tableView.dataSource = self
         tableView.delegate = self
         
-//        title = "List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
@@ -57,7 +56,7 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SPCell", for: indexPath) as! PSCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SPCell", for: indexPath) as! ReacommCell
         
         configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
         
@@ -74,7 +73,7 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
         }
     }
     
-    func configureCell(cell: PSCell, indexPath: NSIndexPath) {
+    func configureCell(cell: ReacommCell, indexPath: NSIndexPath) {
         let singleItem = controller.object(at: indexPath as IndexPath)
         cell.setCell(item: singleItem)
     }
@@ -117,7 +116,7 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
             break
         case.update:
             if let indexPath = indexPath {
-                let cell = tableView.cellForRow(at: indexPath) as! PSCell
+                let cell = tableView.cellForRow(at: indexPath) as! ReacommCell
                 configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
             }
             break
