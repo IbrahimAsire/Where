@@ -13,6 +13,7 @@ It has not been uploaded them because a larger size than allowed.
 **Where** is source for all farmers people who want to take view about coffes from different perspective. For example, quality, price, services and locations it's.
 Initially, the apps couers only coffes in Abha city. In the future I'm planning to extend the app to cover all cities in kingdom.
 One usefull feature in the app is that the user can upload information about the coffee helshe has been visit.
+And the user can add a recommendation for a book , specific coffee .. etc
 
 ## User Stories: 
 
@@ -23,7 +24,7 @@ One usefull feature in the app is that the user can upload information about the
 - **Logout:** As a user I can logout from the platform so that no one else can use it.
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
 - **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
-- **PhotoStore:** As a user I upload photo cooffe or book so that I share it wiht other.
+- **RecommantionVC:** As a user I can write my recommation about coffee or book so that others can benefit.
 - **Comment:** As a user I can take feedback so that I can write/read/delet comment.
 - **Location:** As a user I can see location to determine location of cafe so that I can go to it.
 - **Localization:** As a user I can change of language so that I use my preferred language.
