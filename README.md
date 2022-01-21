@@ -21,7 +21,6 @@ And the user can add a recommendation for a book , specific coffee .. etc
 - **Login:** As a user I can login to the platform so that I can log at home page .
 - **Profile:** As a user I can edit of prifile from so that amelioration it.
 - **Logout:** As a user I can edit of prifile from so that amelioration it.
-- **Logout:** As a user I can logout from the platform so that no one else can use it.
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
 - **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
 - **RecommantionVC:** As a user I can write my recommation about coffee or book so that others can benefit.
