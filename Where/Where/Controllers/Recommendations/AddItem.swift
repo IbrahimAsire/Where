@@ -19,7 +19,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         imgPicker.delegate = self
         
         let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
-        let addStore = UIBarButtonItem(title: "Add Store".Localizable(), style: .done, target: self, action: #selector(addStore))
+        let addStore = UIBarButtonItem(title: "Add Title".Localizable(), style: .done, target: self, action: #selector(addStore))
         let deleteItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteTpd))
         
         navigationItem.rightBarButtonItems = [save, addStore, deleteItem]

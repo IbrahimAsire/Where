@@ -63,6 +63,8 @@
 "New Places" = "أماكن جديدة";
 "Exit" = "خروج";
 "News" = "أخبار";
+"Recommendations" = "توصيات";
+
 
 //PopVC
 "Name Of Place" = "إسم المكان";
@@ -73,13 +75,13 @@
 "Share" = "شارك";
 
 // AddItem & AddStore
-"Add Store" = "أضف متجر";
+"Add Title" = "أضف عنوان";
 "item name" = "اسم العنصر";
 "store name" = "اسم المتجر";
 
+
 "Back" = "رجوع";
 
-"" = "";
 "" = "";
 "" = "";
 "" = "";

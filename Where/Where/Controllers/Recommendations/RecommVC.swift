@@ -2,7 +2,7 @@
 import UIKit
 import CoreData
 
-class PhotoStoreVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
      
     var controller = NSFetchedResultsController<Items>()
     
