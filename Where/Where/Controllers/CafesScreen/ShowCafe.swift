@@ -4,14 +4,17 @@ import MessageUI
 import SafariServices
 import Cosmos
 import TinyConstraints
+import Firebase
 
 class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
+    
+    let db = Firestore.firestore()
         
     var lat = 0.0
     var long = 0.0
     var titleCafe = ""
 
-    var comments: [CommentCafe] = []
+    var comments: [NewComment] = []
 
     let cellId = "CommentCell"
     
@@ -41,15 +44,27 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        CommentsService.shared.listenToComments { newComment in
-            self.comments = newComment
-            self.tableView.reloadData()
-        }
+        readComments()
         
         title = "Cafes".Localizable()
         view.backgroundColor = .white
         setUpConstraint()
+        
+    }
+    
+    
+    func readComments(){
+        db.collection("newComments").whereField("nameCafes", isEqualTo: titleCafe)
+            .addSnapshotListener { snapshot, error in
+            if error == nil {
+//                self.newPlace.removeAll()
+                guard let data = snapshot?.documents else {return}
+                for doc in data {
+                    self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String) )
+                }
+                self.tableView.reloadData()
+            }
+        }
         
     }
     
@@ -154,7 +169,9 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     }
     
     @objc func addCommentTpd() {
-        present(AddComment(), animated: true, completion: nil)
+        let vc = AddComment()
+        vc.nameCafe = nameCafe.text!
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func showLocation() {
@@ -206,7 +223,7 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
 
         let note = comments[indexPath.row]
-        cell.textLabel?.text = note.comment
+        cell.textLabel?.text = note.content
         cell.backgroundColor = .systemBrown
         
         return cell
@@ -222,8 +239,9 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
         
         if editingStyle == .delete {
             let comment = comments[indexPath.row]
-            CommentsService.shared.delete(comment: comment)
+            db.collection("newComments").document(comment.id!).delete()
         }
+        self.tableView.reloadData()
     }
     
     

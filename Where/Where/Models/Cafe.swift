@@ -43,5 +43,16 @@ struct CommentCafe {
     
 }
 
+struct NewComment {
+    let id: String?
+    var content: String?
+    var nameCafe: String?
+    
+    func getData() -> [String: Any] {
+        return ["id": id, "comments": content, "nameCafes": nameCafe]
+    }
+    
+}
+
 
 

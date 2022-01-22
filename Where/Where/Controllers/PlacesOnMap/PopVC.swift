@@ -79,7 +79,7 @@ class PopVC: UIViewController {
     @objc func saveTbd() {
         print("saving")
         
-        let myID = Auth.auth().currentUser?.uid
+        let myID = UUID().uuidString
         let newLoc = NewPlace(id: myID, namePlace: nameTF.text, descPlace: descPlace.text, time: Date(), userLat: lat, userLong: long)
         self.db.collection("newPlaces").document("\(String(describing: myID))").setData(newLoc.getData())
         

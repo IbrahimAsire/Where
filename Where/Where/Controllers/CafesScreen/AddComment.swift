@@ -1,15 +1,20 @@
 
 import UIKit
+import Firebase
 
 class AddComment: UIViewController, UITextViewDelegate {
     
+    let db = Firestore.firestore()
+    
     let commentTF = UITextView()
     let addButton = UIButton()
+    var nameCafe = ""
     
 //    var comment: CommentCafe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(nameCafe)
         
         view.backgroundColor = .lightGray
         title = "Comment".Localizable()
@@ -63,11 +68,11 @@ class AddComment: UIViewController, UITextViewDelegate {
             
         } else {
             
-            let comment = CommentCafe(id: UUID().uuidString, comment:  commentTF.text)
-            CommentsService.shared.updateOrAddNote(comment: comment)
+            let myID = UUID().uuidString
+            let newLoc = NewComment(id: myID, content: commentTF.text, nameCafe: nameCafe)
+            self.db.collection("newComments").document("\(String(describing: myID))").setData(newLoc.getData())
+            
             dismiss(animated: true, completion: nil)
-            
-            
             
         }
         

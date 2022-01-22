@@ -62,12 +62,13 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         if editingStyle == .delete {
             let landMark = newPlace[indexPath.row]
             
-//            db.document(landMark.id!).delete()
+            db.collection("newPlaces").document(landMark.id!).delete()
         }
+        
+        self.tableView.reloadData()
     }
     
     func readPlases(){
-        let db = Firestore.firestore()
         db.collection("newPlaces").addSnapshotListener { snapshot, error in
             if error == nil {
 //                self.newPlace.removeAll()

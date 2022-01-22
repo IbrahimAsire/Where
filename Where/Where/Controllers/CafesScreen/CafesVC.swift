@@ -70,6 +70,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
        nextVC.long = data.longitude
        nextVC.titleCafe = data.nameCafe
        
+       
        present(nextVC, animated: true, completion: nil)
    }
 
