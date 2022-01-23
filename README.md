@@ -24,7 +24,7 @@ And the user can add a recommendation for a book , specific coffee .. etc
 - **Tab Bar:** As a user I can transfer btween pages of the platform so that easily moving btween pages.
 - **CafesScreen:** As a user I can see all existing cafes so that I see information about it.
 - **RecommantionVC:** As a user I can write my recommation about coffee or book so that others can benefit.
-- **Comment:** As a user I can take feedback so that I can write/read/delet comment.
+- **Comment:** As a user I can take feedback so that see comment.
 - **Location:** As a user I can see location to determine location of cafe so that I can go to it.
 - **Localization:** As a user I can change of language so that I use my preferred language.
 - **News:** As a user I can see news so that see and read.
