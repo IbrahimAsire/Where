@@ -82,9 +82,6 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         
     }
 
-      
-    
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let latitude:CLLocationDegrees = newPlace[indexPath.row].userLat!

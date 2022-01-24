@@ -78,9 +78,9 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             newItem = editOrDelete
         }
         newItem.item_name = itemTF.text
-        newItem.date_add = Date()
+//        newItem.date_add = Date()
         newItem.image = imgItem.image
-//        newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
+        newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
         do {
             ad.saveContext()
             itemTF.text = ""

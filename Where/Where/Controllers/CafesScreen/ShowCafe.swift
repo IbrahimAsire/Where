@@ -18,15 +18,15 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
 
     let cellId = "CommentCell"
     
-    lazy var cafeImg1 = UIImageView()
-    lazy var cafeImg2 = UIImageView()
-    lazy var nameCafe = UILabel()
-    lazy var detlCafe = UILabel()
-    lazy var mapBtn = UIButton()
-    lazy var addComment = UIButton()
+    var cafeImg1 = UIImageView()
+    var cafeImg2 = UIImageView()
+    var nameCafe = UILabel()
+    var detlCafe = UILabel()
+    var mapBtn = UIButton()
+    var addComment = UIButton()
     lazy var tableView = UITableView()
-    lazy var returnBtn = UIButton()
-    lazy var contactBtn = UIButton()
+    var returnBtn = UIButton()
+    var contactBtn = UIButton()
     
     lazy var cosmosView: CosmosView = {
         $0.settings.filledImage = UIImage(named: "starF")?.withRenderingMode(.alwaysOriginal)
@@ -241,7 +241,7 @@ extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
             let comment = comments[indexPath.row]
             db.collection("newComments").document(comment.id!).delete()
         }
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     

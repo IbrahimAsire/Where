@@ -3,10 +3,10 @@ import UIKit
 
 class News: UIViewController {
     var cellId = "cell"
-    var newsApi = NewsApi()
+    lazy var newsApi = NewsApi()
     var articles = [Article(title: "", url: "")]
     
-    lazy var arabImg = UIImageView()
+    var arabImg = UIImageView()
     lazy var tableView = UITableView()
 
     override func viewDidLoad() {
