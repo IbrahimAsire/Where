@@ -64,7 +64,12 @@ And the user can add a recommendation for a book , specific coffee .. etc
 
 ### Controllers :
 - TabBarCustom Folder
+- - TabBarMain
+- - ExitVC
 - StartVC Folder
+- - Register
+- - login
+- - profile
 - CafesScreen Folder
 - PlacesOnMap Folder
 - News Folder
