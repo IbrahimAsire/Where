@@ -80,7 +80,12 @@ And the user can add a recommendation for a book , specific coffee .. etc
 - - PopVC
 - - NewPlacesVC
 - News Folder
+- - News
+- - ShowNews
 - Recommendation Folder
+- - RecommVC
+- - Additem
+- - AddStore
 
 ### Networking:
  Comments
