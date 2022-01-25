@@ -59,7 +59,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        let data = detlCafe[indexPath.row]
 
-       let nextVC = ShowCafe()
+       let nextVC = ShowDetlsCafe()
        
        nextVC.cafeImg1.image = UIImage(named: data.img1)
        nextVC.cafeImg2.image = UIImage(named: data.img2)

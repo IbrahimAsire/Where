@@ -25,8 +25,6 @@ class ReacommCell: UITableViewCell {
         storeNameLbl.translatesAutoresizingMaskIntoConstraints = false
         storeNameLbl.font = .boldSystemFont(ofSize: 18)
         
-
-        
         NSLayoutConstraint.activate([
             itemNameLbl.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             itemNameLbl.centerXAnchor.constraint(equalTo: centerXAnchor),

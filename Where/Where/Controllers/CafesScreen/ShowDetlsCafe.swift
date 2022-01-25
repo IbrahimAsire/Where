@@ -6,7 +6,7 @@ import Cosmos
 import TinyConstraints
 import Firebase
 
-class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
+class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     let db = Firestore.firestore()
         
@@ -41,7 +41,6 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         return $0
     }(CosmosView())
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         readComments()
@@ -51,7 +50,6 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
         setUpConstraint()
         
     }
-    
     
     func readComments(){
         db.collection("newComments").whereField("nameCafes", isEqualTo: titleCafe)
@@ -213,7 +211,7 @@ class ShowCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigat
     }
 }
 
-extension ShowCafe: UITableViewDelegate, UITableViewDataSource {
+extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
