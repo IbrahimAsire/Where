@@ -71,7 +71,14 @@ And the user can add a recommendation for a book , specific coffee .. etc
 - - login
 - - profile
 - CafesScreen Folder
+- - CafesVC
+- - ShowDetlsCafe
+- - AddComment
 - PlacesOnMap Folder
+- - PlaceOnMap
+- - AddNewPlace
+- - PopVC
+- - NewPlacesVC
 - News Folder
 - Recommendation Folder
 
