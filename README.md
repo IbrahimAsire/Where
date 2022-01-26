@@ -90,3 +90,5 @@ And the user can add a recommendation for a book , specific coffee .. etc
 ### Networking:
  Comments
  
+ ### presentation:
+ https://docs.google.com/presentation/d/1hyURH4Tyy0mEk79XbupPHCsqw1K3Jtyp7nLVSAJJnO0/edit#slide=id.p3
