@@ -5,12 +5,12 @@ import CoreLocation
 
 class AddNewPlace: UIViewController, UISearchResultsUpdating {
     lazy var locationMng = CLLocationManager()
-
+    
     lazy var mapView = MKMapView()
     
     var lat = 0.0
     var long = 0.0
-   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,16 +42,16 @@ class AddNewPlace: UIViewController, UISearchResultsUpdating {
         vc.long = long
         present(vc, animated: true, completion: nil)
     }
-
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         mapView.frame = CGRect(x: 0, y: view.safeAreaInsets.top,
                                width: view.frame.size.width,
                                height: view.frame.size.height)
     }
-
+    
     func updateSearchResults(for searchController: UISearchController) {
-
+        
     }
 }
 

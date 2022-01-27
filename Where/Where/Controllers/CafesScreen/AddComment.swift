@@ -10,7 +10,7 @@ class AddComment: UIViewController, UITextViewDelegate {
     let addButton = UIButton()
     var nameCafe = ""
     
-//    var comment: CommentCafe?
+    //    var comment: CommentCafe?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +21,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         
         setupNameNoteTF()
         setupAddNoteBtn()
-//        commentTF.text = comment?.comment
+        //        commentTF.text = comment?.comment
         
     }
     

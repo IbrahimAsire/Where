@@ -8,7 +8,7 @@ class News: UIViewController {
     
     var arabImg = UIImageView()
     lazy var tableView = UITableView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBrown
@@ -38,7 +38,7 @@ class News: UIViewController {
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        
+            
         ])
     }
 }
@@ -60,7 +60,7 @@ extension News: UITableViewDataSource {
 
 extension News:  UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let vc = ShowNews()
         let selectedRow = tableView.indexPathForSelectedRow?.row
         vc.urlLink = articles[selectedRow!].url

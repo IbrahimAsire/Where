@@ -27,8 +27,8 @@ class CommentsService {
             
             for doc in docs {
                 comments.append(CommentCafe(id: doc.get("id") as! String, comment: doc.get("content") as! String))
-
-                }
+                
+            }
             
             completion(comments)
         }

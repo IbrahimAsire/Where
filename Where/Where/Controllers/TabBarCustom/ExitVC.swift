@@ -5,7 +5,7 @@ import FirebaseAuth
 class ExitVC: UIViewController{
     
     var appURL = URL(string: "https://itunes.apple.com/app/")!
-
+    
     var emojiLbl = UILabel()
     var textTF = UITextField()
     var classifyBtn = UIButton()
@@ -25,14 +25,14 @@ class ExitVC: UIViewController{
         $0.addTarget(self, action: #selector(share), for: .touchUpInside)
         return $0
     }(UIButton())
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBrown
         setUp()
         setupStackView()
         textTF.delegate = self
-
+        
     }
     
     func setUp() {
@@ -43,7 +43,7 @@ class ExitVC: UIViewController{
         NSLayoutConstraint.activate([
             emojiLbl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emojiLbl.topAnchor.constraint(equalTo: view.topAnchor, constant: 100)
-        
+            
         ])
         
         view.addSubview(textTF)
@@ -55,7 +55,7 @@ class ExitVC: UIViewController{
             textTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             textTF.topAnchor.constraint(equalTo: emojiLbl.bottomAnchor, constant: 40),
             textTF.widthAnchor.constraint(equalToConstant: 250)
-        
+            
         ])
         
         view.addSubview(classifyBtn)
@@ -77,7 +77,7 @@ class ExitVC: UIViewController{
             outBTn.topAnchor.constraint(equalTo: classifyBtn.bottomAnchor, constant: 50),
             outBTn.widthAnchor.constraint(equalToConstant: 200),
             outBTn.heightAnchor.constraint(equalToConstant: 80)
-        
+            
         ])
     }
     
@@ -100,25 +100,25 @@ class ExitVC: UIViewController{
     // MARK: - Actions
     
     @objc func writeReview() {
-      var components = URLComponents(url: appURL, resolvingAgainstBaseURL: false)
-      components?.queryItems = [
-        URLQueryItem(name: "action", value: "write-review")
-      ]
-
-      guard let writeReviewURL = components?.url else {
-        return
-      }
-
-      UIApplication.shared.open(writeReviewURL)
+        var components = URLComponents(url: appURL, resolvingAgainstBaseURL: false)
+        components?.queryItems = [
+            URLQueryItem(name: "action", value: "write-review")
+        ]
+        
+        guard let writeReviewURL = components?.url else {
+            return
+        }
+        
+        UIApplication.shared.open(writeReviewURL)
     }
-
+    
     @objc func share() {
-      let activityViewController = UIActivityViewController(activityItems: [appURL],
-                                                            applicationActivities: nil)
-
-      present(activityViewController, animated: true, completion: nil)
+        let activityViewController = UIActivityViewController(activityItems: [appURL],
+                                                              applicationActivities: nil)
+        
+        present(activityViewController, animated: true, completion: nil)
     }
-  
+    
     @objc func classifyTpd() {
         let textClassifier = TextClassifier()
         
@@ -138,14 +138,14 @@ class ExitVC: UIViewController{
     
     @objc func signOutBtnTpd() {
         
-            try! Auth.auth().signOut()
-            let vc = Register()
-            vc.modalTransitionStyle = .crossDissolve
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
+        try! Auth.auth().signOut()
+        let vc = Register()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
         
     }
-
+    
 }
 
 // MARK: - If press a button enter

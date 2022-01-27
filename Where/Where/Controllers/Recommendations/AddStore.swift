@@ -2,7 +2,7 @@
 import UIKit
 
 class AddStore: UIViewController {
-        
+    
     let storeTF = UITextField()
     let pressBtn = UIButton()
     

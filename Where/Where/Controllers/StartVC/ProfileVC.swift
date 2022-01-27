@@ -63,13 +63,13 @@ class ProfileVC: UIViewController {
         setupStackView()
         
     }
-  
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fetchCurrentUser()
         
     }
-
+    
     func setUpLbls() {
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -126,14 +126,14 @@ class ProfileVC: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
     }
-
+    
     func setupImgPicker() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true)
     }
-  
+    
     @objc func imageTpd() {
         setupImgPicker()
     }
@@ -181,12 +181,12 @@ class ProfileVC: UIViewController {
                                 print("error converting data")
                                 DispatchQueue.main.async {
                                     self.profileImg.image = UIImage(systemName: "person.fill.badge.plus")
+                                }
                             }
                         }
                     }
                 }
             }
-        }
     }
     
     private func fetchCurrentUser() {
@@ -200,10 +200,8 @@ class ProfileVC: UIViewController {
                     if let snapshotDocuments = querySnapshot?.documents {
                         for doc in snapshotDocuments {
                             let data = doc.data()
-                            if let userName = data["name"] as? String,
-                               let userEmail = data["email"] as? String
+                            if let userName = data["name"] as? String
                             {
-                                
                                 DispatchQueue.main.async {
                                     self.userNameLbl.text = userName
                                 }
@@ -211,14 +209,14 @@ class ProfileVC: UIViewController {
                         }
                     }
                 }
-        }
+            }
     }
 }
 
 extension ProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-       
+        
         guard let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
         guard let d: Data = userPickedImage.jpegData(compressionQuality: 0.5) else { return }
         guard let currentUser = Auth.auth().currentUser else {return}

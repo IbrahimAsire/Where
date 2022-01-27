@@ -9,15 +9,15 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     
     var db = Firestore.firestore()
     var newPlace: [NewPlace] = []
-
+    
     let tableView = UITableView()
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(true)
-//
-//        tableView.reloadData()
-//
-//    }
+    
+    //    override func viewWillAppear(_ animated: Bool) {
+    //        super.viewWillAppear(true)
+    //
+    //        tableView.reloadData()
+    //
+    //    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
+        ])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -52,13 +52,13 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         cell.titlePlase.text = data.namePlace
         cell.descPlace.text = data.descPlace
         cell.timeLbl.text = DateFormatter.localizedString(from: data.time, dateStyle: .short, timeStyle: .short)
-
+        
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-            
+        
         if editingStyle == .delete {
             let landMark = newPlace[indexPath.row]
             
@@ -69,9 +69,9 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     }
     
     func readPlases(){
+        self.newPlace.removeAll()
         db.collection("newPlaces").addSnapshotListener { snapshot, error in
             if error == nil {
-//                self.newPlace.removeAll()
                 guard let data = snapshot?.documents else {return}
                 for doc in data {
                     self.newPlace.append(NewPlace(id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
@@ -81,12 +81,12 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         }
         
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        
         let latitude:CLLocationDegrees = newPlace[indexPath.row].userLat!
         let longitude:CLLocationDegrees = newPlace[indexPath.row].userLong!
-
+        
         let regionDistance:CLLocationDistance = 10000
         let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
         let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)

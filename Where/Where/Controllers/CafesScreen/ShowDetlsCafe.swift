@@ -9,13 +9,13 @@ import Firebase
 class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     let db = Firestore.firestore()
-        
+    
     var lat = 0.0
     var long = 0.0
     var titleCafe = ""
-
+    
     var comments: [NewComment] = []
-
+    
     let cellId = "CommentCell"
     
     var cafeImg1 = UIImageView()
@@ -40,7 +40,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         $0.settings.textMargin = 8
         return $0
     }(CosmosView())
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         readComments()
@@ -54,15 +54,15 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
     func readComments(){
         db.collection("newComments").whereField("nameCafes", isEqualTo: titleCafe)
             .addSnapshotListener { snapshot, error in
-            if error == nil {
-//                self.newPlace.removeAll()
-                guard let data = snapshot?.documents else {return}
-                for doc in data {
-                    self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String) )
+                if error == nil {
+                    //                self.newPlace.removeAll()
+                    guard let data = snapshot?.documents else {return}
+                    for doc in data {
+                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String) )
+                    }
+                    self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
-        }
         
     }
     
@@ -73,11 +73,11 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         cafeImg1.layer.masksToBounds = true
         cafeImg1.layer.cornerRadius = 5
         NSLayoutConstraint.activate([
-           cafeImg1.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-           cafeImg1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
-           cafeImg1.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -200),
-           cafeImg1.heightAnchor.constraint(equalToConstant: 350),
-           cafeImg2.widthAnchor.constraint(equalToConstant: 195)
+            cafeImg1.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            cafeImg1.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 5),
+            cafeImg1.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -200),
+            cafeImg1.heightAnchor.constraint(equalToConstant: 350),
+            cafeImg2.widthAnchor.constraint(equalToConstant: 195)
         ])
         
         view.addSubview(cafeImg2)
@@ -85,29 +85,29 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         cafeImg2.layer.masksToBounds = true
         cafeImg2.layer.cornerRadius = 5
         NSLayoutConstraint.activate([
-           cafeImg2.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
-           cafeImg2.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
-           cafeImg2.heightAnchor.constraint(equalToConstant: 350),
-           cafeImg2.widthAnchor.constraint(equalToConstant: 195)
+            cafeImg2.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
+            cafeImg2.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
+            cafeImg2.heightAnchor.constraint(equalToConstant: 350),
+            cafeImg2.widthAnchor.constraint(equalToConstant: 195)
         ])
-
+        
         view.addSubview(nameCafe)
         nameCafe.translatesAutoresizingMaskIntoConstraints = false
         nameCafe.font = .boldSystemFont(ofSize: 20)
         NSLayoutConstraint.activate([
-           nameCafe.topAnchor.constraint(equalTo: cafeImg1.bottomAnchor, constant: 5),
+            nameCafe.topAnchor.constraint(equalTo: cafeImg1.bottomAnchor, constant: 5),
             nameCafe.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5)
         ])
-
+        
         view.addSubview(detlCafe)
         detlCafe.translatesAutoresizingMaskIntoConstraints = false
         detlCafe.textColor = .gray
         detlCafe.font = .boldSystemFont(ofSize: 15)
         detlCafe.numberOfLines = 0
         NSLayoutConstraint.activate([
-           detlCafe.topAnchor.constraint(equalTo: nameCafe.bottomAnchor, constant: 8),
-           detlCafe.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
-           detlCafe.widthAnchor.constraint(equalToConstant: 250)
+            detlCafe.topAnchor.constraint(equalTo: nameCafe.bottomAnchor, constant: 8),
+            detlCafe.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5),
+            detlCafe.widthAnchor.constraint(equalToConstant: 250)
         ])
         
         view.addSubview(mapBtn)
@@ -118,7 +118,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         NSLayoutConstraint.activate([
             mapBtn.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 20),
             mapBtn.rightAnchor.constraint(equalTo: view.rightAnchor,constant: -15),
-//            mapBtn.widthAnchor.constraint(equalTo: mapBtn.widthAnchor)
+            //            mapBtn.widthAnchor.constraint(equalTo: mapBtn.widthAnchor)
         ])
         
         view.addSubview(contactBtn)
@@ -128,9 +128,9 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         NSLayoutConstraint.activate([
             contactBtn.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 18),
             contactBtn.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -60)
-        
+            
         ])
-
+        
         view.addSubview(addComment)
         addComment.translatesAutoresizingMaskIntoConstraints = false
         addComment.setTitle("Add Comment".Localizable(), for: .normal)
@@ -139,7 +139,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         NSLayoutConstraint.activate([
             addComment.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 13),
             addComment.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
-
+            
         ])
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -161,7 +161,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         NSLayoutConstraint.activate([
             cosmosView.topAnchor.constraint(equalTo: detlCafe.bottomAnchor, constant: 13),
             cosmosView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        
+            
         ])
         
     }
@@ -191,7 +191,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
             vc.setToRecipients(["i-mm-6@hotmail.com"])
             vc.setSubject("Hey there!")
             vc.setMessageBody("Hi, I'd like to know ", isHTML: false)
-
+            
             present(UINavigationController(rootViewController: vc), animated: true)
         }
         else {
@@ -216,10 +216,10 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return comments.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        
         let note = comments[indexPath.row]
         cell.textLabel?.text = note.content
         cell.backgroundColor = .systemBrown
@@ -228,7 +228,7 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     }
     
     // MARK: - TableView Delegation function (Delete)
-   
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -243,14 +243,14 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let note = comments[indexPath.row]
-//
-//        let noteVC = AddComment()
-//        noteVC.note = note
-//
-//        present(noteVC, animated: true, completion: nil)
-//    }
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //        let comment = comments[indexPath.row]
+    //
+    //        let vc = AddComment()
+    //        vc.commentTF.text = comment.content
+    //
+    //        present(vc, animated: true, completion: nil)
+    //    }
     
 }
 

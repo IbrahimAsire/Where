@@ -3,12 +3,12 @@ import UIKit
 import MapKit
 
 class PleacOnMap: UIViewController {
-        
+    
     var lat = 0.0
     var long = 0.0
     var titleCafe = ""
     let returnBtn = UIButton()
-
+    
     let mapV : MKMapView = {
         let map = MKMapView()
         return map
@@ -16,7 +16,7 @@ class PleacOnMap: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpMap()
         let initLoc = CLLocation(latitude: lat, longitude: long)
         setStartingLoc(location: initLoc, distance: 1000)

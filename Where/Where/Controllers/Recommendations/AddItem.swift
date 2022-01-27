@@ -57,7 +57,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             imgItem.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
             imgItem.heightAnchor.constraint(equalToConstant: 200)
         ])
-                
+        
         view.addSubview(pickerStore)
         pickerStore.translatesAutoresizingMaskIntoConstraints = false
         pickerStore.dataSource = self
@@ -78,7 +78,7 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             newItem = editOrDelete
         }
         newItem.item_name = itemTF.text
-//        newItem.date_add = Date()
+        //        newItem.date_add = Date()
         newItem.image = imgItem.image
         newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
         do {
@@ -162,7 +162,7 @@ extension AddItem: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-       let store = listStore[row]
+        let store = listStore[row]
         return store.name
     }
     

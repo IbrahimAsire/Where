@@ -84,7 +84,7 @@ class PopVC: UIViewController {
         self.db.collection("newPlaces").document("\(String(describing: myID))").setData(newLoc.getData())
         
         dismiss(animated: true, completion: nil)
-    
+        
     }
 }
 

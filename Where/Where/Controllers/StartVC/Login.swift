@@ -4,7 +4,7 @@ import FirebaseAuth
 
 class Login: UIViewController {
     
-
+    
     lazy var coffeImg: UIImageView = {
         $0.image = UIImage(named: "1")
         return $0
@@ -52,7 +52,7 @@ class Login: UIViewController {
         $0.backgroundColor = .systemBrown
         return $0
     }(UIButton())
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .secondarySystemBackground
@@ -66,7 +66,7 @@ class Login: UIViewController {
         view.addSubview(emailTF)
         view.addSubview(passTF)
         view.addSubview(loginBtn)
-
+        
         NSLayoutConstraint.activate([
             emailTF.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emailTF.topAnchor.constraint(equalTo: view.topAnchor, constant: 400),
@@ -78,7 +78,7 @@ class Login: UIViewController {
             loginBtn.topAnchor.constraint(equalTo: passTF.bottomAnchor, constant: 40),
             loginBtn.widthAnchor.constraint(equalToConstant: 150)
         ])
-    
+        
     }
     
     // MARK: - to login user
@@ -145,8 +145,8 @@ class Login: UIViewController {
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             stackView.heightAnchor.constraint(equalToConstant: 160),
             whereImg.widthAnchor.constraint(equalToConstant: 180)
-        
+            
         ])
     }
 }
-    
+

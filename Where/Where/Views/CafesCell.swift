@@ -2,9 +2,9 @@
 import UIKit
 
 class CafesCell: UICollectionViewCell{
-
+    
     let imgCafe = UIImageView()
-
+    
     override init(frame: CGRect){
         super.init(frame: frame)
         
@@ -21,18 +21,18 @@ class CafesCell: UICollectionViewCell{
         self.layer.masksToBounds = false
         self.layer.cornerRadius = 2
         self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
-
+        
         imgCafe.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(imgCafe)
         NSLayoutConstraint.activate([
-           imgCafe.rightAnchor.constraint(equalTo: rightAnchor ),
-           imgCafe.leftAnchor.constraint(equalTo: leftAnchor),
-           imgCafe.topAnchor.constraint(equalTo: topAnchor),
-           imgCafe.heightAnchor.constraint(equalToConstant: 400),
+            imgCafe.rightAnchor.constraint(equalTo: rightAnchor ),
+            imgCafe.leftAnchor.constraint(equalTo: leftAnchor),
+            imgCafe.topAnchor.constraint(equalTo: topAnchor),
+            imgCafe.heightAnchor.constraint(equalToConstant: 400),
         ])
-
+        
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

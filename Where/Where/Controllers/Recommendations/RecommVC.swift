@@ -3,7 +3,7 @@ import UIKit
 import CoreData
 
 class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
-     
+    
     var controller = NSFetchedResultsController<Items>()
     
     let tableView: UITableView = {
@@ -33,7 +33,7 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor),
             tableView.leftAnchor.constraint(equalTo: view.leftAnchor)
-
+            
         ])
         
     }

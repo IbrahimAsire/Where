@@ -19,7 +19,7 @@ class TabBarMain: UITabBarController {
             barItem(tabBarTitle: "News".Localizable(), tabBarImage: UIImage(systemName: "newspaper")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: News()),
             
             barItem(tabBarTitle: "Add a place".Localizable(), tabBarImage: UIImage(systemName: "plus.message.fill")!.withTintColor(.white, renderingMode: .alwaysOriginal), viewController: AddNewPlace()),
-
+            
         ]
         
         tabBar.backgroundColor = .systemBrown
