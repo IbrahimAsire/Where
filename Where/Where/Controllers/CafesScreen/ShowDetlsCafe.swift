@@ -5,10 +5,12 @@ import SafariServices
 import Cosmos
 import TinyConstraints
 import Firebase
+import CloudKit
 
 class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
     let db = Firestore.firestore()
+    let myID = Auth.auth().currentUser!.uid
     
     var lat = 0.0
     var long = 0.0
@@ -58,7 +60,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
                     //                self.newPlace.removeAll()
                     guard let data = snapshot?.documents else {return}
                     for doc in data {
-                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String) )
+                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String, commentID: doc.get("commentID") as? String))
                     }
                     self.tableView.reloadData()
                 }
@@ -235,24 +237,27 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle == .delete {
-            let comment = comments[indexPath.row]
-            db.collection("newComments").document(comment.id!).delete()
+        let userID = comments[indexPath.row]
+        
+        if userID.id == myID {
+            if editingStyle == .delete {
+                self.db.collection("newComments").document(userID.commentID!).delete()
+            }
         }
         tableView.reloadData()
+        
     }
     
-    
-    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    //        let comment = comments[indexPath.row]
-    //
-    //        let vc = AddComment()
-    //        vc.commentTF.text = comment.content
-    //
-    //        present(vc, animated: true, completion: nil)
-    //    }
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comment = comments[indexPath.row]
+        let vc = AddComment()
+        if comment.id == myID {
+            vc.commentTF.text = comment.content
+            
+            self.present(vc, animated: true, completion: nil)
+            
+        }
+    }
 }
-
 
 

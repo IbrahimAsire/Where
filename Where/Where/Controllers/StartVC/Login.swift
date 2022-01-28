@@ -26,7 +26,7 @@ class Login: UIViewController {
     lazy var emailTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Email".Localizable()
-        $0.text = "ibra@i.com".Localizable()
+        $0.text = "ibra@i.com"
         $0.borderStyle = .roundedRect
         $0.textAlignment = .center
         

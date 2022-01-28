@@ -47,9 +47,10 @@ struct NewComment {
     let id: String?
     var content: String?
     var nameCafe: String?
+    let commentID: String?
     
     func getData() -> [String: Any] {
-        return ["id": id, "comments": content, "nameCafes": nameCafe]
+        return ["id": id, "comments": content, "nameCafes": nameCafe, "commentID": commentID]
     }
     
 }
