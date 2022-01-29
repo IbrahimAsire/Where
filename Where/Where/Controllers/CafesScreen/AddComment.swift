@@ -71,7 +71,9 @@ class AddComment: UIViewController, UITextViewDelegate {
             let userID = Auth.auth().currentUser!.uid
             let commentID = UUID().uuidString
             let newComment = NewComment(id: userID, content: commentTF.text, nameCafe: nameCafe, commentID: commentID)
-            self.db.collection("newComments").document("\(String(describing: commentID))").setData(newComment.getData())
+            self.db.collection("newComments")
+                .document("\(String(describing: commentID))")
+                .setData(newComment.getData(), merge: true)
             
             dismiss(animated: true, completion: nil)
             

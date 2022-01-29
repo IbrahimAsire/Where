@@ -231,10 +231,6 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     
     // MARK: - TableView Delegation function (Delete)
     
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         let userID = comments[indexPath.row]
@@ -242,9 +238,12 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
         if userID.id == myID {
             if editingStyle == .delete {
                 self.db.collection("newComments").document(userID.commentID!).delete()
+//                self.tableView.reloadData()
+            
             }
+//            tableView.reloadData()
         }
-        tableView.reloadData()
+        
         
     }
     

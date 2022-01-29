@@ -116,22 +116,26 @@ class Login: UIViewController {
                         
                     }
                 }else{
+                    
                     if error == nil {
                         
                         self.navigationController?.pushViewController(ProfileVC(), animated: true)
                     } else {
                         print(error?.localizedDescription)
                     }
+                    
                 }
+                
             }
+            
             UIView.animate(withDuration: 2) {
                 self.loginBtn.setTitle("Welcome", for: .normal)
                 self.loginBtn.titleLabel?.font =  UIFont(name: "GillSans-Italic", size: 42)
                 self.view.backgroundColor = .systemBrown
                 self.view.layoutIfNeeded()
             }
+            
         }
-        
         
     }
     
