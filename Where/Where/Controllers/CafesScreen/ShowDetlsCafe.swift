@@ -5,7 +5,6 @@ import SafariServices
 import Cosmos
 import TinyConstraints
 import Firebase
-import CloudKit
 
 class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINavigationControllerDelegate {
     
@@ -17,8 +16,6 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
     var titleCafe = ""
     
     var comments: [NewComment] = []
-    
-    let cellId = "CommentCell"
     
     var cafeImg1 = UIImageView()
     var cafeImg2 = UIImageView()
@@ -50,21 +47,6 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         title = "Cafes".Localizable()
         view.backgroundColor = .white
         setUpConstraint()
-        
-    }
-    
-    func readComments(){
-        db.collection("newComments").whereField("nameCafes", isEqualTo: titleCafe)
-            .addSnapshotListener { snapshot, error in
-                if error == nil {
-                    //                self.newPlace.removeAll()
-                    guard let data = snapshot?.documents else {return}
-                    for doc in data {
-                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String, commentID: doc.get("commentID") as? String))
-                    }
-                    self.tableView.reloadData()
-                }
-            }
         
     }
     
@@ -211,6 +193,21 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         controller.dismiss(animated: true, completion: nil)
         
     }
+    
+    func readComments(){
+        db.collection("newComments").whereField("nameCafes", isEqualTo: titleCafe)
+            .addSnapshotListener { snapshot, error in
+                if error == nil {
+                    //                self.newPlace.removeAll()
+                    guard let data = snapshot?.documents else {return}
+                    for doc in data {
+                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String, commentID: doc.get("commentID") as? String))
+                    }
+                    self.tableView.reloadData()
+                }
+            }
+        
+    }
 }
 
 extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
@@ -238,10 +235,10 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
         if userID.id == myID {
             if editingStyle == .delete {
                 self.db.collection("newComments").document(userID.commentID!).delete()
-//                self.tableView.reloadData()
-            
+                //                self.tableView.reloadData()
+                
             }
-//            tableView.reloadData()
+            //            tableView.reloadData()
         }
         
         
