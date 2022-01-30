@@ -30,6 +30,7 @@ And the user can add a recommendation for a book , specific coffee .. etc
 - **News:** As a user I can see news so that see and read.
 - **Animation:** As a user I can clicked login button so that I can see this button cahnge.
 - **opinipn:** As a user I can writ my opinion so that sees it the developer.
+- **Share:** As a user I can share App so that others use it.
 
 
 | Component            | Permissions                | Behavior                                                     |
