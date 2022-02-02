@@ -249,6 +249,7 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
         let vc = AddComment()
         if comment.id == myID {
             vc.commentTF.text = comment.content
+            vc.nameCafe = titleCafe
             
             self.present(vc, animated: true, completion: nil)
             
