@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F1D25672782D2190091DF65 /* NewPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D25662782D2190091DF65 /* NewPlaces.swift */; };
+		0F2FE9C527AFB8EF00640776 /* EditComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2FE9C427AFB8EF00640776 /* EditComment.swift */; };
 		0F314C462763F1DA00D6CAB9 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */; };
 		0F314C482763F82F00D6CAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F314C472763F82F00D6CAB9 /* Main.storyboard */; };
 		0F314C4C2763F95000D6CAB9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F314C4E2763F95000D6CAB9 /* Localizable.strings */; };
@@ -52,6 +53,7 @@
 
 /* Begin PBXFileReference section */
 		0F1D25662782D2190091DF65 /* NewPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaces.swift; sourceTree = "<group>"; };
+		0F2FE9C427AFB8EF00640776 /* EditComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComment.swift; sourceTree = "<group>"; };
 		0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		0F314C472763F82F00D6CAB9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0F314C492763F8E600D6CAB9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				0F4EF033275019980041479D /* CafesVC.swift */,
 				0F9A250D275259E7003CFF71 /* ShowDetlsCafe.swift */,
 				0F763D3F2752CF7A00DC3019 /* AddComment.swift */,
+				0F2FE9C427AFB8EF00640776 /* EditComment.swift */,
 			);
 			path = CafesScreen;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 			files = (
 				0FDC9DB7274F6A05001A1E12 /* TabBarMain.swift in Sources */,
 				0F7DDC8F274E15C50047D854 /* Register.swift in Sources */,
+				0F2FE9C527AFB8EF00640776 /* EditComment.swift in Sources */,
 				0F9A251427529640003CFF71 /* PopVC.swift in Sources */,
 				0F6B6C8C274CD9BF00A6CE65 /* AddNewPlace.swift in Sources */,
 				0FCE833A274D6F3300F4C1BF /* NewPlacesVC.swift in Sources */,

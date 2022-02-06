@@ -195,13 +195,13 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
     }
     
     func readComments(){
-        db.collection("newComments").whereField("nameCafes", isEqualTo: titleCafe)
+        db.collection("newComments").whereField("nameCafe", isEqualTo: titleCafe)
             .addSnapshotListener { snapshot, error in
                 if error == nil {
                     //                self.newPlace.removeAll()
                     guard let data = snapshot?.documents else {return}
                     for doc in data {
-                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comments") as? String, nameCafe: doc.get("nameCafes") as? String, commentID: doc.get("commentID") as? String))
+                        self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comment") as? String, nameCafe: doc.get("nameCafe") as? String, commentID: doc.get("commentID") as? String))
                     }
                     self.tableView.reloadData()
                 }
@@ -246,9 +246,9 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let comment = comments[indexPath.row]
-        let vc = AddComment()
+        let vc = EditComment()
         if comment.id == myID {
-            vc.commentTF.text = comment.content
+            vc.commentTV.text = comment.content
             vc.nameCafe = titleCafe
             
             self.present(vc, animated: true, completion: nil)

@@ -68,7 +68,6 @@ class AddComment: UIViewController, UITextViewDelegate {
             
         } else {
             
-            
             let userID = Auth.auth().currentUser!.uid
             let commentID = UUID().uuidString
             let newComment = NewComment(id: userID, content: commentTF.text, nameCafe: nameCafe, commentID: commentID)
