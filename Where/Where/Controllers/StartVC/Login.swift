@@ -4,18 +4,17 @@ import FirebaseAuth
 
 class Login: UIViewController {
     
-    
-    lazy var coffeImg: UIImageView = {
+    let coffeImg: UIImageView = {
         $0.image = UIImage(named: "1")
         return $0
     }(UIImageView())
     
-    lazy var whereImg: UIImageView = {
+    let whereImg: UIImageView = {
         $0.image = UIImage(named: "2")
         return $0
     }(UIImageView())
     
-    lazy var stackView: UIStackView = {
+    let stackView: UIStackView = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .horizontal
         $0.distribution = .fillEqually
@@ -23,7 +22,7 @@ class Login: UIViewController {
         return $0
     }(UIStackView())
     
-    lazy var emailTF: UITextField = {
+    let emailTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Email".Localizable()
         $0.text = "ibra@i.com"
@@ -33,7 +32,7 @@ class Login: UIViewController {
         return $0
     }(UITextField())
     
-    lazy var passTF: UITextField = {
+    let passTF: UITextField = {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.placeholder = "Type Your Password".Localizable()
         $0.text = "123456"
@@ -43,7 +42,7 @@ class Login: UIViewController {
         return $0
     }(UITextField())
     
-    lazy var loginBtn: UIButton = {
+    let loginBtn: UIButton = {
         $0.addTarget(self, action: #selector(login), for: .touchUpInside)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.setTitle("Login".Localizable(), for: .normal)

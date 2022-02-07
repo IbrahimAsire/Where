@@ -7,34 +7,84 @@ class Register: UITableViewController {
     
     let db = Firestore.firestore().collection("users")
     
-    let containerV = UIView()
-    let registerBtn = UIButton()
-    let nameTF = UITextField()
-    let nameSeparatorV = UIView()
-    let emailTF = UITextField()
+    public static func InitUI<Type>(value : Type, block: (_ object: Type) -> Void) -> Type {
+       block(value)
+       return value
+    }
+    
+    let containerV = InitUI(value: UIView()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = UIColor(named: "bgColor")
+        $0.layer.cornerRadius = 5
+        $0.layer.masksToBounds = true
+    }
+    
+    let registerBtn = InitUI(value: UIButton()) {
+        $0.backgroundColor = .systemBrown
+        $0.setTitle("Register".Localizable(), for: .normal)
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.layer.cornerRadius = 10
+        $0.addTarget(self, action: #selector(register), for: .touchUpInside)
+    }
+    
+
+    let nameTF = InitUI(value: UITextField()) {
+        $0.placeholder = "Your Name".Localizable()
+        $0.textAlignment = .center
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    let emailTF = InitUI(value: UITextField()) {
+        $0.placeholder = "Email".Localizable()
+        $0.textAlignment = .center
+        $0.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    let passTf = InitUI(value: UITextField()) {
+        $0.placeholder = "Password".Localizable()
+        $0.textAlignment = .center
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.isSecureTextEntry = true
+    }
+    
+    let loginLbl = InitUI(value: UILabel()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.text = "Do you have your account?".Localizable()
+        $0.textColor = .systemBrown
+    }
+    
+    let loginBtn = InitUI(value: UIButton()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.addTarget(self, action: #selector(loginGo), for: .touchUpInside)
+        $0.setTitle("Login".Localizable(), for: .normal)
+        $0.setTitleColor(.systemBrown, for: .normal)
+        $0.backgroundColor = .secondarySystemBackground
+    }
+    
+    let languageBtn = InitUI(value: UIButton()) {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.setTitle("changeLang".Localizable(), for: .normal)
+        $0.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
+        $0.setTitleColor(.systemBrown, for: .normal)
+    }
+    
     let emailSeparatorV = UIView()
-    let passTf = UITextField()
-    let loginLbl = UILabel()
-    let loginBtn = UIButton()
-    let languageBtn = UIButton()
+    let nameSeparatorV = UIView()
     
-    let coffeImg: UIImageView = {
+    let coffeImg = InitUI(value: UIImageView()) {
         $0.image = UIImage(named: "1")
-        return $0
-    }(UIImageView())
+    }
     
-    let whereImg: UIImageView = {
+    let whereImg = InitUI(value: UIImageView()) {
         $0.image = UIImage(named: "2")
-        return $0
-    }(UIImageView())
+    }
     
-    let stackView: UIStackView = {
+    let stackView = InitUI(value: UIStackView()){
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.spacing = 5
-        return $0
-    }(UIStackView())
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,33 +95,24 @@ class Register: UITableViewController {
     }
     
     func setUpConstraint() {
-        containerV.backgroundColor = UIColor(named: "bgColor")
-        containerV.layer.cornerRadius = 5
-        containerV.layer.masksToBounds = true
-        containerV.translatesAutoresizingMaskIntoConstraints = false
+        
         view.addSubview(containerV)
+        view.addSubview(registerBtn)
+        view.addSubview(loginLbl)
+        view.addSubview(loginBtn)
+        view.addSubview(languageBtn)
+        
         containerV.addSubview(nameTF)
         containerV.addSubview(nameSeparatorV)
         containerV.addSubview(emailTF)
         containerV.addSubview(emailSeparatorV)
         containerV.addSubview(passTf)
         
-        nameTF.placeholder = "Your Name".Localizable()
-        nameTF.textAlignment = .center
-        nameTF.translatesAutoresizingMaskIntoConstraints = false
         nameSeparatorV.translatesAutoresizingMaskIntoConstraints = false
         nameSeparatorV.backgroundColor = .lightGray
         
-        emailTF.placeholder = "Email".Localizable()
-        emailTF.textAlignment = .center
-        emailTF.translatesAutoresizingMaskIntoConstraints = false
         emailSeparatorV.translatesAutoresizingMaskIntoConstraints = false
         emailSeparatorV.backgroundColor = .lightGray
-        
-        passTf.placeholder = "Password".Localizable()
-        passTf.textAlignment = .center
-        passTf.translatesAutoresizingMaskIntoConstraints = false
-        passTf.isSecureTextEntry = true
         
         NSLayoutConstraint.activate([
             containerV.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
@@ -102,47 +143,18 @@ class Register: UITableViewController {
             passTf.topAnchor.constraint(equalTo: emailTF.bottomAnchor),
             passTf.widthAnchor.constraint(equalTo: containerV.widthAnchor),
             passTf.heightAnchor.constraint(equalTo: containerV.heightAnchor, multiplier: 1/3, constant: 0),
-        ])
-        
-        registerBtn.backgroundColor = .systemBrown
-        registerBtn.setTitle("Register".Localizable(), for: .normal)
-        registerBtn.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(registerBtn)
-        registerBtn.layer.cornerRadius = 10
-        registerBtn.addTarget(self, action: #selector(register), for: .touchUpInside)
-        NSLayoutConstraint.activate([
+            
             registerBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
             registerBtn.topAnchor.constraint(equalTo: containerV.bottomAnchor, constant: 50),
             registerBtn.widthAnchor.constraint(equalToConstant: 150),
-            registerBtn.heightAnchor.constraint(equalToConstant: 50)
-        ])
-        
-        loginLbl.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(loginLbl)
-        loginLbl.text = "Do you have your account?".Localizable()
-        loginLbl.textColor = .systemBrown
-        NSLayoutConstraint.activate([
+            registerBtn.heightAnchor.constraint(equalToConstant: 50),
+            
             loginLbl.topAnchor.constraint(equalTo: registerBtn.bottomAnchor, constant: 30),
-            loginLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
-        ])
-        
-        loginBtn.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(loginBtn)
-        loginBtn.addTarget(self, action: #selector(loginGo), for: .touchUpInside)
-        loginBtn.setTitle("Login".Localizable(), for: .normal)
-        loginBtn.setTitleColor(.systemBrown, for: .normal)
-        loginBtn.backgroundColor = .secondarySystemBackground
-        NSLayoutConstraint.activate([
+            loginLbl.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30),
+            
             loginBtn.topAnchor.constraint(equalTo: registerBtn.bottomAnchor, constant: 22.5),
-            loginBtn.leftAnchor.constraint(equalTo: loginLbl.rightAnchor, constant: 20)
-        ])
-        
-        languageBtn.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(languageBtn)
-        languageBtn.setTitle("changeLang".Localizable(), for: .normal)
-        languageBtn.addTarget(self, action: #selector(changeLangTpd), for: .touchUpInside)
-        languageBtn.setTitleColor(.systemBrown, for: .normal)
-        NSLayoutConstraint.activate([
+            loginBtn.leftAnchor.constraint(equalTo: loginLbl.rightAnchor, constant: 20),
+            
             languageBtn.topAnchor.constraint(equalTo: view.topAnchor, constant: 20),
             languageBtn.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 15)
         ])
@@ -247,4 +259,3 @@ extension String {
             comment: self)
     }
 }
-
