@@ -246,10 +246,11 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let comment = comments[indexPath.row]
-        let vc = AddComment()
+        let vc = EditComment()
         if comment.id == myID {
-            vc.commentTF.text = comment.content
+            vc.commentTV.text = comment.content
             vc.nameCafe = titleCafe
+            vc.commentID = comment.commentID!
             
             self.present(vc, animated: true, completion: nil)
             
