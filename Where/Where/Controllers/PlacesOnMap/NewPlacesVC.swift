@@ -9,6 +9,7 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     
     var db = Firestore.firestore()
     var newPlace: [NewPlace] = []
+    let user = Auth.auth().currentUser!.uid
     
     let tableView = UITableView()
     
@@ -59,11 +60,14 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle == .delete {
-            let landMark = newPlace[indexPath.row]
-            
-            db.collection("newPlaces").document(landMark.id!).delete()
+        if user == "xDAj9JkdzPUQyXPp9Jyxivazm9q2" {
+            if editingStyle == .delete {
+                let landMark = newPlace[indexPath.row]
+                
+                db.collection("newPlaces").document(landMark.id!).delete()
+            }
         }
+        
         
         self.tableView.reloadData()
     }
