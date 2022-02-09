@@ -198,12 +198,14 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         db.collection("newComments").whereField("nameCafe", isEqualTo: titleCafe)
             .addSnapshotListener { snapshot, error in
                 if error == nil {
-                    //                self.newPlace.removeAll()
                     guard let data = snapshot?.documents else {return}
+                    self.comments.removeAll() // So that the data isn't duplicated
                     for doc in data {
                         self.comments.append(NewComment(id: doc.get("id") as? String, content: doc.get("comment") as? String, nameCafe: doc.get("nameCafe") as? String, commentID: doc.get("commentID") as? String))
                     }
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
                 }
             }
         
@@ -240,7 +242,6 @@ extension ShowDetlsCafe: UITableViewDelegate, UITableViewDataSource {
             }
             //            tableView.reloadData()
         }
-        
         
     }
     

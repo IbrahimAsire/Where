@@ -69,10 +69,10 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     }
     
     func readPlases(){
-        self.newPlace.removeAll()
         db.collection("newPlaces").addSnapshotListener { snapshot, error in
             if error == nil {
                 guard let data = snapshot?.documents else {return}
+                self.newPlace.removeAll()
                 for doc in data {
                     self.newPlace.append(NewPlace(id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
                 }

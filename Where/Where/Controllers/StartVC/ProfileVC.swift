@@ -154,13 +154,13 @@ class ProfileVC: UIViewController {
         guard let currentUser = Auth.auth().currentUser else {return}
         
         db.whereField("email", isEqualTo: String(currentUser.email!))
-            .addSnapshotListener { (querySnapshot, error) in
+            .addSnapshotListener { querySnapshot, error in
                 if let e = error {
-                    print("issue retrieving data from Firestore. \(e)")
+                    print(e)
                 } else {
                     
-                    if let snapshotDocuments = querySnapshot?.documents {
-                        for doc in snapshotDocuments {
+                    if let snapshotDocs = querySnapshot?.documents {
+                        for doc in snapshotDocs {
                             let data = doc.data()
                             
                             if let imageURL = data["userImageURL"] as? String
@@ -197,8 +197,8 @@ class ProfileVC: UIViewController {
                 if let e = error {
                     print("issue retrieving data from Firestore. \(e)")
                 } else {
-                    if let snapshotDocuments = querySnapshot?.documents {
-                        for doc in snapshotDocuments {
+                    if let snapshotDocs = querySnapshot?.documents {
+                        for doc in snapshotDocs {
                             let data = doc.data()
                             if let userName = data["name"] as? String
                             {
