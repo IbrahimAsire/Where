@@ -17,14 +17,13 @@ class RecommVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NS
         view.backgroundColor = .systemBrown
         tableView.dataSource = self
         tableView.delegate = self
+        loadItems()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
             target: self,
             action: #selector(Add))
         
-        
-        loadItems()
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false

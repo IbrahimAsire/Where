@@ -60,11 +60,10 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
-        if user == "xDAj9JkdzPUQyXPp9Jyxivazm9q2" {
+        let landMark = newPlace[indexPath.row]
+        if user == "xDAj9JkdzPUQyXPp9Jyxivazm9q2" || user == landMark.id {
             if editingStyle == .delete {
-                let landMark = newPlace[indexPath.row]
-                
-                db.collection("newPlaces").document(landMark.id!).delete()
+                db.collection("newPlaces").document(landMark.placeID!).delete()
             }
         }
         
@@ -78,7 +77,7 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
                 guard let data = snapshot?.documents else {return}
                 self.newPlace.removeAll()
                 for doc in data {
-                    self.newPlace.append(NewPlace(id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
+                    self.newPlace.append(NewPlace(placeID: doc.get("placeID") as? String, id: doc.get("id") as? String, namePlace: doc.get("namePlace") as? String, descPlace: doc.get("descPlace") as? String, userLat: (doc.get("userLat") as? Double), userLong: (doc.get("userLong") as? Double)) )
                 }
                 self.tableView.reloadData()
             }

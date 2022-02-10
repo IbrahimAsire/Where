@@ -1,11 +1,13 @@
 
 import UIKit
 import CoreData
+import Firebase
 
 class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var listStore = [StoreType]()
     var editOrDelete: Items?
+    let user = Auth.auth().currentUser?.uid
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
@@ -85,9 +87,10 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
             ad.saveContext()
             itemTF.text = ""
             print("saved")
-        }catch let error {
-            print("Error: \(error)")
         }
+//        }catch let error {
+//            print("Error: \(error)")
+//        }
         
     }
     
@@ -97,13 +100,14 @@ class AddItem: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
     }
     
     @objc func deleteTpd() {
-        if editOrDelete != nil {
-            context.delete(editOrDelete!)
-            ad.saveContext()
-            _ = navigationController?.popViewController(animated: true)
-            dismiss(animated: true)
+        if user == "xDAj9JkdzPUQyXPp9Jyxivazm9q2" {
+            if editOrDelete != nil {
+                context.delete(editOrDelete!)
+                ad.saveContext()
+                _ = navigationController?.popViewController(animated: true)
+                dismiss(animated: true)
+            }
         }
-        
     }
     
     func loadForEdit() {

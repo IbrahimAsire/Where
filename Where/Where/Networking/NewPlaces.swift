@@ -8,8 +8,8 @@ class NewPlacesService {
     let PlacesCollection = Firestore.firestore().collection("newPlaces")
     
     func addPlace(place: NewPlace) {
-        PlacesCollection.document(place.id!).setData([
-            "id": place.id,
+        PlacesCollection.document(place.placeID!).setData([
+            "id": place.placeID,
             "namePlace": place.namePlace,
             "descPlace": place.descPlace,
             
@@ -32,6 +32,7 @@ class NewPlacesService {
             for doc in docs {
                 let data = doc.data()
                 guard
+                    let placeID = data["placeID"] as? String,
                     let id = data["id"] as? String,
                     let place = data["namePlace"] as? String,
                     let descPlace = data["descPlace"] as? String,
@@ -42,7 +43,7 @@ class NewPlacesService {
                     continue
                 }
                 
-                places.append(NewPlace(id: id, namePlace: place, descPlace: descPlace, userLat: userLat, userLong: userLong))
+                places.append(NewPlace(placeID: placeID, id: id, namePlace: place, descPlace: descPlace, userLat: userLat, userLong: userLong))
             }
             
             completion(places)
@@ -53,7 +54,7 @@ class NewPlacesService {
     
     func delete(place: NewPlace) {
         
-        PlacesCollection.document(place.id!).delete()
+        PlacesCollection.document(place.placeID!).delete()
     }
 }
 
