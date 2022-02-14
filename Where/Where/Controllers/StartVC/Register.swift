@@ -116,7 +116,7 @@ class Register: UITableViewController {
         
         NSLayoutConstraint.activate([
             containerV.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            containerV.topAnchor.constraint(equalTo: view.topAnchor, constant: 350),
+            containerV.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 50),
             containerV.widthAnchor.constraint(equalToConstant: 350),
             containerV.heightAnchor.constraint(equalToConstant: 150),
             
@@ -144,8 +144,8 @@ class Register: UITableViewController {
             passTf.widthAnchor.constraint(equalTo: containerV.widthAnchor),
             passTf.heightAnchor.constraint(equalTo: containerV.heightAnchor, multiplier: 1/3, constant: 0),
             
-            registerBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            registerBtn.topAnchor.constraint(equalTo: containerV.bottomAnchor, constant: 50),
+            registerBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            registerBtn.topAnchor.constraint(equalTo: containerV.bottomAnchor, constant: 28),
             registerBtn.widthAnchor.constraint(equalToConstant: 150),
             registerBtn.heightAnchor.constraint(equalToConstant: 50),
             

@@ -21,6 +21,10 @@
 		0F56BDC927672B390065BEE1 /* NewsApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDC827672B390065BEE1 /* NewsApi.swift */; };
 		0F56BDCB2767311A0065BEE1 /* NewsPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDCA2767311A0065BEE1 /* NewsPost.swift */; };
 		0F56BDCD276785320065BEE1 /* ShowNews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F56BDCC276785320065BEE1 /* ShowNews.swift */; };
+		0F608DE727BAA731005A381C /* RecommVC1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F608DE627BAA731005A381C /* RecommVC1.swift */; };
+		0F608DE927BAA75A005A381C /* AddItem1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F608DE827BAA75A005A381C /* AddItem1.swift */; };
+		0F608DEB27BAA7BB005A381C /* AddStore1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F608DEA27BAA7BB005A381C /* AddStore1.swift */; };
+		0F608DED27BAA863005A381C /* ReacommCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F608DEC27BAA863005A381C /* ReacommCell1.swift */; };
 		0F65463E27539C4D00CB6DA8 /* PlaceOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F65463D27539C4D00CB6DA8 /* PlaceOnMap.swift */; };
 		0F697D51275C244D00AD3BD4 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F697D50275C244D00AD3BD4 /* Comments.swift */; };
 		0F697D53275C26FE00AD3BD4 /* ExitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F697D52275C26FE00AD3BD4 /* ExitVC.swift */; };
@@ -66,6 +70,10 @@
 		0F56BDC827672B390065BEE1 /* NewsApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsApi.swift; sourceTree = "<group>"; };
 		0F56BDCA2767311A0065BEE1 /* NewsPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPost.swift; sourceTree = "<group>"; };
 		0F56BDCC276785320065BEE1 /* ShowNews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowNews.swift; sourceTree = "<group>"; };
+		0F608DE627BAA731005A381C /* RecommVC1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommVC1.swift; sourceTree = "<group>"; };
+		0F608DE827BAA75A005A381C /* AddItem1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItem1.swift; sourceTree = "<group>"; };
+		0F608DEA27BAA7BB005A381C /* AddStore1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddStore1.swift; sourceTree = "<group>"; };
+		0F608DEC27BAA863005A381C /* ReacommCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReacommCell1.swift; sourceTree = "<group>"; };
 		0F65463D27539C4D00CB6DA8 /* PlaceOnMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceOnMap.swift; sourceTree = "<group>"; };
 		0F697D50275C244D00AD3BD4 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		0F697D52275C26FE00AD3BD4 /* ExitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitVC.swift; sourceTree = "<group>"; };
@@ -121,6 +129,7 @@
 				0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */,
 				0FCDE3C32781CBAE000AB1F1 /* ReacommCell.swift */,
 				0F9DC2E12795EFC500EC45AE /* NewPlaceCell.swift */,
+				0F608DEC27BAA863005A381C /* ReacommCell1.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,6 +264,9 @@
 				0FCDE3C12781CB62000AB1F1 /* RecommVC.swift */,
 				0FCDE3C52781CC3D000AB1F1 /* AddItem.swift */,
 				0FCDE3C72781CC7B000AB1F1 /* AddStore.swift */,
+				0F608DE627BAA731005A381C /* RecommVC1.swift */,
+				0F608DE827BAA75A005A381C /* AddItem1.swift */,
+				0F608DEA27BAA7BB005A381C /* AddStore1.swift */,
 			);
 			path = Recommendations;
 			sourceTree = "<group>";
@@ -424,6 +436,7 @@
 				0F7DDC8F274E15C50047D854 /* Register.swift in Sources */,
 				0F9A251427529640003CFF71 /* PopVC.swift in Sources */,
 				0F6B6C8C274CD9BF00A6CE65 /* AddNewPlace.swift in Sources */,
+				0F608DED27BAA863005A381C /* ReacommCell1.swift in Sources */,
 				0FCE833A274D6F3300F4C1BF /* NewPlacesVC.swift in Sources */,
 				0F4EF034275019980041479D /* CafesVC.swift in Sources */,
 				0F6B6C88274CD9BF00A6CE65 /* AppDelegate.swift in Sources */,
@@ -435,12 +448,15 @@
 				0F9A250E275259E7003CFF71 /* ShowDetlsCafe.swift in Sources */,
 				0F1D25672782D2190091DF65 /* NewPlaces.swift in Sources */,
 				0F56BDCD276785320065BEE1 /* ShowNews.swift in Sources */,
+				0F608DE727BAA731005A381C /* RecommVC1.swift in Sources */,
+				0F608DEB27BAA7BB005A381C /* AddStore1.swift in Sources */,
 				0F4EF03927502A8D0041479D /* CafesCell.swift in Sources */,
 				0F6B6C8A274CD9BF00A6CE65 /* SceneDelegate.swift in Sources */,
 				0FDC9DBC274F82CB001A1E12 /* ProfileVC.swift in Sources */,
 				0F56BDC7276720800065BEE1 /* News.swift in Sources */,
 				0F6B8CB427552C4700EDA73E /* Place.swift in Sources */,
 				0FCDE3C42781CBAE000AB1F1 /* ReacommCell.swift in Sources */,
+				0F608DE927BAA75A005A381C /* AddItem1.swift in Sources */,
 				0F75405927B153EA00E533DD /* EditComment.swift in Sources */,
 				0F4E11E8274E65A600B75193 /* User.swift in Sources */,
 				0FCDE3C62781CC3D000AB1F1 /* AddItem.swift in Sources */,

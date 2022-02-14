@@ -46,11 +46,11 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         
         title = "Cafes".Localizable()
         view.backgroundColor = .white
-        setUpConstraint()
+        setUpUI()
         
     }
     
-    func setUpConstraint() {
+    func setUpUI() {
         
         view.addSubview(cafeImg1)
         cafeImg1.translatesAutoresizingMaskIntoConstraints = false
@@ -179,7 +179,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
             present(UINavigationController(rootViewController: vc), animated: true)
         }
         else {
-            guard let url = URL(string: "https://www.google.com") else {
+            guard let url = URL(string: "https://www.google.ae/?client=safari") else {
                 return
             }
             let vc = SFSafariViewController(url: url)
@@ -208,7 +208,6 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
                     }
                 }
             }
-        
     }
 }
 
