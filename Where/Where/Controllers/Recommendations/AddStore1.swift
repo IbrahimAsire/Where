@@ -1,5 +1,6 @@
 
 import UIKit
+import Firebase
 
 class AddStore1: UIViewController {
     
@@ -37,14 +38,10 @@ class AddStore1: UIViewController {
     }
     
     @objc func saveTpd() {
-        let store = StoreType(context: context)
-        store.name = storeTF.text
-        do {
-            ad.saveContext()
-            storeTF.text = ""
-            print("saved")
-        } catch {
-            print("cannot save")
-        }
+        let db = Firestore.firestore()
+        let storeID = UUID().uuidString
+        db.collection("recommendations").document(storeID).setData([
+            "storeName": storeTF.text
+        ])
     }
 }

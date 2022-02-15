@@ -4,8 +4,9 @@ import CoreData
 import Firebase
 
 class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    var listStore = [StoreType]()
+    let db = Firestore.firestore()
+
+    var listStore = [Recomm]()
     var editOrDelete: Items?
     let user = Auth.auth().currentUser?.uid
     
@@ -72,25 +73,25 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     }
     
     @objc func saveTpd() {
-        print("1")
-        let newItem: Items!
-        if editOrDelete == nil {
-            newItem = Items(context: context)
-        }else {
-            newItem = editOrDelete
-        }
-        newItem.item_name = itemTF.text
-        //        newItem.date_add = Date()
-        newItem.image = imgItem.image
-        newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
-        do {
-            ad.saveContext()
-            itemTF.text = ""
-            print("saved")
-        }
-//        }catch let error {
-//            print("Error: \(error)")
+//        print("1")
+//        let newItem: Items!
+//        if editOrDelete == nil {
+//            newItem = Items(context: context)
+//        }else {
+//            newItem = editOrDelete
 //        }
+//        newItem.item_name = itemTF.text
+//        //        newItem.date_add = Date()
+//        newItem.image = imgItem.image
+//        newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
+//        do {
+//            ad.saveContext()
+//            itemTF.text = ""
+//            print("saved")
+//        }
+////        }catch let error {
+////            print("Error: \(error)")
+////        }
         
     }
     
@@ -104,7 +105,7 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
             if editOrDelete != nil {
                 context.delete(editOrDelete!)
                 ad.saveContext()
-                _ = navigationController?.popViewController(animated: true)
+                navigationController?.popViewController(animated: true)
                 dismiss(animated: true)
             }
         }
@@ -119,7 +120,7 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
                 var index = 0
                 while index < listStore.count {
                     let row = listStore[index]
-                    if row.name == store.name {
+                    if row.storeName == store.name {
                         pickerStore.selectRow(index, inComponent: 0, animated: false)
                     }
                     index += 1
@@ -149,11 +150,21 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
 extension AddItem1: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func loadStores() {
-        let fecthReq: NSFetchRequest <StoreType> = StoreType.fetchRequest()
-        do {
-            listStore = try context.fetch(fecthReq)
-        }catch {
+        db.collection("recommendations").addSnapshotListener { [self] QuerySnapshot, error in
+            if error != nil {
+                return
+            }
+            guard let docs = QuerySnapshot?.documents else {return}
             
+            for doc in docs {
+                let data = doc.data()
+                guard let storeName = data["storeName"] as? String
+                        
+                else {
+                    continue
+                }
+                listStore.append(Recomm(userID: nil, recommID: nil, recommTitle: nil, recommdetils: nil, recommImg: nil, storeName: storeName))
+            }
         }
     }
     
@@ -167,7 +178,7 @@ extension AddItem1: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let store = listStore[row]
-        return store.name
+        return store.storeName
     }
     
 }

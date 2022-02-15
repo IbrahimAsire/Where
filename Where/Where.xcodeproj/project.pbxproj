@@ -34,6 +34,7 @@
 		0F6B6C91274CD9C300A6CE65 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F6B6C90274CD9C300A6CE65 /* Assets.xcassets */; };
 		0F6B6C94274CD9C300A6CE65 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F6B6C92274CD9C300A6CE65 /* LaunchScreen.storyboard */; };
 		0F6B8CB427552C4700EDA73E /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6B8CB327552C4700EDA73E /* Place.swift */; };
+		0F6BCE0527BBEC2000F1EBC3 /* Recommendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BCE0427BBEC2000F1EBC3 /* Recommendation.swift */; };
 		0F75405927B153EA00E533DD /* EditComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F75405827B153EA00E533DD /* EditComment.swift */; };
 		0F763D402752CF7A00DC3019 /* AddComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F763D3F2752CF7A00DC3019 /* AddComment.swift */; };
 		0F78BBE2276F6E1C0018B393 /* TextClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0F78BBE1276F6E1C0018B393 /* TextClassifier.mlmodel */; };
@@ -85,6 +86,7 @@
 		0F6B6C93274CD9C300A6CE65 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F6B6C95274CD9C300A6CE65 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0F6B8CB327552C4700EDA73E /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		0F6BCE0427BBEC2000F1EBC3 /* Recommendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recommendation.swift; sourceTree = "<group>"; };
 		0F75405827B153EA00E533DD /* EditComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditComment.swift; sourceTree = "<group>"; };
 		0F763D3F2752CF7A00DC3019 /* AddComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddComment.swift; sourceTree = "<group>"; };
 		0F78BBE1276F6E1C0018B393 /* TextClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = TextClassifier.mlmodel; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				0F6B8CB327552C4700EDA73E /* Place.swift */,
 				0F56BDC827672B390065BEE1 /* NewsApi.swift */,
 				0F56BDCA2767311A0065BEE1 /* NewsPost.swift */,
+				0F6BCE0427BBEC2000F1EBC3 /* Recommendation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				0F608DE927BAA75A005A381C /* AddItem1.swift in Sources */,
 				0F75405927B153EA00E533DD /* EditComment.swift in Sources */,
 				0F4E11E8274E65A600B75193 /* User.swift in Sources */,
+				0F6BCE0527BBEC2000F1EBC3 /* Recommendation.swift in Sources */,
 				0FCDE3C62781CC3D000AB1F1 /* AddItem.swift in Sources */,
 				0F697D51275C244D00AD3BD4 /* Comments.swift in Sources */,
 				0FA14CC9277AE1E200037EDC /* Trying.swift in Sources */,

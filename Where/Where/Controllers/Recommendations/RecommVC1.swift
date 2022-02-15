@@ -7,7 +7,7 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate, N
     var controller = NSFetchedResultsController<Items>()
     
     let tableView: UITableView = {
-        $0.register(ReacommCell.self, forCellReuseIdentifier: "SPCell")
+        $0.register(ReacommCell1.self, forCellReuseIdentifier: "SPCell")
         $0.rowHeight = 280
         return $0
     }(UITableView())
