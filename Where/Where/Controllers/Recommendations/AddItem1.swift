@@ -2,13 +2,17 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseStorage
 
 class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     let db = Firestore.firestore()
-
+    let storage = Storage.storage()
+    
     var listStore = [Recomm]()
     var editOrDelete: Items?
-    let user = Auth.auth().currentUser?.uid
+    let userID = Auth.auth().currentUser?.uid
+    var storeName = ""
+    var storeID = ""
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
@@ -73,35 +77,19 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     }
     
     @objc func saveTpd() {
-//        print("1")
-//        let newItem: Items!
-//        if editOrDelete == nil {
-//            newItem = Items(context: context)
-//        }else {
-//            newItem = editOrDelete
-//        }
-//        newItem.item_name = itemTF.text
-//        //        newItem.date_add = Date()
-//        newItem.image = imgItem.image
-//        newItem.toStore = listStore[pickerStore.selectedRow(inComponent: 0)]
-//        do {
-//            ad.saveContext()
-//            itemTF.text = ""
-//            print("saved")
-//        }
-////        }catch let error {
-////            print("Error: \(error)")
-////        }
-        
+        db.collection("recommendations").document(storeID).setData([
+            "itemName": itemTF,
+            "storName": storeName,
+        ], merge: true)
     }
     
     @objc func addStore() {
-        navigationController?.pushViewController(AddStore(), animated: true)
+        navigationController?.pushViewController(AddStore1(), animated: true)
         
     }
     
     @objc func deleteTpd() {
-        if user == "xDAj9JkdzPUQyXPp9Jyxivazm9q2" {
+        if userID == "xDAj9JkdzPUQyXPp9Jyxivazm9q2" {
             if editOrDelete != nil {
                 context.delete(editOrDelete!)
                 ad.saveContext()
@@ -137,13 +125,43 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imgItem.image = image
+    func saveImgFS(url: String, userId: String) {
+        db.document(userId).setData([
+            "userImageURL": url,
+        ], merge: true) { err in
+            if let err = err {
+                print("Error: \(err)")
+            } else {
+                print("Document successfully written!")
+            }
         }
-        imgPicker.dismiss(animated: true, completion: nil)
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let userPickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return}
+        guard let d: Data = userPickedImage.jpegData(compressionQuality: 0.5) else { return }
+//        guard let currentUser = Auth.auth().currentUser else {return}
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/png"
+        
+        let ref = storage.reference().child("UserProfileImages/\(userID).jpg")
+        
+        ref.putData(d, metadata: metadata) { (metadata, error) in
+            if error == nil {
+                ref.downloadURL(completion: { (url, error) in
+                    self.saveImgFS(url: "\(url!)", userId: self.userID!)
+                    
+                })
+            }else{
+                print("error \(String(describing: error))")
+            }
+            
+            self.imgPicker.dismiss(animated: true, completion: nil)
+        }
+        
+    }
 }
 
 // MARK: - impleent for store pick

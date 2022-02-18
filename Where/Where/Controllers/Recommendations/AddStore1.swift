@@ -38,10 +38,18 @@ class AddStore1: UIViewController {
     }
     
     @objc func saveTpd() {
+        let vc = AddItem1()
         let db = Firestore.firestore()
         let storeID = UUID().uuidString
+        let userID = Auth.auth().currentUser?.uid
+        
         db.collection("recommendations").document(storeID).setData([
-            "storeName": storeTF.text
+            "storeName": storeTF.text,
+            "storeID": storeID,
+            "userID": userID
         ])
+        
+        vc.storeName = storeTF.text!
+        vc.storeID = storeID
     }
 }
