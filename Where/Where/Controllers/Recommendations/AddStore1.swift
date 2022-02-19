@@ -41,12 +41,12 @@ class AddStore1: UIViewController {
         let vc = AddItem1()
         let db = Firestore.firestore()
         let storeID = UUID().uuidString
-        let userID = Auth.auth().currentUser?.uid
+//        let userID = Auth.auth().currentUser?.uid
         
         db.collection("recommendations").document(storeID).setData([
             "storeName": storeTF.text,
             "storeID": storeID,
-            "userID": userID
+//            "userID": userID
         ])
         
         vc.storeName = storeTF.text!

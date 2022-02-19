@@ -22,8 +22,9 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBrown
-        imgPicker = UIImagePickerController()
-        imgPicker.delegate = self
+//        imgPicker = UIImagePickerController()
+//        imgPicker.delegate = self
+        readImgFS()
         
         let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
         let addStore = UIBarButtonItem(title: "Add Title".Localizable(), style: .done, target: self, action: #selector(addStore))
@@ -51,7 +52,7 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
             itemTF.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 30)
         ])
         
-        let tapGR = UITapGestureRecognizer(target: self, action: #selector(selectImgTpd))
+        let tapGR = UITapGestureRecognizer(target: self, action: #selector(imageTpd))
         imgItem.isUserInteractionEnabled = true
         imgItem.addGestureRecognizer(tapGR)
         view.addSubview(imgItem)
@@ -125,6 +126,17 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         
     }
     
+    func setupImgPicker() {
+        imgPicker.delegate = self
+        imgPicker.sourceType = .photoLibrary
+        imgPicker.allowsEditing = true
+        present(imgPicker, animated: true)
+    }
+    
+    @objc func imageTpd() {
+        setupImgPicker()
+    }
+    
     func saveImgFS(url: String, userId: String) {
         db.document(userId).setData([
             "userImageURL": url,
@@ -146,7 +158,7 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
         
-        let ref = storage.reference().child("UserProfileImages/\(userID).jpg")
+        let ref = storage.reference().child("itemImg/\(userID).jpg")
         
         ref.putData(d, metadata: metadata) { (metadata, error) in
             if error == nil {
@@ -161,6 +173,45 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
             self.imgPicker.dismiss(animated: true, completion: nil)
         }
         
+    }
+    
+    private func readImgFS(){
+        guard let currentUser = Auth.auth().currentUser else {return}
+        
+        db.collection("recommendations").whereField("storeID", isEqualTo: storeID)
+            .addSnapshotListener { querySnapshot, error in
+                if let e = error {
+                    print(e)
+                } else {
+                    
+                    if let snapshotDocs = querySnapshot?.documents {
+                        for doc in snapshotDocs {
+                            let data = doc.data()
+                            
+                            if let imageURL = data["userImageURL"] as? String
+                            {
+                                let httpsReference = self.storage.reference(forURL: imageURL)
+                                
+                                httpsReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                                    if let error = error {
+                                        print("ERROR GETTING DATA \(error.localizedDescription)")
+                                    } else {
+                                        DispatchQueue.main.async {
+                                            self.imgItem.image = UIImage(data: data!)
+                                        }
+                                    }
+                                }
+                                
+                            } else {
+                                print("error converting data")
+                                DispatchQueue.main.async {
+                                    self.imgItem.image = UIImage(systemName: "person.fill.badge.plus")
+                                }
+                            }
+                        }
+                    }
+                }
+            }
     }
 }
 

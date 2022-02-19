@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F1D25672782D2190091DF65 /* NewPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F1D25662782D2190091DF65 /* NewPlaces.swift */; };
-		0F314C462763F1DA00D6CAB9 /* PlacesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */; };
 		0F314C482763F82F00D6CAB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F314C472763F82F00D6CAB9 /* Main.storyboard */; };
 		0F314C4C2763F95000D6CAB9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0F314C4E2763F95000D6CAB9 /* Localizable.strings */; };
 		0F4E11E8274E65A600B75193 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4E11E7274E65A600B75193 /* User.swift */; };
@@ -58,7 +57,6 @@
 
 /* Begin PBXFileReference section */
 		0F1D25662782D2190091DF65 /* NewPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlaces.swift; sourceTree = "<group>"; };
-		0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesCell.swift; sourceTree = "<group>"; };
 		0F314C472763F82F00D6CAB9 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0F314C492763F8E600D6CAB9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		0F314C4D2763F95000D6CAB9 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				0F4EF03827502A8D0041479D /* CafesCell.swift */,
-				0F314C452763F1DA00D6CAB9 /* PlacesCell.swift */,
 				0FCDE3C32781CBAE000AB1F1 /* ReacommCell.swift */,
 				0F9DC2E12795EFC500EC45AE /* NewPlaceCell.swift */,
 				0F608DEC27BAA863005A381C /* ReacommCell1.swift */,
@@ -472,7 +469,6 @@
 				0F56BDC927672B390065BEE1 /* NewsApi.swift in Sources */,
 				0FCDE3C22781CB62000AB1F1 /* RecommVC.swift in Sources */,
 				0F81F29D274E99A7007A21A4 /* Login.swift in Sources */,
-				0F314C462763F1DA00D6CAB9 /* PlacesCell.swift in Sources */,
 				0FCDE3C82781CC7B000AB1F1 /* AddStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -41,16 +41,6 @@ class ReacommCell1: UITableViewCell {
         
     }
     
-    func setCell(item: Items) {
-        itemNameLbl.text = item.item_name
-        imgStore.image = item.image as? UIImage
-        storeNameLbl.text = item.toStore?.name
-        // convert date to String
-        //        let dateFormat = DateFormatter()
-        //        dateFormat.dateFormat = "MM/DD/yy h:mm a"
-        //        dateLbl.text = dateFormat.string(from: item.date_add!)
-    }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

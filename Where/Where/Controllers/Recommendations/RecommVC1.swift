@@ -1,11 +1,13 @@
 
 import UIKit
 import CoreData
+import Firebase
 
-class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var controller = NSFetchedResultsController<Items>()
-    
+    var recomm = [Recomm]()
+    let db = Firestore.firestore()
+        
     let tableView: UITableView = {
         $0.register(ReacommCell1.self, forCellReuseIdentifier: "SPCell")
         $0.rowHeight = 280
@@ -42,92 +44,50 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate, N
         
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = controller.sections {
-            let sectioInfo = sections[section]
-            return sectioInfo.numberOfObjects
-        }
-        return 1
+        
+        return recomm.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SPCell", for: indexPath) as! ReacommCell1
+        let info = recomm[indexPath.row]
         
-        configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
-        
+        cell.itemNameLbl.text = info.recommTitle
+        cell.storeNameLbl.text = info.storeName
+                
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let vc = AddItem1()
-        if let objc = controller.fetchedObjects {
-            let item = objc[indexPath.row]
-            vc.editOrDelete = item
-            navigationController?.pushViewController(vc, animated: true)
-        }
+       
     }
     
-    func configureCell(cell: ReacommCell1, indexPath: NSIndexPath) {
-        let singleItem = controller.object(at: indexPath as IndexPath)
-        cell.setCell(item: singleItem)
-    }
     
     func loadItems() {
-        let fetchRequest: NSFetchRequest<Items> = Items.fetchRequest()
-        let dateAddSort = NSSortDescriptor(key: "date_add", ascending: false)
-        fetchRequest.sortDescriptors = [dateAddSort]
-        controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
-        do {
-            try controller.performFetch()
-        }catch {
-            print("Error")
-        }
-        
-    }
-    
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
-    }
-    
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.reloadData()
-    }
-    
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        // data fetch
-        switch(type) {
+        db.collection("recommendations").addSnapshotListener { snapshot, error in
+            if error != nil {
+                return
+            }
             
-        case.insert:
-            if let indexPath = indexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
+            guard let items = snapshot?.documents else {return}
+            
+            for item in items {
+                let data = item.data()
+                guard
+                    let iteamName = data["itemName"] as? String,
+                    let storeName = data["storName"] as? String,
+                    let storeID = data["storeID"] as? String,
+                    let userID = data["userID"] as? String
+                else {
+                    continue
+                }
+                
+                self.recomm.append(Recomm(userID: userID, recommID: storeID, recommTitle: iteamName, recommdetils: nil, recommImg: nil, storeName: storeName))
             }
-            break
-        case.delete:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-            break
-        case.update:
-            if let indexPath = indexPath {
-                let cell = tableView.cellForRow(at: indexPath) as! ReacommCell1
-                configureCell(cell: cell, indexPath: indexPath as NSIndexPath)
-            }
-            break
-        case.move:
-            if let indexPath = indexPath {
-                tableView.deleteRows(at: [indexPath], with: .fade)
-            }
-            if let indexPath = indexPath {
-                tableView.insertRows(at: [indexPath], with: .fade)
-            }
-            break
+            
         }
+       
     }
     
 }
