@@ -1,12 +1,12 @@
 
 import UIKit
-import CoreData
 import Firebase
 
 class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var recomm = [Recomm]()
     let db = Firestore.firestore()
+    let itemID = UUID().uuidString
         
     let tableView: UITableView = {
         $0.register(ReacommCell1.self, forCellReuseIdentifier: "SPCell")
@@ -40,8 +40,9 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     @objc func Add() {
-        navigationController?.pushViewController(AddItem1(), animated: true)
-        
+        let vc = AddItem1()
+        vc.itemID = itemID
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +78,7 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 guard
                     let iteamName = data["itemName"] as? String,
                     let storeName = data["storName"] as? String,
-                    let storeID = data["storeID"] as? String,
+                    let storeID = data["itemID"] as? String,
                     let userID = data["userID"] as? String
                 else {
                     continue

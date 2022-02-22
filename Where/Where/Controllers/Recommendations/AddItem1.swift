@@ -1,18 +1,19 @@
 
 import UIKit
-import CoreData
-import Firebase
+//import FirebaseFirestore
 import FirebaseStorage
+import Firebase
+import FirebaseFirestore
 
 class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     let db = Firestore.firestore()
     let storage = Storage.storage()
     
-    var listStore = [Recomm]()
+    var listStore = ["Book", "Cafe", "Test"]
     var editOrDelete: Items?
     let userID = Auth.auth().currentUser?.uid
-    var storeName = ""
-    var storeID = ""
+    var storeName = "Book"
+    var itemID = UUID().uuidString
     
     let itemTF = UITextField()
     var imgItem = UIImageView()
@@ -27,17 +28,11 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         readImgFS()
         
         let save =  UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveTpd))
-        let addStore = UIBarButtonItem(title: "Add Title".Localizable(), style: .done, target: self, action: #selector(addStore))
         let deleteItem = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteTpd))
         
-        navigationItem.rightBarButtonItems = [save, addStore, deleteItem]
+        navigationItem.rightBarButtonItems = [save, deleteItem]
         
         setUpConst()
-        loadStores()
-        if editOrDelete != nil {
-            loadForEdit()
-        }
-        
     }
     
     func setUpConst() {
@@ -78,14 +73,12 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
     }
     
     @objc func saveTpd() {
-        db.collection("recommendations").document(storeID).setData([
-            "itemName": itemTF,
+        db.collection("recommendations").document(itemID).setData([
+            "itemName": itemTF.text,
             "storName": storeName,
+            "userID": userID,
+            "itemID": itemID
         ], merge: true)
-    }
-    
-    @objc func addStore() {
-        navigationController?.pushViewController(AddStore1(), animated: true)
         
     }
     
@@ -99,26 +92,7 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
             }
         }
     }
-    
-    func loadForEdit() {
-        if let item = editOrDelete {
-            itemTF.text = item.item_name
-            imgItem.image = item.image as? UIImage
-            
-            if let store = item.toStore {
-                var index = 0
-                while index < listStore.count {
-                    let row = listStore[index]
-                    if row.storeName == store.name {
-                        pickerStore.selectRow(index, inComponent: 0, animated: false)
-                    }
-                    index += 1
-                }
-            }
-        }
-        
-    }
-    
+
     // implment image picker
     @objc func selectImgTpd(_ sender: AnyObject){
         print("selected")
@@ -137,9 +111,9 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         setupImgPicker()
     }
     
-    func saveImgFS(url: String, userId: String) {
-        db.document(userId).setData([
-            "userImageURL": url,
+    func saveImgFS(url: String, itemId: String) {
+        db.collection("recommendations").document(itemId).setData([
+            "itemImageURL": url,
         ], merge: true) { err in
             if let err = err {
                 print("Error: \(err)")
@@ -158,28 +132,25 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
         let metadata = StorageMetadata()
         metadata.contentType = "image/png"
         
-        let ref = storage.reference().child("itemImg/\(userID).jpg")
+        let ref = storage.reference().child("itemImg/\(itemID).jpg")
         
         ref.putData(d, metadata: metadata) { (metadata, error) in
             if error == nil {
                 ref.downloadURL(completion: { (url, error) in
-                    self.saveImgFS(url: "\(url!)", userId: self.userID!)
+                    self.saveImgFS(url: "\(url!)", itemId: self.itemID)
                     
                 })
             }else{
                 print("error \(String(describing: error))")
             }
             
-            self.imgPicker.dismiss(animated: true, completion: nil)
+            picker.dismiss(animated: true, completion: nil)
         }
         
     }
     
     private func readImgFS(){
-        guard let currentUser = Auth.auth().currentUser else {return}
-        
-        db.collection("recommendations").whereField("storeID", isEqualTo: storeID)
-            .addSnapshotListener { querySnapshot, error in
+        db.collection("recommendations").addSnapshotListener { querySnapshot, error in
                 if let e = error {
                     print(e)
                 } else {
@@ -188,7 +159,7 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
                         for doc in snapshotDocs {
                             let data = doc.data()
                             
-                            if let imageURL = data["userImageURL"] as? String
+                            if let imageURL = data["itemImageURL"] as? String
                             {
                                 let httpsReference = self.storage.reference(forURL: imageURL)
                                 
@@ -218,25 +189,6 @@ class AddItem1: UIViewController, UINavigationControllerDelegate, UIImagePickerC
 // MARK: - impleent for store pick
 extension AddItem1: UIPickerViewDelegate, UIPickerViewDataSource {
     
-    func loadStores() {
-        db.collection("recommendations").addSnapshotListener { [self] QuerySnapshot, error in
-            if error != nil {
-                return
-            }
-            guard let docs = QuerySnapshot?.documents else {return}
-            
-            for doc in docs {
-                let data = doc.data()
-                guard let storeName = data["storeName"] as? String
-                        
-                else {
-                    continue
-                }
-                listStore.append(Recomm(userID: nil, recommID: nil, recommTitle: nil, recommdetils: nil, recommImg: nil, storeName: storeName))
-            }
-        }
-    }
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -247,7 +199,8 @@ extension AddItem1: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let store = listStore[row]
-        return store.storeName
+        storeName = store
+        return store
     }
     
 }

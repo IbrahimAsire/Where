@@ -2,7 +2,7 @@
 import UIKit
 import CoreLocation
 import FirebaseAuth
-import Firebase
+import FirebaseFirestore
 
 class PopVC: UIViewController {
     
@@ -82,7 +82,7 @@ class PopVC: UIViewController {
         let userID = Auth.auth().currentUser?.uid
         let placeID = UUID().uuidString
         let newLoc = NewPlace(placeID: placeID, id: userID, namePlace: nameTF.text, descPlace: descPlace.text, time: Date(), userLat: lat, userLong: long)
-        self.db.collection("newPlaces").document("\(String(describing: placeID))").setData(newLoc.getData())
+        db.collection("newPlaces").document("\(String(describing: placeID))").setData(newLoc.getData())
         
         dismiss(animated: true, completion: nil)
         
