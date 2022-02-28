@@ -94,7 +94,7 @@ class Register: UITableViewController {
         setUpConstraint()
     }
     
-    func setUpConstraint() {
+    private func setUpConstraint() {
         
         view.addSubview(containerV)
         view.addSubview(registerBtn)
@@ -228,7 +228,7 @@ class Register: UITableViewController {
 }
 
 extension Register {
-    func setUpStackView() {
+    private func setUpStackView() {
         
         view.addSubview(stackView)
         stackView.addArrangedSubview(whereImg)

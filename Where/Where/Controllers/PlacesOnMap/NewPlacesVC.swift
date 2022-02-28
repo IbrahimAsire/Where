@@ -71,7 +71,7 @@ class NewPlacesVC: UIViewController , UITableViewDataSource, UITableViewDelegate
         self.tableView.reloadData()
     }
     
-    func readPlases(){
+    private func readPlases(){
         db.collection("newPlaces").addSnapshotListener { snapshot, error in
             if error == nil {
                 guard let data = snapshot?.documents else {return}

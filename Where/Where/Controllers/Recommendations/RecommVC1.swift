@@ -1,13 +1,16 @@
 
 import UIKit
 import Firebase
+import FirebaseStorage
 
 class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let imgItem: Recomm? = nil
     var recomm = [Recomm]()
     let db = Firestore.firestore()
     let itemID = UUID().uuidString
-        
+    let storage = Storage.storage()
+    
     let tableView: UITableView = {
         $0.register(ReacommCell1.self, forCellReuseIdentifier: "SPCell")
         $0.rowHeight = 280
@@ -20,6 +23,7 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         loadItems()
+        readImgFS()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
@@ -46,7 +50,6 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return recomm.count
     }
     
@@ -54,14 +57,15 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SPCell", for: indexPath) as! ReacommCell1
         let info = recomm[indexPath.row]
         
-        cell.itemNameLbl.text = info.recommTitle
+        cell.itemNameLbl.text = info.recommdetils
         cell.storeNameLbl.text = info.storeName
-                
+        cell.itemImg = info.itemImg!
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
     }
     
     
@@ -78,18 +82,50 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
                 guard
                     let iteamName = data["itemName"] as? String,
                     let storeName = data["storName"] as? String,
-                    let storeID = data["itemID"] as? String,
-                    let userID = data["userID"] as? String
+                    let itemID = data["itemID"] as? String,
+                    let userID = data["userID"] as? String,
+                    let itemImg = data["itemImageURL"]
                 else {
                     continue
                 }
                 
-                self.recomm.append(Recomm(userID: userID, recommID: storeID, recommTitle: iteamName, recommdetils: nil, recommImg: nil, storeName: storeName))
+                self.recomm.append(Recomm(userID: userID, recommID: itemID, recommdetils: iteamName, storeName: storeName, itemImg: itemImg as? UIImageView))
             }
-            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
-       
+        
     }
     
+    private func readImgFS(){
+        db.collection("recommendations").addSnapshotListener { querySnapshot, error in
+            if let e = error {
+                print(e)
+            } else {
+                
+                if let snapshotDocs = querySnapshot?.documents {
+                    for doc in snapshotDocs {
+                        let data = doc.data()
+                        
+                        let imageURL = data["itemImageURL"] as? String
+                        
+                        let httpsReference = self.storage.reference(forURL: imageURL!)
+                        
+                        httpsReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+                            if let error = error {
+                                print("ERROR GETTING DATA \(error.localizedDescription)")
+                            } else {
+                                DispatchQueue.main.async {
+                                    self.imgItem?.itemImg!.image = UIImage(data: data!)
+                                }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
 }
 

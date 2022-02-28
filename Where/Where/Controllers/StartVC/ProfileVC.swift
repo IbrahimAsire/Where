@@ -70,7 +70,7 @@ class ProfileVC: UIViewController {
         
     }
     
-    func setUpLbls() {
+    private func setUpLbls() {
         
         containerView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(containerView)
@@ -127,7 +127,7 @@ class ProfileVC: UIViewController {
         self.present(vc, animated: true, completion: nil)
     }
     
-    func setupImgPicker() {
+    private func setupImgPicker() {
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
@@ -138,7 +138,7 @@ class ProfileVC: UIViewController {
         setupImgPicker()
     }
     
-    func saveImgFS(url: String, userId: String) {
+    private func saveImgFS(url: String, userId: String) {
         db.document(userId).setData([
             "userImageURL": url,
         ], merge: true) { err in

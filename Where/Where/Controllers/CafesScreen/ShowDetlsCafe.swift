@@ -50,7 +50,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         
     }
     
-    func setUpUI() {
+    private func setUpUI() {
         
         view.addSubview(cafeImg1)
         cafeImg1.translatesAutoresizingMaskIntoConstraints = false
@@ -194,7 +194,7 @@ class ShowDetlsCafe: UIViewController, MFMailComposeViewControllerDelegate, UINa
         
     }
     
-    func readComments(){
+    private func readComments(){
         db.collection("newComments").whereField("nameCafe", isEqualTo: titleCafe)
             .addSnapshotListener { snapshot, error in
                 if error == nil {

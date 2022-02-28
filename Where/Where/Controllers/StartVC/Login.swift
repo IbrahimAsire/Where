@@ -61,7 +61,7 @@ class Login: UIViewController {
         
     }
     
-    func setUpConstraint() {
+    private func setUpConstraint() {
         view.addSubview(emailTF)
         view.addSubview(passTF)
         view.addSubview(loginBtn)
@@ -138,7 +138,7 @@ class Login: UIViewController {
         
     }
     
-    func setUpstackView() {
+    private func setUpstackView() {
         
         view.addSubview(stackView)
         stackView.addArrangedSubview(whereImg)

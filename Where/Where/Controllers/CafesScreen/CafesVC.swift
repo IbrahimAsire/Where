@@ -14,7 +14,7 @@ class CafesVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataS
         
     }
     
-    func setUpConstraint() {
+    private func setUpConstraint() {
         nameCafesLbl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nameCafesLbl)
         nameCafesLbl.text = "Cafes".Localizable()

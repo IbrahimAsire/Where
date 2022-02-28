@@ -26,7 +26,7 @@ class PopVC: UIViewController {
         
     }
     
-    func setUpConst() {
+    private func setUpConst() {
         view.addSubview(continar)
         continar.translatesAutoresizingMaskIntoConstraints = false
         continar.backgroundColor = .darkGray

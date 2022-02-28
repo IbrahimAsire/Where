@@ -25,7 +25,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         
     }
     
-    func setupNameNoteTF() {
+    private func setupNameNoteTF() {
         commentTF.backgroundColor = .systemGray6
         commentTF.layer.cornerRadius = 5
         commentTF.clipsToBounds = true
@@ -41,7 +41,7 @@ class AddComment: UIViewController, UITextViewDelegate {
         commentTF.heightAnchor.constraint(equalToConstant: 600).isActive = true
     }
     
-    func setupAddNoteBtn() {
+    private func setupAddNoteBtn() {
         
         addButton.layer.cornerRadius = 20
         addButton.layer.borderColor = UIColor.black.cgColor

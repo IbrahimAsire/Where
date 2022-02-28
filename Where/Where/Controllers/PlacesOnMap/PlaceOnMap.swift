@@ -23,7 +23,7 @@ class PleacOnMap: UIViewController {
         addAnnotation()
     }
     
-    func setUpMap() {
+    private func setUpMap() {
         view.addSubview(mapV)
         mapV.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -62,7 +62,7 @@ class PleacOnMap: UIViewController {
     }
     
     // MARK: - To display a pin on the map
-    func addAnnotation() {
+    private func addAnnotation() {
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
         pin.title = titleCafe.Localizable()
