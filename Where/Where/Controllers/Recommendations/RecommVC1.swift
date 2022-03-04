@@ -23,7 +23,7 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         loadItems()
-        readImgFS()
+//        readImgFS()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .add,
@@ -98,34 +98,34 @@ class RecommVC1: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
     }
     
-    private func readImgFS(){
-        db.collection("recommendations").addSnapshotListener { querySnapshot, error in
-            if let e = error {
-                print(e)
-            } else {
-                
-                if let snapshotDocs = querySnapshot?.documents {
-                    for doc in snapshotDocs {
-                        let data = doc.data()
-                        
-                        let imageURL = data["itemImageURL"] as? String
-                        
-                        let httpsReference = self.storage.reference(forURL: imageURL!)
-                        
-                        httpsReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
-                            if let error = error {
-                                print("ERROR GETTING DATA \(error.localizedDescription)")
-                            } else {
-                                DispatchQueue.main.async {
-                                    self.imgItem?.itemImg!.image = UIImage(data: data!)
-                                }
-                            }
-                        }
-                        
-                    }
-                }
-            }
-        }
-    }
+//    private func readImgFS(){
+//        db.collection("recommendations").addSnapshotListener { querySnapshot, error in
+//            if let e = error {
+//                print(e)
+//            } else {
+//
+//                if let snapshotDocs = querySnapshot?.documents {
+//                    for doc in snapshotDocs {
+//                        let data = doc.data()
+//
+//                        let imageURL = data["itemImageURL"] as? String
+//
+//                        let httpsReference = self.storage.reference(forURL: imageURL!)
+//
+//                        httpsReference.getData(maxSize: 1 * 1024 * 1024) { data, error in
+//                            if let error = error {
+//                                print("ERROR GETTING DATA \(error.localizedDescription)")
+//                            } else {
+//                                DispatchQueue.main.async {
+//                                    self.imgItem?.itemImg!.image = UIImage(data: data!)
+//                                }
+//                            }
+//                        }
+//
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
